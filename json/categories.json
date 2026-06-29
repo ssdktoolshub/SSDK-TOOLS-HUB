@@ -1,0 +1,86 @@
+[
+  {
+    "id": "developer-tools",
+    "name": "Developer Tools",
+    "emoji": "🛠",
+    "order": 1,
+    "description": "A collection of premium Developer Tools utilities."
+  },
+  {
+    "id": "image-tools",
+    "name": "Image Tools",
+    "emoji": "🖼",
+    "order": 2,
+    "description": "A collection of premium Image Tools utilities."
+  },
+  {
+    "id": "pdf-tools",
+    "name": "PDF Tools",
+    "emoji": "📄",
+    "order": 3,
+    "description": "A collection of premium PDF Tools utilities."
+  },
+  {
+    "id": "calculators",
+    "name": "Calculators",
+    "emoji": "🧮",
+    "order": 4,
+    "description": "A collection of premium Calculators utilities."
+  },
+  {
+    "id": "color-tools",
+    "name": "Color Tools",
+    "emoji": "🎨",
+    "order": 5,
+    "description": "A collection of premium Color Tools utilities."
+  },
+  {
+    "id": "text-tools",
+    "name": "Text Tools",
+    "emoji": "🔤",
+    "order": 6,
+    "description": "A collection of premium Text Tools utilities."
+  },
+  {
+    "id": "web-tools",
+    "name": "Web Tools",
+    "emoji": "🌐",
+    "order": 7,
+    "description": "A collection of premium Web Tools utilities."
+  },
+  {
+    "id": "seo-tools",
+    "name": "SEO Tools",
+    "emoji": "📊",
+    "order": 8,
+    "description": "A collection of premium SEO Tools utilities."
+  },
+  {
+    "id": "security-tools",
+    "name": "Security Tools",
+    "emoji": "🔐",
+    "order": 9,
+    "description": "A collection of premium Security Tools utilities."
+  },
+  {
+    "id": "ai-tools",
+    "name": "AI Tools",
+    "emoji": "⚡",
+    "order": 10,
+    "description": "A collection of premium AI Tools utilities."
+  },
+  {
+    "id": "file-tools",
+    "name": "File Tools",
+    "emoji": "📁",
+    "order": 11,
+    "description": "A collection of premium File Tools utilities."
+  },
+  {
+    "id": "social-media-tools",
+    "name": "Social Media Tools",
+    "emoji": "📱",
+    "order": 12,
+    "description": "A collection of premium Social Media Tools utilities."
+  }
+]
