@@ -1,7 +1,7 @@
 // SSDK Supabase Engine - Orchestrates Auth, User Profiles, APIService Layer, and Cloud Sync
 // Converts platform into a SaaS backend system
 
-import { APIService } from "../services/api-service.js";
+import { APIService } from "./api-service.js";
 
 export class SupabaseEngine {
   constructor() {
