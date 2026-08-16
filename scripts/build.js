@@ -42,7 +42,9 @@ const foldersToCopy = [
   'services',
   'templates',
   'tools',
-  'admin'
+  'admin',
+  'configs',
+  'modules'
 ];
 
 foldersToCopy.forEach(folder => {
