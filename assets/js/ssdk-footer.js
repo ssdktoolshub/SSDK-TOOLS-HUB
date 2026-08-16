@@ -78,8 +78,8 @@ async function initChatbotData() {
   if (chatbotTools.length > 0) return;
   try {
     const [tRes, cRes] = await Promise.all([
-      fetch(`${prefix}/assets/json/tools.json`).then(r => r.json()),
-      fetch(`${prefix}/assets/json/categories.json`).then(r => r.json())
+      fetch(`${prefix}/core/registry/tools.json`).then(r => r.json()),
+      fetch(`${prefix}/core/registry/categories.json`).then(r => r.json())
     ]);
     chatbotTools = tRes;
     chatbotCategories = cRes;
@@ -222,7 +222,7 @@ window.sendSuggestedMessage = (msg) => {
 if (isSub && window.location.pathname.includes("/tools/")) {
   const toolId = window.location.pathname.split("/").pop().replace(".html", "");
   
-  fetch(`${prefix}/assets/json/tools.json`)
+  fetch(`${prefix}/core/registry/tools.json`)
     .then(r => r.json())
     .then(tools => {
       const tool = tools.find(t => t.id === toolId || t.url.endsWith(`${toolId}.html`));

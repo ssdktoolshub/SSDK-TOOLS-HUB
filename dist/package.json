@@ -1,0 +1,27 @@
+{
+  "name": "ssdk-tools-hub",
+  "version": "2.0.0",
+  "description": "Browser-based, privacy-first, all-in-one web utility platform with 967+ native tools.",
+  "main": "core/bootstrap.js",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "node scripts/build.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "prerender": "node scripts/prerender.js",
+    "test": "node tests/unit/test-suite.js",
+    "audit:tools": "node scripts/audit-tools.js"
+  },
+  "keywords": [
+    "tools",
+    "web utilities",
+    "client-side",
+    "privacy-first",
+    "developer tools",
+    "pdf tools",
+    "image compressor",
+    "medical calculators",
+    "seo utilities"
+  ],
+  "author": "Swarnava Das",
+  "license": "MIT"
+}

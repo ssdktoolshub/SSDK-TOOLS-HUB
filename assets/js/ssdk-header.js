@@ -229,7 +229,7 @@ function applyDynamicSEO() {
   if (path.includes("/tools/") && !path.includes("tool-template.html")) {
     const toolId = path.split("/").pop().replace(".html", "");
     
-    fetch(`${prefix}/assets/json/tools.json`)
+    fetch(`${prefix}/core/registry/tools.json`)
       .then(r => r.json())
       .then(tools => {
         const tool = tools.find(t => t.id === toolId || t.url.endsWith(`${toolId}.html`));
@@ -297,7 +297,7 @@ applyDynamicSEO();
 const path = window.location.pathname;
 if (path.includes("/tools/") && !path.includes("tool-template.html")) {
   const toolId = path.split("/").pop().replace(".html", "");
-  fetch(`${prefix}/assets/json/tools.json`)
+  fetch(`${prefix}/core/registry/tools.json`)
     .then(r => r.json())
     .then(tools => {
       const tool = tools.find(t => t.id === toolId || t.url.endsWith(`${toolId}.html`));

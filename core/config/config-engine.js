@@ -13,7 +13,7 @@ export class ConfigEngine {
     }
     
     try {
-      const folder = isConfig ? 'configs' : 'registry';
+      const folder = isConfig ? 'configs' : 'core/registry';
       const response = await fetch(`${this.prefix}/${folder}/${filename}`);
       if (!response.ok) {
         throw new Error(`HTTP error ${response.status} loading ${filename}`);
