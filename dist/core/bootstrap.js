@@ -42,7 +42,7 @@ import { ImageEngine } from "../engines/image-engine.js";
 import { PDFEngine } from "../engines/pdf-engine.js";
 import { SupabaseEngine } from "../engines/supabase-engine.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function bootstrap() {
   console.log("[Bootstrap] Booting SSDK Tools Hub platform...");
 
   // 1. Initialize Core Engine Orchestrator
@@ -105,7 +105,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       .then(reg => console.log("[Bootstrap] ServiceWorker registered with scope:", reg.scope))
       .catch(err => console.error("[Bootstrap] ServiceWorker registration failed:", err));
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootstrap);
+} else {
+  bootstrap();
+}
 
 async function renderLayoutFramework(core) {
   const prefix = core.prefix;
@@ -971,13 +977,18 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 // Mount Floating AI Assistant Widget
-window.addEventListener("DOMContentLoaded", () => {
+function mountAIChatWidget() {
   if (window.SSDKCore && window.GlassComponents && typeof window.GlassComponents.createAIChatWidget === "function") {
     if (!document.getElementById("ssdkAiChatWidget")) {
       const widget = window.GlassComponents.createAIChatWidget(window.SSDKCore);
       document.body.appendChild(widget);
     }
   }
-});
+}
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", mountAIChatWidget);
+} else {
+  mountAIChatWidget();
+}
 
 
