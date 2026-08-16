@@ -1,0 +1,58 @@
+{
+  "name": "Metadata Remover",
+  "slug": "metadata-remover",
+  "category": "🛡️ Privacy Tools",
+  "description": "Secure, local Metadata Remover. Processes data securely directly in your browser.",
+  "keywords": [
+    "metadata remover",
+    "privacy",
+    "security",
+    "privacy",
+    "crypto",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload File to Scan/Clean"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "file",
+      "label": "Processed Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "Web Crypto API Powered",
+    "No data sent to servers",
+    "Military-grade security implementations"
+  ],
+  "faq": [
+    {
+      "question": "Is the Metadata Remover safe to use for sensitive data?",
+      "answer": "Yes. This tool runs entirely within your browser environment. Your sensitive data is never transmitted to our servers."
+    },
+    {
+      "question": "How does it perform cryptographic operations?",
+      "answer": "It leverages the native browser Web Crypto API (where applicable) to ensure secure, high-performance execution."
+    },
+    {
+      "question": "Do I need to install any software?",
+      "answer": "No. Everything operates strictly via your web browser."
+    }
+  ],
+  "seo": {
+    "title": "Metadata Remover | Enterprise Security & Privacy Tools | SSDK TOOLS HUB",
+    "description": "Use the secure Metadata Remover. Guarantee your privacy with our 100% client-side cryptographic processing tools."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

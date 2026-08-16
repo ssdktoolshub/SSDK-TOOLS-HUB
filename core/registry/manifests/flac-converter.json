@@ -1,0 +1,62 @@
+{
+  "name": "FLAC Converter",
+  "slug": "flac-converter",
+  "category": "🎵 Audio Tools",
+  "description": "Professional, private, and fast FLAC Converter. Processes files securely directly in your browser.",
+  "keywords": [
+    "flac converter",
+    "audio",
+    "free",
+    "converter",
+    "online",
+    "ffmpeg"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload File",
+      "accept": "audio/*"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "file",
+      "label": "Processed File"
+    }
+  ],
+  "supportedFormats": [
+    "mp3",
+    "wav",
+    "ogg",
+    "aac",
+    "flac"
+  ],
+  "features": [
+    "Client-Side Processing (FFmpeg WebAssembly)",
+    "No data uploaded to servers",
+    "100% Privacy Guaranteed",
+    "Fast encoding and processing"
+  ],
+  "faq": [
+    {
+      "question": "What is the FLAC Converter?",
+      "answer": "The FLAC Converter allows you to manipulate and process media files entirely in your browser."
+    },
+    {
+      "question": "Are my files uploaded to your server?",
+      "answer": "No. This tool utilizes advanced FFmpeg WebAssembly technology to process your files locally on your device."
+    },
+    {
+      "question": "Why is the processing not starting?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the server requires specific Cross-Origin headers to enable WebAssembly. This will be activated soon."
+    }
+  ],
+  "seo": {
+    "title": "FLAC Converter | Free Online Media Tools | SSDK TOOLS HUB",
+    "description": "Use the best free online FLAC Converter. Secure, private, and ultra-fast media processing directly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SSDK Tool Manifest",
+  "type": "object",
+  "required": ["name", "slug", "category", "description", "version"],
+  "properties": {
+    "name": { "type": "string" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "category": { "type": "string" },
+    "description": { "type": "string" },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "inputs": { 
+      "type": "array", 
+      "items": { 
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "label": { "type": "string" }
+        },
+        "required": ["id", "type", "label"]
+      } 
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "supportedFormats": { "type": "array", "items": { "type": "string" } },
+    "features": { "type": "array", "items": { "type": "string" } },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": { "type": "string" },
+          "answer": { "type": "string" }
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "relatedTools": { "type": "array", "items": { "type": "string" } },
+    "version": { "type": "string" }
+  }
+}

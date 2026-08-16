@@ -1,0 +1,19 @@
+{
+  "name": "Urine Leukocyte Analyzer",
+  "slug": "urine-leukocyte-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze urine leukocyte (white blood cell) levels.",
+  "keywords": ["Medical Laboratory", "Urine Analysis"],
+  "inputs": [
+    { "id": "leukocyte", "type": "text", "label": "Leukocyte Result" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Result" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Urine Leukocyte Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze urine leukocyte levels." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

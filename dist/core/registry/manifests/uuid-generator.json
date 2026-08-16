@@ -1,0 +1,48 @@
+{
+  "name": "UUID Generator",
+  "slug": "uuid-generator",
+  "category": "🛠 Developer Tools",
+  "description": "Generate RFC4122 compliant UUIDs.",
+  "keywords": [
+    "Developer",
+    "Generators"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use UUID Generator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is UUID Generator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "UUID Generator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online UUID Generator. Generate RFC4122 compliant UUIDs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

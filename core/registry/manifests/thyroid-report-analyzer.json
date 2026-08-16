@@ -1,0 +1,21 @@
+{
+  "name": "Thyroid Report Analyzer",
+  "slug": "thyroid-report-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze full thyroid panel report (TSH, Free T3, Free T4).",
+  "keywords": ["Medical Laboratory", "Thyroid Profile"],
+  "inputs": [
+    { "id": "tsh", "type": "number", "label": "TSH (mIU/L)" },
+    { "id": "t3", "type": "number", "label": "Free T3 (pg/mL)" },
+    { "id": "t4", "type": "number", "label": "Free T4 (ng/dL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Report" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Thyroid Report Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze full thyroid panel." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

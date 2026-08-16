@@ -1,0 +1,19 @@
+{
+  "name": "Urine pH Analyzer",
+  "slug": "urine-ph-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze urine pH levels.",
+  "keywords": ["Medical Laboratory", "Urine Analysis"],
+  "inputs": [
+    { "id": "ph", "type": "number", "label": "pH Level" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Result" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Urine pH Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze urine pH levels." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

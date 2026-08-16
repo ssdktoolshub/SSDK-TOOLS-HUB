@@ -1,0 +1,48 @@
+{
+  "name": "Sitemap Generator",
+  "slug": "sitemap-generator",
+  "category": "📊 SEO Tools",
+  "description": "Create XML sitemap.",
+  "keywords": [
+    "SEO",
+    "Analysis & Generation"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Sitemap Generator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Sitemap Generator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Sitemap Generator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Sitemap Generator. Create XML sitemap."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

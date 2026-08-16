@@ -1,0 +1,48 @@
+{
+  "name": "PT/INR Analyzer",
+  "slug": "pt-inr-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Prothrombin Time (PT) and INR to evaluate extrinsic clotting pathway.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Cardiac & Coagulation"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use PT/INR Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is PT/INR Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "PT/INR Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online PT/INR Analyzer. Analyze Prothrombin Time (PT) and INR to evaluate extrinsic clotting pathway."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

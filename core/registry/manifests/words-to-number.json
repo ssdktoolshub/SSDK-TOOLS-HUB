@@ -1,0 +1,63 @@
+{
+  "name": "Words to Number",
+  "slug": "words-to-number",
+  "category": "🧮 Calculator Tools",
+  "description": "Fast, accurate, and free Words to Number online. Solve complex math instantly in your browser.",
+  "keywords": [
+    "words to number",
+    "calculator",
+    "math",
+    "finance",
+    "free",
+    "online"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data",
+      "placeholder": "Enter values here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Instant browser-side calculation",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Supports offline mode",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the Words to Number?",
+      "answer": "Simply enter your numbers into the fields provided and the calculation will be performed instantly."
+    },
+    {
+      "question": "Is the Words to Number free?",
+      "answer": "Yes, it is completely free to use."
+    },
+    {
+      "question": "Are my numbers secure?",
+      "answer": "Absolutely. All calculations happen entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "Words to Number | Free Online Calculator | SSDK TOOLS HUB",
+    "description": "Use the best free online Words to Number. Secure, private, and ultra-fast calculator for math and finance."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

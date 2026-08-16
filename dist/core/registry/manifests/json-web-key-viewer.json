@@ -1,0 +1,58 @@
+{
+  "name": "JSON Web Key Viewer",
+  "slug": "json-web-key-viewer",
+  "category": "🔒 Security Tools",
+  "description": "Secure, local JSON Web Key Viewer. Processes data securely directly in your browser.",
+  "keywords": [
+    "json web key viewer",
+    "security",
+    "security",
+    "privacy",
+    "crypto",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Payload"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Processed Output"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "Web Crypto API Powered",
+    "No data sent to servers",
+    "Military-grade security implementations"
+  ],
+  "faq": [
+    {
+      "question": "Is the JSON Web Key Viewer safe to use for sensitive data?",
+      "answer": "Yes. This tool runs entirely within your browser environment. Your sensitive data is never transmitted to our servers."
+    },
+    {
+      "question": "How does it perform cryptographic operations?",
+      "answer": "It leverages the native browser Web Crypto API (where applicable) to ensure secure, high-performance execution."
+    },
+    {
+      "question": "Do I need to install any software?",
+      "answer": "No. Everything operates strictly via your web browser."
+    }
+  ],
+  "seo": {
+    "title": "JSON Web Key Viewer | Enterprise Security & Privacy Tools | SSDK TOOLS HUB",
+    "description": "Use the secure JSON Web Key Viewer. Guarantee your privacy with our 100% client-side cryptographic processing tools."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

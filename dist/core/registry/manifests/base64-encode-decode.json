@@ -1,0 +1,48 @@
+{
+  "name": "Base64 Encode/Decode",
+  "slug": "base64-encode-decode",
+  "category": "🛠 Developer Tools",
+  "description": "Encode or decode Base64 text string.",
+  "keywords": [
+    "Developer",
+    "Encoders & Decoders"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Base64 Encode/Decode?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Base64 Encode/Decode free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Base64 Encode/Decode | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Base64 Encode/Decode. Encode or decode Base64 text string."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Anti-CCP Analyzer",
+  "slug": "anti-ccp-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Anti-CCP antibody levels for specific Rheumatoid Arthritis screening.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Infectious, Tumor & Autoimmune"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Anti-CCP Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Anti-CCP Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Anti-CCP Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Anti-CCP Analyzer. Analyze Anti-CCP antibody levels for specific Rheumatoid Arthritis screening."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

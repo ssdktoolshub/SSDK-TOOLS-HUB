@@ -1,0 +1,48 @@
+{
+  "name": "Corrected Calcium Calculator",
+  "slug": "corrected-calcium-calculator",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Calculate calcium levels corrected for low albumin to evaluate true hypocalcemia or hypercalcemia.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Other Clinical Markers"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Corrected Calcium Calculator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Corrected Calcium Calculator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Corrected Calcium Calculator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Corrected Calcium Calculator. Calculate calcium levels corrected for low albumin to evaluate true hypocalcemia or hypercalcemia."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

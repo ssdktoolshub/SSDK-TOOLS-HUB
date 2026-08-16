@@ -1,0 +1,72 @@
+{
+  "name": "Video Cutter",
+  "slug": "video-cutter",
+  "category": "🎬 Video Tools",
+  "description": "Professional, private, and fast Video Cutter. Processes files securely directly in your browser.",
+  "keywords": [
+    "video cutter",
+    "video",
+    "free",
+    "converter",
+    "online",
+    "ffmpeg"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload File",
+      "accept": "video/*"
+    },
+    {
+      "id": "startTime",
+      "type": "text",
+      "label": "Start Time (e.g. 00:00:10)"
+    },
+    {
+      "id": "endTime",
+      "type": "text",
+      "label": "End Time (e.g. 00:00:20)"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "file",
+      "label": "Processed File"
+    }
+  ],
+  "supportedFormats": [
+    "mp4",
+    "webm",
+    "mkv",
+    "avi",
+    "mov"
+  ],
+  "features": [
+    "Client-Side Processing (FFmpeg WebAssembly)",
+    "No data uploaded to servers",
+    "100% Privacy Guaranteed",
+    "Fast encoding and processing"
+  ],
+  "faq": [
+    {
+      "question": "What is the Video Cutter?",
+      "answer": "The Video Cutter allows you to manipulate and process media files entirely in your browser."
+    },
+    {
+      "question": "Are my files uploaded to your server?",
+      "answer": "No. This tool utilizes advanced FFmpeg WebAssembly technology to process your files locally on your device."
+    },
+    {
+      "question": "Why is the processing not starting?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the server requires specific Cross-Origin headers to enable WebAssembly. This will be activated soon."
+    }
+  ],
+  "seo": {
+    "title": "Video Cutter | Free Online Media Tools | SSDK TOOLS HUB",
+    "description": "Use the best free online Video Cutter. Secure, private, and ultra-fast media processing directly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

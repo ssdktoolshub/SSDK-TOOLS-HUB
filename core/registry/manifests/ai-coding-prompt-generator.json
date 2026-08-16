@@ -1,0 +1,58 @@
+{
+  "name": "AI Coding Prompt Generator",
+  "slug": "ai-coding-prompt-generator",
+  "category": "🤖 AI Tools",
+  "description": "Use the power of artificial intelligence with our AI Coding Prompt Generator. (Currently in Future Ready / Standby mode).",
+  "keywords": [
+    "ai coding prompt generator",
+    "ai",
+    "generator",
+    "openai",
+    "gemini",
+    "free"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "AI Prompt / Context",
+      "placeholder": "Enter context here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "AI Output"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Future Ready AI Architecture",
+    "Multiple Provider Support (OpenAI, Gemini, Claude)",
+    "Default: Free & Disabled",
+    "Seamless Provider Fallback"
+  ],
+  "faq": [
+    {
+      "question": "What is the AI Coding Prompt Generator?",
+      "answer": "The AI Coding Prompt Generator uses AI to generate or process text based on your prompt."
+    },
+    {
+      "question": "Which AI provider does it use?",
+      "answer": "This tool supports multiple providers such as OpenAI, Google Gemini, and Local AI. The specific provider used depends on the Admin configuration."
+    },
+    {
+      "question": "Is it active right now?",
+      "answer": "Currently, the platform is in 'Future Ready' mode, meaning AI tools are safely stubbed until an Admin provisions API keys."
+    }
+  ],
+  "seo": {
+    "title": "AI Coding Prompt Generator | Free AI Tools | SSDK TOOLS HUB",
+    "description": "Access the AI Coding Prompt Generator online. Multi-provider support including OpenAI and Gemini. Future Ready AI ecosystem."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

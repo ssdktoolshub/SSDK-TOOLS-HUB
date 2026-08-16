@@ -1,0 +1,63 @@
+{
+  "name": "Quadratic Equation Solver",
+  "slug": "quadratic-equation-solver",
+  "category": "🧮 Calculator Tools",
+  "description": "Fast, accurate, and free Quadratic Equation Solver online. Solve complex math instantly in your browser.",
+  "keywords": [
+    "quadratic equation solver",
+    "calculator",
+    "math",
+    "finance",
+    "free",
+    "online"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data",
+      "placeholder": "Enter values here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Instant browser-side calculation",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Supports offline mode",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the Quadratic Equation Solver?",
+      "answer": "Simply enter your numbers into the fields provided and the calculation will be performed instantly."
+    },
+    {
+      "question": "Is the Quadratic Equation Solver free?",
+      "answer": "Yes, it is completely free to use."
+    },
+    {
+      "question": "Are my numbers secure?",
+      "answer": "Absolutely. All calculations happen entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "Quadratic Equation Solver | Free Online Calculator | SSDK TOOLS HUB",
+    "description": "Use the best free online Quadratic Equation Solver. Secure, private, and ultra-fast calculator for math and finance."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

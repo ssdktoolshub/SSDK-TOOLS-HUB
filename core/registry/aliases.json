@@ -1,0 +1,12 @@
+{
+  "img": "image",
+  "pic": "image",
+  "photo": "image",
+  "vid": "video",
+  "calc": "calculator",
+  "doc": "document",
+  "txt": "text",
+  "dev": "developer",
+  "med": "medical",
+  "pwd": "password"
+}

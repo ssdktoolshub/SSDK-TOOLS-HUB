@@ -1,0 +1,64 @@
+{
+  "name": "Business Days",
+  "slug": "business-days",
+  "category": "⏳ Date & Time",
+  "description": "Professional Business Days. Instantly perform complex utility tasks in your browser.",
+  "keywords": [
+    "business days",
+    "date-and-time",
+    "utility",
+    "converter",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "date1",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "date2",
+      "type": "date",
+      "label": "End Date"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Business Days?",
+      "answer": "This tool utilizes high-precision native JavaScript logic to ensure accurate results."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No data is ever uploaded."
+    },
+    {
+      "question": "Why is the tool not converting my file?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced WASM file conversion module is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Business Days | Enterprise Utility & Converter Tools | SSDK TOOLS HUB",
+    "description": "Use the free Business Days. Perform fast, secure, and accurate tasks instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

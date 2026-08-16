@@ -1,0 +1,37 @@
+{
+  "company": {
+    "name": "SSDK TOOLS HUB",
+    "slogan": "Smart Tools for Smart Creators",
+    "copyright": "© 2026 SSDK TOOLS HUB. All rights reserved.",
+    "version": "14.0.0"
+  },
+  "navigation": [
+    { "name": "All Tools", "url": "#tools" },
+    { "name": "Developers", "url": "pages/developers.html" },
+    { "name": "Admin Panel", "url": "admin/index.html" },
+    { "name": "Contact", "url": "pages/contact.html" }
+  ],
+  "categories": [
+    { "id": "dev-tools", "name": "Developer Tools", "emoji": "🛠" },
+    { "id": "img-tools", "name": "Image Tools", "emoji": "🖼" },
+    { "id": "pdf-tools", "name": "PDF Tools", "emoji": "📄" },
+    { "id": "med-tools", "name": "Medical Tools", "emoji": "🩺" }
+  ],
+  "announcement": {
+    "id": "v14-release",
+    "active": true,
+    "text": "🎉 SSDK Tools Hub Enterprise Edition (Phase 14) is now live with high contrast accessibility mode!",
+    "type": "info"
+  },
+  "footer": {
+    "resources": [
+      { "name": "API v1 Reference", "url": "pages/developers.html" },
+      { "name": "Dynamic Sitemap", "url": "sitemap.xml" },
+      { "name": "Offline PWA Fallback", "url": "offline.html" }
+    ],
+    "policies": [
+      { "name": "Privacy Policy", "url": "#" },
+      { "name": "Terms of Service", "url": "#" }
+    ]
+  }
+}

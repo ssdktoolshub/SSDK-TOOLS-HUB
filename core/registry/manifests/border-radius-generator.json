@@ -1,0 +1,76 @@
+{
+  "name": "Border Radius Generator",
+  "slug": "border-radius-generator",
+  "category": "🎨 Color Tools",
+  "description": "Professional Border Radius Generator for designers and developers. Execute tasks natively in your browser.",
+  "keywords": [
+    "border radius generator",
+    "color",
+    "design",
+    "color",
+    "generator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "color1",
+      "type": "color",
+      "label": "Primary Color",
+      "defaultValue": "#3498db"
+    },
+    {
+      "id": "color2",
+      "type": "color",
+      "label": "Secondary Color",
+      "defaultValue": "#2ecc71"
+    },
+    {
+      "id": "intensity",
+      "type": "slider",
+      "label": "Intensity / Spread",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "defaultValue": 50
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated CSS Code"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "css",
+    "svg"
+  ],
+  "features": [
+    "Zero Dependencies",
+    "Real-time Browser Processing",
+    "Responsive Interface",
+    "Developer & Designer Friendly"
+  ],
+  "faq": [
+    {
+      "question": "Who is the Border Radius Generator for?",
+      "answer": "This tool is designed for web developers, UI/UX designers, and digital artists who need rapid, browser-based processing."
+    },
+    {
+      "question": "Is my design data uploaded?",
+      "answer": "No. All color calculations, CSS generation, and SVG optimizations are executed securely on your local device."
+    },
+    {
+      "question": "Why is there no live visual canvas?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visual canvas rendering engine is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Border Radius Generator | Enterprise Design & Color Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Border Radius Generator. Instantly generate CSS, manage colors, and optimize designs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

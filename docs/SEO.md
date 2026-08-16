@@ -1,0 +1,3 @@
+# SEO
+
+Documentation for SEO.

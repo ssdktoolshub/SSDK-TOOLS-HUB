@@ -1,0 +1,59 @@
+{
+  "name": "Octal Converter",
+  "slug": "octal-converter",
+  "category": "🔠 Encoding",
+  "description": "Professional Octal Converter. Instantly perform complex utility tasks in your browser.",
+  "keywords": [
+    "octal converter",
+    "encoding",
+    "utility",
+    "converter",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Text/Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Processed Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Octal Converter?",
+      "answer": "This tool utilizes high-precision native JavaScript logic to ensure accurate results."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No data is ever uploaded."
+    },
+    {
+      "question": "Why is the tool not converting my file?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced WASM file conversion module is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Octal Converter | Enterprise Utility & Converter Tools | SSDK TOOLS HUB",
+    "description": "Use the free Octal Converter. Perform fast, secure, and accurate tasks instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

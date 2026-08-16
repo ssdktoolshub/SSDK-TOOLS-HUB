@@ -1,0 +1,219 @@
+<!-- Universal SSDK Tool Template Glassmorphic Interface -->
+<div class="bg-fx"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<main class="page reveal-on-scroll">
+  <!-- Dynamic Breadcrumbs -->
+  <nav class="breadcrumb" id="ssdk-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a> 
+    <span class="sep">/</span> 
+    <a href="../index.html#tools" id="cat-breadcrumb-link">Category</a> 
+    <span class="sep">/</span> 
+    <span class="active" id="tool-breadcrumb-name">Tool</span>
+  </nav>
+
+  <!-- Hero Section & Slogan Metadata -->
+  <header class="tool-meta tool-hero">
+    <div class="tool-hero-icon" id="tool-hero-icon" aria-hidden="true">🛠️</div>
+    <div class="tool-header-row" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px;">
+      <h1 class="page-title tool-hero-title" id="tool-title" style="margin: 0;">Tool Name</h1>
+      <button class="fav-btn" id="tool-fav-btn" aria-label="Add to Favorites" title="Add to Favorites">★</button>
+    </div>
+    <p class="page-sub tool-hero-desc" id="tool-description">Dynamic tool description text.</p>
+    
+    <div class="tool-hero-meta">
+      <span class="tool-hero-badge" id="tool-cat-badge">Client-Side</span>
+      <span class="tool-hero-badge">⚡ Instant</span>
+      <span class="tool-hero-badge">Free</span>
+    </div>
+
+    <!-- Dynamic Universal Action Bar Toolbar -->
+    <div class="tool-toolbar tool-hero-actions" id="universal-action-bar" style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; justify-content: center;">
+      <button class="btn ghost" id="btn-fullscreen-action" title="Toggle Fullscreen">📺 Fullscreen</button>
+      <button class="btn ghost" id="btn-print-action" title="Print Output">🖨️ Print</button>
+      <button class="btn ghost" id="btn-chain-action" title="Chain to another tool">🔗 Chain Output</button>
+      <button class="btn ghost" id="btn-share-page" title="Share Tool">↗ Share</button>
+    </div>
+  </header>
+
+  <!-- Universal Action Bar and Workflow Chaining Panel -->
+  <div id="workflow-chaining-panel" class="content-card" style="display: none; margin-bottom: 16px; padding: 12px; border: 1px solid var(--accent-color); background: rgba(var(--accent-color-rgb), 0.05); border-radius: 12px;"></div>
+
+  <!-- Trust Signals Row -->
+  <div class="tool-trust-row" style="margin-bottom: 24px; border-radius: 12px; border: 1px solid var(--color-border);">
+    <div class="tool-trust-item"><span>⚡</span> <span>Fast &amp; Client-Side</span></div>
+    <div class="tool-trust-item"><span>🔒</span> <span>Privacy-Conscious</span></div>
+    <div class="tool-trust-item"><span>📱</span> <span>Mobile Friendly</span></div>
+    <div class="tool-trust-item"><span>🎯</span> <span>Free to Use</span></div>
+  </div>
+
+  <!-- Tool Container & Interface Grid -->
+  <section class="content-card tool-playground" id="ssdk-playground" aria-label="Tool Workspace">
+    <div class="tool-io-grid">
+      <!-- Input Panel -->
+      <div class="input-pane">
+        <div class="pane-header">
+          <span class="pane-title">Input Controls</span>
+          <div id="upload-zone-slot"></div>
+        </div>
+        
+        <!-- Slot populated dynamically by the Tool Engine based on tool schema input configurations -->
+        <div id="tool-inputs-container" class="inputs-container"></div>
+        
+        <!-- Slot populated dynamically for tool options/configurations -->
+        <div id="tool-options-container" class="options-container"></div>
+      </div>
+
+      <!-- Output & Result Section Panel -->
+      <div class="output-pane">
+        <div class="pane-header">
+          <span class="pane-title">Result &amp; Preview</span>
+          <div class="output-actions">
+            <button class="btn-icon" id="btn-copy-output" aria-label="Copy Output" title="Copy Output">📋</button>
+            <button class="btn-icon" id="btn-download-output" aria-label="Download Output" title="Download Output">📥</button>
+            <button class="btn-icon" id="btn-share-output" aria-label="Share Tool" title="Share Tool">🔗</button>
+          </div>
+        </div>
+        
+        <!-- Progress overlay indicator -->
+        <div class="progress-overlay" id="tool-progress" style="display: none;" role="alert" aria-busy="true">
+          <div class="spinner" aria-hidden="true"></div>
+          <span id="progress-text">Processing data...</span>
+        </div>
+
+        <!-- Preview slot (For Images, PDFs, QR Codes etc) -->
+        <div id="tool-preview-container" class="preview-container" style="display: none;"></div>
+
+        <!-- Slot populated dynamically for output rendering -->
+        <div id="tool-outputs-container" class="outputs-container"></div>
+      </div>
+    </div>
+
+    <!-- Core Action Control Buttons -->
+    <div class="tool-control">
+      <button class="btn btn-primary" id="btn-run-action">
+        <span class="btn-icon-inside" aria-hidden="true">🚀</span> Run Action
+      </button>
+      <button class="btn ghost" id="btn-clear-action">🗑 Clear Input</button>
+    </div>
+
+    <!-- Live Execution Status Badge -->
+    <div class="status-badge" id="tool-status-badge" style="display: none;" role="status"></div>
+  </section>
+
+  <!-- Tool Description, Features & Benefits Documentation -->
+  <section class="content-card tool-info-section" style="margin-top: 24px;">
+    <h2>About <span id="info-tool-title">This Tool</span></h2>
+    <p id="info-tool-description" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+      This professional online utility is designed to help creators, developers, and users perform tasks quickly and securely client-side.
+    </p>
+    
+    <div class="tool-features-grid" style="padding: 16px 0 0 0;">
+      <div class="tool-feature-card">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+        <h3 style="color: var(--accent-color); margin-bottom: 6px;">Fast &amp; Client-Side</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Executes directly in your browser with zero latency and high responsiveness.</p>
+      </div>
+      <div class="tool-feature-card">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">🔐</div>
+        <h3 style="color: var(--accent-color); margin-bottom: 6px;">Privacy-Conscious</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Your data is processed locally and never stored on remote servers without permission.</p>
+      </div>
+      <div class="tool-feature-card">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">📱</div>
+        <h3 style="color: var(--accent-color); margin-bottom: 6px;">Fully Responsive</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Works seamlessly across mobile, tablet, laptop, and desktop displays.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How To Use Guide -->
+  <section class="content-card tool-how-to-use" style="margin-top: 24px;">
+    <h2>How To Use</h2>
+    <div class="tool-steps-grid" style="padding: 20px 0 0 0;">
+      <div class="tool-step-card">
+        <div class="tool-step-number">01</div>
+        <div class="tool-step-title">Provide Input</div>
+        <div class="tool-step-desc">Enter your text data or upload required files into the Input panel.</div>
+      </div>
+      <div class="tool-step-card">
+        <div class="tool-step-number">02</div>
+        <div class="tool-step-title">Configure Options</div>
+        <div class="tool-step-desc">Adjust any optional settings, format options, or toggles to customize output.</div>
+      </div>
+      <div class="tool-step-card">
+        <div class="tool-step-number">03</div>
+        <div class="tool-step-title">Execute Action</div>
+        <div class="tool-step-desc">Click the primary action button to process your data instantaneously.</div>
+      </div>
+      <div class="tool-step-card">
+        <div class="tool-step-number">04</div>
+        <div class="tool-step-title">Export Result</div>
+        <div class="tool-step-desc">View your results and use 1-click Copy, Download, or Chaining to export.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Declarative Dynamic FAQs Section -->
+  <section class="content-card faq-section" style="margin-top: 24px;">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list" id="tool-faq-accordion" style="margin-top: 16px;"></div>
+  </section>
+
+  <!-- Dynamic SEO Content Blocks (Use cases, Advantages, Tips, Edge cases) -->
+  <section class="content-card seo-dynamic-blocks" id="seo-dynamic-blocks" style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;"></section>
+
+  <!-- Version History & Changelog -->
+  <section class="content-card version-section" id="version-changelog-section" style="margin-top: 24px;">
+    <h3 style="margin-top: 0; margin-bottom: 16px;">Technical Specifications</h3>
+    <div class="tool-specs-grid">
+      <div class="tool-spec-item">
+        <span class="tool-spec-label">Version</span>
+        <span class="tool-spec-value" id="tool-version-tag">2.0.0</span>
+      </div>
+      <div class="tool-spec-item">
+        <span class="tool-spec-label">Last Updated</span>
+        <span class="tool-spec-value" id="tool-updated-tag">2026-07-22</span>
+      </div>
+      <div class="tool-spec-item">
+        <span class="tool-spec-label">License</span>
+        <span class="tool-spec-value">Free / Open Access</span>
+      </div>
+      <div class="tool-spec-item">
+        <span class="tool-spec-label">Execution Type</span>
+        <span class="tool-spec-value">Client-Side WebApp</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related & Recommended Tools Grids -->
+  <section class="meta-relations-grid" style="margin-top: 24px;">
+    <!-- History Stack -->
+    <div class="content-card history-section">
+      <h3 style="margin-top: 0;">Recently Visited</h3>
+      <div class="history-list" id="tool-history-list" aria-live="polite">
+        <p class="empty-msg">No visited tools yet.</p>
+      </div>
+    </div>
+
+    <!-- Related Tools Grid -->
+    <div class="content-card related-tools-section">
+      <h3 style="margin-top: 0;">Related Tools</h3>
+      <div class="grid related-tools-grid" id="related-tools-grid" style="padding: 12px 0 0 0;"></div>
+    </div>
+  </section>
+
+  <!-- Category Previous / Next Navigation Bar -->
+  <section id="prev-next-nav" style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center;"></section>
+
+  <!-- Action Strip: Share, Report Bug, Request Feature -->
+  <section class="content-card action-strip-section" style="margin-top: 24px; text-align: center;">
+    <div class="tool-action-strip" style="margin-top: 0; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <a href="../pages/contact.html?type=bug" class="tool-action-link">🐞 Report Bug</a>
+      <span style="color: var(--color-border);">|</span>
+      <a href="../pages/contact.html?type=feature" class="tool-action-link">💡 Request Feature</a>
+      <span style="color: var(--color-border);">|</span>
+      <a href="../pages/contact.html" class="tool-action-link">💬 Support</a>
+    </div>
+  </section>
+</main>

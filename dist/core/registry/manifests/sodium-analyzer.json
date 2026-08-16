@@ -1,0 +1,48 @@
+{
+  "name": "Sodium Analyzer",
+  "slug": "sodium-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate serum Sodium (Na+) levels to assess hydration, renal concentration, or hyponatremia risk.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Other Clinical Markers"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Sodium Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Sodium Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Sodium Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Sodium Analyzer. Evaluate serum Sodium (Na+) levels to assess hydration, renal concentration, or hyponatremia risk."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

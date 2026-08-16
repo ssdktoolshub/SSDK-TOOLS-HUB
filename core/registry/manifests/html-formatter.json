@@ -1,0 +1,74 @@
+{
+  "name": "HTML Formatter",
+  "slug": "html-formatter",
+  "category": "👨‍💻 Developer Tools",
+  "description": "Professional, free, and secure HTML Formatter online. Developer utility for instant processing.",
+  "keywords": [
+    "html formatter",
+    "developer",
+    "tool",
+    "online",
+    "free",
+    "api"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data",
+      "placeholder": "Paste your input here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "json",
+    "xml",
+    "csv",
+    "yaml",
+    "html",
+    "css",
+    "js"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Copy and Download instantly",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the HTML Formatter?",
+      "answer": "Paste your data into the input field and the tool will automatically process it, or click the process button."
+    },
+    {
+      "question": "Is the HTML Formatter free?",
+      "answer": "Yes, it is 100% free with no limits."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Absolutely. All processing happens entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, this tool can function completely offline once the page is loaded."
+    },
+    {
+      "question": "Can I use keyboard shortcuts?",
+      "answer": "Yes, standard shortcuts like Ctrl+C for copying output are supported."
+    }
+  ],
+  "seo": {
+    "title": "HTML Formatter | Free Secure Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online HTML Formatter. Secure, private, and ultra-fast developer utility."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

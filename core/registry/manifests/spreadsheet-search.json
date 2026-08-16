@@ -1,0 +1,60 @@
+{
+  "name": "Spreadsheet Search",
+  "slug": "spreadsheet-search",
+  "category": "📊 Spreadsheet Tools",
+  "description": "Professional Spreadsheet Search. Instantly perform complex data analysis and spreadsheet operations.",
+  "keywords": [
+    "spreadsheet search",
+    "spreadsheet",
+    "data",
+    "spreadsheet",
+    "analysis",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload Spreadsheet (CSV/XLSX)"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Processed Output or Visual Grid"
+    }
+  ],
+  "supportedFormats": [
+    "csv",
+    "xlsx",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Performance Engine",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "Can I upload large datasets to the Spreadsheet Search?",
+      "answer": "Yes. This tool is designed to utilize browser-based memory to handle large file uploads securely."
+    },
+    {
+      "question": "Is my confidential business data secure?",
+      "answer": "Absolutely. All processing occurs locally on your machine. Your data is never uploaded to external servers."
+    },
+    {
+      "question": "Why is the interactive table or chart not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like ag-Grid or Chart.js) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Spreadsheet Search | Enterprise Data Analysis & Spreadsheet Tools | SSDK TOOLS HUB",
+    "description": "Use the free Spreadsheet Search. Perform fast, secure, and accurate data operations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

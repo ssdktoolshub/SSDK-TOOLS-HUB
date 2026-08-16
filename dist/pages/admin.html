@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | SSDK TOOLS HUB</title>
+  <meta name="description" content="SSDK Tools Hub Enterprise Admin Panel — Manage tools, categories, users, analytics, and platform settings.">
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/ssdk-style.css">
+  <link rel="stylesheet" href="../assets/css/admin-panel.css">
+  <link rel="stylesheet" href="../core/index.css">
+  <script src="../assets/js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="admin-topbar">
+    <div class="admin-topbar-left">
+      <button class="admin-mobile-toggle" id="adminMobileToggle" aria-label="Open sidebar menu">☰</button>
+      <a href="../index.html" class="admin-topbar-brand">
+        <span class="admin-topbar-brand-logo">SSDK</span>
+      </a>
+      <span class="admin-topbar-divider"></span>
+      <span class="admin-topbar-label">Enterprise Admin</span>
+    </div>
+    <div class="admin-topbar-right">
+      <a href="../index.html" class="admin-topbar-link">← Exit Admin</a>
+    </div>
+  </header>
+
+  <!-- Admin Main Container -->
+  <div id="adminContainer">
+    <!-- AdminEngine dynamically injects layout here -->
+  </div>
+
+  <script type="module">
+    import { CoreEngine } from '../core/core.js';
+    import { AdminEngine } from '../engines/admin-engine.js';
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+      const core = new CoreEngine();
+      
+      const adminEngine = new AdminEngine();
+      core.registerEngine("admin", adminEngine);
+      
+      await core.init();
+      
+      // Force hide global notification containers injected by Core
+      const toastContainer = document.getElementById("toast-container");
+      if (toastContainer) toastContainer.style.zIndex = "9999";
+      
+      await adminEngine.mountAdmin("adminContainer");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "SSDK Tools Hub",
+  "version": "2.0.0",
+  "description": "150+ free utilities directly in your browser.",
+  "action": {
+    "default_popup": "../../index.html",
+    "default_icon": "../../assets/images/logo.png"
+  },
+  "icons": {
+    "128": "../../assets/images/logo.png"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://*.supabase.co/*"
+  ]
+}

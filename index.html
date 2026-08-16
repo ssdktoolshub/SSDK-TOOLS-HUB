@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSDK Tools Hub - Smart Tools for Smart Creators By SWARNAVA DAS</title>
+  <meta name="google-site-verification" content="K1wWHs_82XaX1Vj3SxtzKcs48Vty3JLMenSfHkZV2eI" />
+  <meta name="description" content="All in one tools in one place. 100+ free online tools for developers, designers, and creators.">
+  <link rel="icon" href="assets/images/favicon.ico">
+  <!-- Load outfit font for premium typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-tokens.css">
+  <link rel="stylesheet" href="assets/css/ssdk-style.css?v=1783524201.11621">
+  <link rel="stylesheet" href="assets/css/content-presentation.css">
+  <link rel="stylesheet" href="assets/css/tool-workspace.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://ssdk-tools-hub.firebaseapp.com https://api.ssdktoolshub.com https://*.googleapis.com;">
+  <!-- SSDK Core Engine Bootloader -->
+  <script src="core/bootstrap.js?v=1783525977.67498.59044.78614" type="module"></script>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+<div id="progress"></div>
+
+<!-- Redesigned Hero Section: Left Text + Actions, Right 3D Rotating Cuboid & Floating Category Cards -->
+<header class="hero">
+  <div class="beam"></div>
+  
+  <div class="hero-content reveal-on-scroll">
+    <div class="hero-badge">⚡ 100+ PROFESSIONAL TOOLS</div>
+    <h1 class="text-3d">Everything You Need<br>in One Powerful Platform</h1>
+    <p class="subtitle">Free online tools for developers, designers, students and creators. Safe, fast, private, and runs entirely in your browser.</p>
+    
+    <div class="btns mb-32">
+      <a href="#tools" class="btn btn-primary">Explore Tools →</a>
+      <button onclick="document.getElementById('search').focus();" class="btn btn-secondary">Search Tools</button>
+    </div>
+
+    <div class="trust-indicators">
+      <span>✓ Free Tools</span>
+      <span>✓ No Sign Up Required</span>
+      <span>✓ Fast & Secure</span>
+      <span>✓ Mobile Friendly</span>
+    </div>
+  </div>
+
+  <div class="hero-visual-wrap reveal-on-scroll" style="animation-delay: 0.2s;">
+    <div class="cuboid-wrap">
+      <div class="cuboid">
+        <div class="cuboid-face face-front">🛠 JS</div>
+        <div class="cuboid-face face-back">🐍 PY</div>
+        <div class="cuboid-face face-right">🎨 CSS</div>
+        <div class="cuboid-face face-left">🧩 HTML</div>
+        <div class="cuboid-face face-top">🔐 PHP</div>
+        <div class="cuboid-face face-bottom">🌐 SQL</div>
+      </div>
+    </div>
+    <!-- Floating glassmorphic cards -->
+    <div class="floating-cards">
+      <div class="float-card card-img">🖼 Image Tools</div>
+      <div class="float-card card-pdf">📄 PDF Tools</div>
+      <div class="float-card card-dev">🛠 Dev Tools</div>
+      <div class="float-card card-ai">⚡ AI Tools</div>
+    </div>
+  </div>
+</header>
+
+<!-- Universal Premium Search Section -->
+<div class="search-section-container">
+  <div class="search-wrap">
+    <div class="search-bar-premium">
+      <span class="search-bar-icon">🔍</span>
+      <input id="search" type="text" placeholder="Search 100+ tools... (Press '/' to focus)">
+      <div class="search-category-select-wrap">
+        <select id="searchCategorySelect" aria-label="Search Category">
+          <option value="all">All Categories</option>
+          <option value="AI Tools">AI Tools</option>
+          <option value="Image Tools">Image Tools</option>
+          <option value="PDF Tools">PDF Tools</option>
+          <option value="Text Tools">Text Tools</option>
+          <option value="Developer Tools">Developer Tools</option>
+          <option value="Medical & Laboratory Tools">Medical Tools</option>
+          <option value="Unit Converters">Unit Converters</option>
+        </select>
+      </div>
+      <button id="searchBarSubmit" class="btn btn-primary">Search</button>
+    </div>
+    
+    <!-- Autocomplete panel will be rendered dynamically by homepage-engine.js -->
+    <div class="search-suggestions-panel" id="searchSuggestions" style="display: none;"></div>
+  </div>
+
+  <div class="popular-searches-row">
+    <span class="popular-label">Popular searches:</span>
+    <button class="pop-search-tag">PDF Merger</button>
+    <button class="pop-search-tag">Image Compressor</button>
+    <button class="pop-search-tag">QR Code Generator</button>
+    <button class="pop-search-tag">JSON Formatter</button>
+    <button class="pop-search-tag">Text to PDF</button>
+  </div>
+</div>
+
+<!-- Popular Categories Discovery Section -->
+<section class="popular-categories-section">
+  <div class="app-container">
+    <h2 class="section-heading text-center mb-8">Popular Categories</h2>
+    <p class="text-center text-muted mb-32">Browse by topic and discover curated collections of productivity utilities.</p>
+    
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-3 saas-grid-lg-4" id="popularCategoriesGrid">
+      <!-- Dynamically populated by HomepageEngine -->
+    </div>
+  </div>
+</section>
+
+<!-- Curated Feature Utilities Discovery -->
+<section class="home-section reveal-on-scroll" id="featuredSection" style="display:none;">
+  <div class="app-container">
+    <div class="section-header">
+      <span class="eyebrow">Editor's Pick</span>
+      <h2 class="section-heading">Featured Utilities</h2>
+      <p class="section-desc">Our most popular and powerful browser utilities, curated by the editors.</p>
+    </div>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-3" id="featuredToolsGrid"></div>
+  </div>
+</section>
+
+<!-- Trending/Popular Utilities Discovery -->
+<section class="home-section reveal-on-scroll" id="trendingSection" style="display:none;">
+  <div class="app-container">
+    <div class="section-header">
+      <span class="eyebrow">Trending Now</span>
+      <h2 class="section-heading">Popular Tools</h2>
+      <p class="section-desc">Utilities that creators and developers are using the most today.</p>
+    </div>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-3 saas-grid-lg-4" id="trendingToolsGrid"></div>
+  </div>
+</section>
+
+<!-- New Utilities Discovery -->
+<section class="home-section reveal-on-scroll" id="newSection" style="display:none;">
+  <div class="app-container">
+    <div class="section-header">
+      <span class="eyebrow">Just Launched</span>
+      <h2 class="section-heading">Recently Added</h2>
+      <p class="section-desc">Freshly updated or brand new utilities added to SSDK Tools Hub.</p>
+    </div>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-3 saas-grid-lg-4" id="newToolsGrid"></div>
+  </div>
+</section>
+
+<!-- Tool Collections Section -->
+<section class="home-section reveal-on-scroll" id="collectionsSection">
+  <div class="app-container">
+    <div class="section-header">
+      <span class="eyebrow">Curated Collections</span>
+      <h2 class="section-heading">Toolkits for Every Workflow</h2>
+      <p class="section-desc">Save time by exploring handpicked groups of utilities optimized for your role.</p>
+    </div>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-3" id="collectionsGrid">
+      <div class="card card-interactive card-featured collection-card" data-filter="developer">
+        <div class="collection-icon" style="font-size:2rem; margin-bottom:12px;">💻</div>
+        <h3 class="card-heading mb-8">Developer Essentials</h3>
+        <p class="small-text text-muted mb-20">Formatting, encoding, and data transformation tools compiled specifically for programmers.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="badge badge-developer">24 Tools</span>
+          <span class="arrow-link" style="font-weight:700; color:var(--color-primary); text-decoration:none;">Explore →</span>
+        </div>
+      </div>
+      
+      <div class="card card-interactive card-featured collection-card" data-filter="image">
+        <div class="collection-icon" style="font-size:2rem; margin-bottom:12px;">🖼</div>
+        <h3 class="card-heading mb-8">Image & Media Toolkit</h3>
+        <p class="small-text text-muted mb-20">Compressors, resizers, converters, and crops for designers, bloggers, and creators.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="badge badge-trending">12 Tools</span>
+          <span class="arrow-link" style="font-weight:700; color:var(--color-primary); text-decoration:none;">Explore →</span>
+        </div>
+      </div>
+
+      <div class="card card-interactive card-featured collection-card" data-filter="medical">
+        <div class="collection-icon" style="font-size:2rem; margin-bottom:12px;">🩺</div>
+        <h3 class="card-heading mb-8">Medical Utilities</h3>
+        <p class="small-text text-muted mb-20">Calculators, reference range converters, and diagnostic assistants for labs and practitioners.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span class="badge badge-new">30 Tools</span>
+          <span class="arrow-link" style="font-weight:700; color:var(--color-primary); text-decoration:none;">Explore →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Platform Statistics Section -->
+<section class="stats-section home-section reveal-on-scroll">
+  <div class="app-container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" data-val="100">0</div>
+        <div class="stat-label">Professional Tools</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-val="23">0</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-val="250">0</div>
+        <div class="stat-label">K+ Happy Creators</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-val="99">0</div>
+        <div class="stat-label">% Browser Availability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Platform Features Section -->
+<section class="home-section why-section reveal-on-scroll">
+  <div class="app-container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Enterprise Grade</span>
+      <h2 class="section-heading">Why Choose SSDK Tools Hub?</h2>
+      <p class="section-desc">Built from the ground up for speed, visual clarity, and secure browser-based data processing.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card card">
+        <div class="why-icon">⚡</div>
+        <h3 class="card-heading mb-8">Blazing Fast</h3>
+        <p class="small-text text-muted">Lightweight scripts and client-side execution ensure instantaneous calculations and conversions.</p>
+      </div>
+      <div class="why-card card">
+        <div class="why-icon">🔒</div>
+        <h3 class="card-heading mb-8">100% Private</h3>
+        <p class="small-text text-muted">Browser-based processing means your files and inputs never upload to a remote server.</p>
+      </div>
+      <div class="why-card card">
+        <div class="why-icon">📱</div>
+        <h3 class="card-heading mb-8">Fully Responsive</h3>
+        <p class="small-text text-muted">Access the entire suite of 100+ utilities seamlessly on your phone, tablet, or desktop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Accordion List Section -->
+<section class="faq-section home-section reveal-on-scroll">
+  <div class="app-container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Support</span>
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <p class="section-desc">Got questions? We've got answers to help you navigate our tools ecosystem.</p>
+    </div>
+    
+    <div class="faq-accordion-wrap">
+      <div class="faq-item card">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+          <span>Are these tools completely free to use?</span>
+          <span class="plus">＋</span>
+        </div>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+          Yes. Every single tool on SSDK Tools Hub is 100% free with no hidden charges, trial periods, or registration requirements.
+        </div>
+      </div>
+      <div class="faq-item card">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+          <span>Is my data safe when using your online utilities?</span>
+          <span class="plus">＋</span>
+        </div>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+          Absolutely. We prioritize client-side processing, meaning calculations, compression, and conversions happen locally inside your browser. No files are uploaded to any server.
+        </div>
+      </div>
+      <div class="faq-item card">
+        <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+          <span>Do I need to sign up to save my favorite tools?</span>
+          <span class="plus">＋</span>
+        </div>
+        <div class="faq-a" style="max-height:0; overflow:hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+          No. Your favorite tools are persisted using your browser's Local Storage, meaning they remain saved even if you are not logged in.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Section before Footer -->
+<section class="final-cta-section home-section reveal-on-scroll">
+  <div class="app-container">
+    <div class="cta-card">
+      <div class="beam"></div>
+      <h2>Ready to Optimize Your Workflow?</h2>
+      <p>Browse our catalog of 100+ utilities to speed up your everyday tasks.</p>
+      <div class="btns">
+        <a href="#tools" class="btn btn-primary">Explore All Tools →</a>
+        <button onclick="document.getElementById('search').focus();" class="btn btn-secondary">Search Tools</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools" id="tools">
+  <!-- Category View Container (Visible when a category is selected) -->
+  <div id="categoryViewContainer" style="display: none; margin-bottom: var(--space-40);">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--space-24);">
+      <a href="#" id="categoryHomeBreadcrumb" style="text-decoration:none; color:var(--color-muted); font-size:var(--font-size-small);">Home</a>
+      <span class="sep" style="color:var(--color-muted); margin:0 var(--space-8);">›</span>
+      <span class="active" id="categoryBreadcrumbActive" style="color:var(--color-foreground); font-size:var(--font-size-small); font-weight:var(--font-weight-semibold);">Image Tools</span>
+    </nav>
+
+    <!-- Category Hero Banner -->
+    <div class="category-hero-card">
+      <div class="category-hero-glow"></div>
+      <div class="category-hero-content">
+        <div class="category-hero-icon" id="categoryHeroIcon">🖼</div>
+        <h1 class="text-3d" id="categoryHeroName" style="margin-top: 0;">Image Tools</h1>
+        <p class="subtitle" id="categoryHeroDesc">
+          Powerful tools for resizing, compressing, converting, and editing images directly in your browser.
+        </p>
+        <div style="display:flex; align-items:center; gap:var(--space-16);">
+          <span class="badge badge-popular" id="categoryHeroCount">32 Tools</span>
+          <button class="btn btn-primary" id="categoryHeroCTA">Explore Tools ↓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Toolbar (Search, Filter, Sort, View Toggle) -->
+    <div class="category-toolbar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-16); padding:var(--space-16) var(--space-24); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-pill); margin-bottom:var(--space-32);">
+      
+      <!-- Category Specific Search -->
+      <div class="category-search-wrap" style="display:flex; align-items:center; gap:var(--space-8); flex:1; min-width:240px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:8px 16px; border-radius:var(--radius-pill);">
+        <span>🔍</span>
+        <input type="text" id="categorySearchInput" placeholder="Search in category..." style="background:transparent; border:none; outline:none; color:var(--color-foreground); flex:1; font-size:var(--font-size-small);">
+      </div>
+
+      <!-- Toolbar Right (Sort, View Toggle) -->
+      <div style="display:flex; align-items:center; gap:var(--space-16); flex-wrap:wrap;">
+        <!-- Sort Dropdown -->
+        <div style="display:flex; align-items:center; gap:var(--space-8);">
+          <span style="font-size:var(--font-size-small); color:var(--color-muted);">Sort:</span>
+          <select id="categorySortSelect" style="background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:6px 12px; color:var(--color-foreground); font-size:var(--font-size-small); outline:none; cursor:pointer;">
+            <option value="name">Alphabetical</option>
+            <option value="popular">Popular</option>
+            <option value="new">Recently Added</option>
+          </select>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle-buttons" style="display:flex; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:2px;">
+          <button id="viewToggleGrid" class="btn-icon active" title="Grid View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
+            Grid
+          </button>
+          <button id="viewToggleList" class="btn-icon" title="List View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
+            List
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 class="sec-title reveal-on-scroll" id="exploreCategoriesTitle">Explore Tool Categories</h2>
+  <p class="sec-sub reveal-on-scroll" id="exploreCategoriesSubtitle">Click a category to open its tools, or use the dropdown in the menu</p>
+  <div id="toolContainer"></div>
+  <div class="no-result" id="noResult">No tools found 😕</div>
+
+  <!-- Related Categories Strip (Visible when a category is selected) -->
+  <div id="relatedCategoriesSection" style="display:none; margin-top:var(--space-64);">
+    <h3 style="font-size:var(--font-size-card-heading); font-weight:var(--font-weight-semibold); color:var(--color-foreground); margin-bottom:var(--space-20);">Related Categories</h3>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-4" id="relatedCategoriesGrid"></div>
+  </div>
+</section>
+
+<!-- SSDK Morphing Text Slider Core -->
+<script type="module">
+  const words = ["Developer Tools", "Image Tools", "PDF Tools", "Calculator Tools", "100+ Free Online Tools"];
+  let wi = 0;
+  const mt = document.getElementById("morphText");
+  if (mt) {
+    mt.style.transition = "opacity .3s";
+    setInterval(() => {
+      wi = (wi + 1) % words.length;
+      mt.style.opacity = 0;
+      setTimeout(() => {
+        mt.textContent = words[wi];
+        mt.style.opacity = 1;
+      }, 300);
+    }, 2500);
+  }
+</script>
+</body>
+</html>

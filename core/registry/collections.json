@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dev-essentials",
+    "title": "Developer Essentials",
+    "description": "Must-have tools for developers including formatters, encoders, and generators.",
+    "tools": ["json-formatter", "base64-encode-decode", "uuid-generator", "regex-tester"],
+    "icon": "👨‍💻",
+    "featured": true
+  },
+  {
+    "id": "image-optimization",
+    "title": "Image Optimization",
+    "description": "Everything you need to compress, resize, and convert images for the web.",
+    "tools": ["image-compressor", "image-resizer", "image-converter"],
+    "icon": "🖼️",
+    "featured": false
+  },
+  {
+    "id": "medical-calculators",
+    "title": "Medical & Clinical Tools",
+    "description": "Analyze lab reports and calculate clinical values.",
+    "tools": ["cbc-report-analyzer", "bmi-calculator", "egfr-calculator"],
+    "icon": "🏥",
+    "featured": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "name": "File Compressor",
+  "slug": "file-compressor",
+  "category": "📁 File Tools",
+  "description": "Compress files to ZIP.",
+  "keywords": [
+    "File",
+    "Compress"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use File Compressor?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is File Compressor free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "File Compressor | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online File Compressor. Compress files to ZIP."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

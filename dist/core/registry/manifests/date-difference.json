@@ -1,0 +1,64 @@
+{
+  "name": "Date Difference",
+  "slug": "date-difference",
+  "category": "⏳ Date & Time",
+  "description": "Professional Date Difference. Instantly perform complex utility tasks in your browser.",
+  "keywords": [
+    "date difference",
+    "date-and-time",
+    "utility",
+    "converter",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "date1",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "date2",
+      "type": "date",
+      "label": "End Date"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Date Difference?",
+      "answer": "This tool utilizes high-precision native JavaScript logic to ensure accurate results."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No data is ever uploaded."
+    },
+    {
+      "question": "Why is the tool not converting my file?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced WASM file conversion module is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Date Difference | Enterprise Utility & Converter Tools | SSDK TOOLS HUB",
+    "description": "Use the free Date Difference. Perform fast, secure, and accurate tasks instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

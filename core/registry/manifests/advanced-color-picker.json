@@ -1,0 +1,60 @@
+{
+  "name": "Advanced Color Picker",
+  "slug": "advanced-color-picker",
+  "category": "🎨 Color Tools",
+  "description": "Professional Advanced Color Picker for designers and developers. Execute tasks natively in your browser.",
+  "keywords": [
+    "advanced color picker",
+    "color",
+    "design",
+    "color",
+    "generator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Configuration"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated Code / Output"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "css",
+    "svg"
+  ],
+  "features": [
+    "Zero Dependencies",
+    "Real-time Browser Processing",
+    "Responsive Interface",
+    "Developer & Designer Friendly"
+  ],
+  "faq": [
+    {
+      "question": "Who is the Advanced Color Picker for?",
+      "answer": "This tool is designed for web developers, UI/UX designers, and digital artists who need rapid, browser-based processing."
+    },
+    {
+      "question": "Is my design data uploaded?",
+      "answer": "No. All color calculations, CSS generation, and SVG optimizations are executed securely on your local device."
+    },
+    {
+      "question": "Why is there no live visual canvas?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visual canvas rendering engine is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Advanced Color Picker | Enterprise Design & Color Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Advanced Color Picker. Instantly generate CSS, manage colors, and optimize designs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

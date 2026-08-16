@@ -1,0 +1,302 @@
+/* ==========================================================================
+   SSDK Tools Hub - Centralized SaaS Design System Tokens
+   Inspired by Vercel, Linear, Raycast, Stripe & shadcn/ui
+   ========================================================================== */
+
+:root {
+  /* ==========================================
+     1. COLOR SYSTEM (Semantic & Layered Dark)
+     ========================================== */
+  --color-background: #080911;
+  --color-foreground: #F8FAFC;
+  --color-surface: #0F121C;
+  --color-surface-elevated: #1E2336;
+  --color-surface-hover: rgba(255, 255, 255, 0.05);
+
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-active: #5B21B6;
+
+  --color-secondary: #A855F7;
+
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(168, 85, 247, 0.4);
+
+  --color-muted: #94A3B8;
+  --color-muted-foreground: #64748B;
+
+  --color-focus: #7C3AED;
+
+  /* Legacy & Helper Mappings for Backwards Compatibility */
+  --primary-color: var(--color-primary);
+  --primary-hover: var(--color-primary-hover);
+  --secondary-color: var(--color-secondary);
+  --accent-color: #C084FC;
+  --accent-cyan: #06B6D4;
+  --accent-emerald: var(--color-success);
+  --accent-amber: var(--color-warning);
+  --accent-rose: var(--color-danger);
+
+  --bg-primary: var(--color-background);
+  --bg-secondary: var(--color-surface);
+  --bg-tertiary: #171B2A;
+  --bg-elevated: var(--color-surface-elevated);
+  --bg-overlay: rgba(8, 9, 17, 0.85);
+
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-hover: var(--color-surface-hover);
+  --card-bg-active: rgba(124, 58, 237, 0.12);
+  --border-color: var(--color-border);
+  --border-hover: var(--color-border-hover);
+  --border-active: rgba(124, 58, 237, 0.8);
+  --glow-color: rgba(124, 58, 237, 0.35);
+
+  --text-primary: var(--color-foreground);
+  --text-secondary: #CBD5E1;
+  --text-muted: var(--color-muted);
+  --text-dim: var(--color-muted-foreground);
+  --text-inverse: #0F172A;
+
+  --primary-gradient: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  --secondary-gradient: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+  --glow-gradient: radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, rgba(59, 130, 246, 0.05) 60%, transparent 100%);
+  --surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+  /* ==========================================
+     2. TYPOGRAPHY SYSTEM
+     ========================================== */
+  --font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
+  
+  --font-size-hero: clamp(56px, 6vw, 72px);
+  --font-size-page-heading: clamp(42px, 5vw, 52px);
+  --font-size-section-heading: clamp(32px, 4vw, 40px);
+  --font-size-card-heading: clamp(18px, 2.5vw, 22px);
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+  --font-size-micro: 12px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.05em;
+
+  /* ==========================================
+     3. SPACING SYSTEM (Predictable 4px Scale)
+     ========================================== */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;
+
+  /* Layout Container */
+  --container-max-width: 1280px;
+
+  /* ==========================================
+     4. BORDER RADIUS TOKENS
+     ========================================== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-xxl: 24px;
+  --radius-pill: 999px;
+
+  /* ==========================================
+     5. SHADOW SYSTEM (Soft SaaS Elevations)
+     ========================================== */
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 16px 64px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 35px -5px rgba(124, 58, 237, 0.4);
+  --shadow-card-hover: 0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(168, 85, 247, 0.2);
+
+  /* ==========================================
+     6. ICON SYSTEM SIZES
+     ========================================== */
+  --icon-16: 16px;
+  --icon-18: 18px;
+  --icon-20: 20px;
+  --icon-24: 24px;
+  --icon-32: 32px;
+  --icon-40: 40px;
+  --icon-48: 48px;
+
+  /* ==========================================
+     7. GLOBAL ANIMATION SYSTEM
+     ========================================== */
+  --ease-out-cubic: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms var(--ease-out-cubic);
+  --transition-normal: 250ms var(--ease-out-cubic);
+  --transition-slow: 350ms var(--ease-out-cubic);
+
+  /* ==========================================
+     8. Z-INDEX LAYERS
+     ========================================== */
+  --z-background: -2;
+  --z-glow: -1;
+  --z-default: 1;
+  --z-header: 900;
+  --z-dropdown: 1000;
+  --z-modal: 2000;
+  --z-toast: 3000;
+  --z-tooltip: 4000;
+  --z-command-palette: 9999;
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES
+   ========================================================================== */
+[data-theme="light"] {
+  /* Semantic Colors */
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F1F5F9;
+  --color-surface-hover: rgba(124, 58, 237, 0.05);
+
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-active: #5B21B6;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(124, 58, 237, 0.3);
+
+  --color-muted: #64748B;
+  --color-muted-foreground: #94A3B8;
+
+  --color-focus: #7C3AED;
+
+  /* Legacy Helper Mappings */
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-bg-hover: var(--color-surface-hover);
+  --card-bg-active: rgba(124, 58, 237, 0.08);
+  --border-color: var(--color-border);
+  --border-hover: var(--color-border-hover);
+  --glow-color: rgba(124, 58, 237, 0.15);
+
+  --text-primary: var(--color-foreground);
+  --text-secondary: #334155;
+  --text-muted: var(--color-muted);
+  --text-dim: var(--color-muted-foreground);
+  --text-inverse: #F8FAFC;
+
+  /* Shadows */
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 16px 64px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 25px rgba(124, 58, 237, 0.12);
+}
+
+/* ==========================================================================
+   HIGH CONTRAST OVERRIDES
+   ========================================================================== */
+[data-theme="high-contrast"] {
+  /* Semantic Colors */
+  --color-background: #000000;
+  --color-foreground: #FFFFFF;
+  --color-surface: #000000;
+  --color-surface-elevated: #111111;
+  --color-surface-hover: #222222;
+
+  --color-primary: #FFFF00;
+  --color-primary-hover: #FFFF00;
+  --color-primary-active: #FFFF00;
+
+  --color-secondary: #FFFF00;
+
+  --color-border: #FFFFFF;
+  --color-border-hover: #FFFF00;
+
+  --color-muted: #FFFF00;
+  --color-muted-foreground: #FFFFFF;
+
+  --color-focus: #FFFF00;
+
+  /* Legacy Helper Mappings */
+  --primary-color: var(--color-primary);
+  --secondary-color: var(--color-secondary);
+  --accent-color: #FFFF00;
+  --border-color: #FFFFFF;
+  --border-hover: #FFFF00;
+  --card-bg: #000000;
+  --card-bg-hover: #111111;
+  --glow-color: transparent;
+  --shadow-glow: none;
+}
+
+/* ==========================================================================
+   GLOBAL ACCESSIBILITY & FOCUS VISIBLE
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--color-primary, #7C3AED) !important;
+  outline-offset: 2px !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary, #7C3AED);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   SKELETON LOADING ANIMATION
+   ========================================================================== */
+@keyframes ssdkSkeletonPulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-loading {
+  background: linear-gradient(90deg, var(--color-surface, #0F121C) 25%, var(--color-surface-elevated, #1E2336) 50%, var(--color-surface, #0F121C) 75%);
+  background-size: 200% 100%;
+  animation: ssdkSkeletonPulse 1.5s infinite ease-in-out;
+  border-radius: var(--radius-sm, 8px);
+}

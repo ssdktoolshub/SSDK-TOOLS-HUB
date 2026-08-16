@@ -1,0 +1,18 @@
+# Render.com Blueprint for SSDK Tools Hub
+# Automates deployment of the FastAPI backend to Render's free tier.
+
+services:
+  - type: web
+    name: ssdk-fastapi-backend
+    env: docker
+    dockerContext: python-api
+    dockerfilePath: python-api/Dockerfile
+    plan: free # Strictly enforcing the Free-First Philosophy
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: TEMP_DIR
+        value: /tmp/ssdk_uploads
+      - key: ALLOWED_ORIGINS
+        value: "*" # Update to frontend domain in production, e.g. "https://ssdk.vercel.app"

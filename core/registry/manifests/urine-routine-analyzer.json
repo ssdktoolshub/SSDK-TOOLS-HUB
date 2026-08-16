@@ -1,0 +1,20 @@
+{
+  "name": "Urine Routine Analyzer",
+  "slug": "urine-routine-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze routine urine test parameters.",
+  "keywords": ["Medical Laboratory", "Urine Analysis"],
+  "inputs": [
+    { "id": "ph", "type": "number", "label": "pH" },
+    { "id": "sg", "type": "number", "label": "Specific Gravity" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Report" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Urine Routine Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze routine urine test." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Median",
+  "slug": "median",
+  "category": "🔢 Number Utilities",
+  "description": "Professional Median. Instantly perform complex utility tasks in your browser.",
+  "keywords": [
+    "median",
+    "number-utilities",
+    "utility",
+    "converter",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "value1",
+      "type": "number",
+      "label": "Input Value 1",
+      "defaultValue": 0
+    },
+    {
+      "id": "value2",
+      "type": "number",
+      "label": "Input Value 2",
+      "defaultValue": 0
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Median?",
+      "answer": "This tool utilizes high-precision native JavaScript logic to ensure accurate results."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No data is ever uploaded."
+    },
+    {
+      "question": "Why is the tool not converting my file?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced WASM file conversion module is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Median | Enterprise Utility & Converter Tools | SSDK TOOLS HUB",
+    "description": "Use the free Median. Perform fast, secure, and accurate tasks instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

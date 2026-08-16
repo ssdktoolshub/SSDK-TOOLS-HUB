@@ -1,0 +1,48 @@
+{
+  "name": "Eosinophil Analyzer",
+  "slug": "eosinophil-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Eosinophil levels in blood to evaluate allergic reactions, asthma, or parasitic infections.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Blood & CBC Panel"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Eosinophil Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Eosinophil Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Eosinophil Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Eosinophil Analyzer. Analyze Eosinophil levels in blood to evaluate allergic reactions, asthma, or parasitic infections."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

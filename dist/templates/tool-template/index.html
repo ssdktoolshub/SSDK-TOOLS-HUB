@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="metaTitle">Loading Tool...</title>
+  <meta name="description" id="metaDesc" content="">
+  <link rel="icon" href="../../assets/images/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/ssdk-style.css">
+  <script src="../../assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+<div id="progress"></div>
+
+<main class="page reveal-on-scroll">
+  
+  <!-- 1. Hero & Description -->
+  <header class="tool-meta">
+    <div class="tool-header-row">
+      <h1 class="page-title" id="toolTitle">Loading...</h1>
+      <button class="fav-btn" id="toolFavBtn" aria-label="Add to Favorites" title="Add to Favorites">★</button>
+    </div>
+    <p class="page-sub" id="toolDesc">Please wait while the tool loads...</p>
+    <div id="toolTags" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;"></div>
+  </header>
+
+  <!-- 2. Actions -->
+  <div class="tool-toolbar" id="toolActions">
+    <button class="btn-action" id="btnCopyResult"><span>📋</span> Copy Output</button>
+    <button class="btn-action btn-danger" id="btnResetFields"><span>🔄</span> Reset</button>
+  </div>
+
+  <!-- 3. Tool Interface -->
+  <div class="content-card tool-playground">
+    <div class="lab-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      
+      <!-- Upload / Inputs -->
+      <div id="toolInputsContainer">
+        <h3 style="margin-bottom: 16px;">📥 Inputs / Upload</h3>
+        <!-- Dynamic Inputs will be injected here by ToolEngine -->
+      </div>
+
+      <!-- Result -->
+      <div class="results-display" id="toolResultContainer">
+        <h3 style="margin-bottom: 16px;">📤 Output / Result</h3>
+        <!-- Dynamic Outputs will be injected here by ToolEngine -->
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- 4. Features -->
+  <section class="content-card" id="toolFeaturesSection" style="display: none;">
+    <h3>✨ Key Features</h3>
+    <ul id="toolFeaturesList" style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);"></ul>
+  </section>
+
+  <!-- 5. How To Use -->
+  <section class="content-card" id="toolHowToSection" style="display: none;">
+    <h3>📖 How To Use</h3>
+    <ol id="toolHowToList" style="margin-top: 10px; padding-left: 20px; color: var(--text-muted);"></ol>
+  </section>
+
+  <!-- 6. FAQ -->
+  <section class="content-card faq-section" id="toolFaqSection" style="display: none;">
+    <h3>❓ Frequently Asked Questions (FAQ)</h3>
+    <div class="faq-list" id="faqAccordionContainer"></div>
+  </section>
+
+  <!-- 7. Related Tools -->
+  <section class="content-card" id="toolRelatedSection" style="display: none;">
+    <h3>🔗 Related Tools</h3>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px;" id="toolRelatedList"></div>
+  </section>
+
+  <!-- 8. SEO Info (Optional bottom-text injection) -->
+  <div id="toolSeoText" style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted); opacity: 0.6;"></div>
+
+</main>
+
+<script src="../../assets/js/ssdk-header.js"></script>
+<script src="../../assets/js/ssdk-footer.js"></script>
+</body>
+</html>

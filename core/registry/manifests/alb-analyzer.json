@@ -1,0 +1,48 @@
+{
+  "name": "Albumin Analyzer",
+  "slug": "alb-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze serum albumin levels to assess hepatic protein synthesis and general nutritional status.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Liver & Hepatic Function"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Albumin Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Albumin Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Albumin Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Albumin Analyzer. Analyze serum albumin levels to assess hepatic protein synthesis and general nutritional status."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

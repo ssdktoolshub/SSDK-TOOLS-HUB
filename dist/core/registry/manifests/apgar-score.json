@@ -1,0 +1,156 @@
+{
+  "name": "APGAR Score",
+  "slug": "apgar-score",
+  "category": "⚕️ Medical Tools",
+  "description": "⚠️ MEDICAL DISCLAIMER: This APGAR Score is for educational and informational purposes only. It is NOT a substitute for professional medical advice, diagnosis, or treatment.",
+  "keywords": [
+    "apgar score",
+    "medical",
+    "calculator",
+    "nursing",
+    "clinical",
+    "health"
+  ],
+  "inputs": [
+    {
+      "id": "appearance",
+      "type": "select",
+      "label": "Appearance (Skin Color)",
+      "options": [
+        {
+          "value": "0",
+          "label": "Blue/Pale"
+        },
+        {
+          "value": "1",
+          "label": "Acrocyanosis"
+        },
+        {
+          "value": "2",
+          "label": "Completely Pink"
+        }
+      ]
+    },
+    {
+      "id": "pulse",
+      "type": "select",
+      "label": "Pulse (Heart Rate)",
+      "options": [
+        {
+          "value": "0",
+          "label": "Absent"
+        },
+        {
+          "value": "1",
+          "label": "<100 bpm"
+        },
+        {
+          "value": "2",
+          "label": ">100 bpm"
+        }
+      ]
+    },
+    {
+      "id": "grimace",
+      "type": "select",
+      "label": "Grimace (Reflex Irritability)",
+      "options": [
+        {
+          "value": "0",
+          "label": "No Response"
+        },
+        {
+          "value": "1",
+          "label": "Grimace"
+        },
+        {
+          "value": "2",
+          "label": "Cry or Active Withdrawal"
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "type": "select",
+      "label": "Activity (Muscle Tone)",
+      "options": [
+        {
+          "value": "0",
+          "label": "Limp"
+        },
+        {
+          "value": "1",
+          "label": "Some Flexion"
+        },
+        {
+          "value": "2",
+          "label": "Active Motion"
+        }
+      ]
+    },
+    {
+      "id": "respiration",
+      "type": "select",
+      "label": "Respiration",
+      "options": [
+        {
+          "value": "0",
+          "label": "Absent"
+        },
+        {
+          "value": "1",
+          "label": "Weak/Irregular"
+        },
+        {
+          "value": "2",
+          "label": "Strong Cry"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Clinical Result / Interpretation"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "⚠️ FOR EDUCATIONAL PURPOSES ONLY",
+    "Fast browser-side calculation",
+    "No patient data uploaded to server",
+    "100% HIPAA compliant (runs locally)",
+    "Responsive clinical interface"
+  ],
+  "faq": [
+    {
+      "question": "What is the APGAR Score?",
+      "answer": "The APGAR Score is an educational clinical tool designed to assist healthcare professionals and students in understanding medical calculations."
+    },
+    {
+      "question": "Can I use this for real patient care?",
+      "answer": "⚠️ NO. This tool is strictly for educational purposes and must not replace professional clinical judgment."
+    },
+    {
+      "question": "Is patient data secure?",
+      "answer": "Yes. This tool operates entirely within your web browser. No PHI (Protected Health Information) is ever transmitted to our servers."
+    },
+    {
+      "question": "How are the results calculated?",
+      "answer": "Results are based on standard clinical formulas taught in nursing and medical education."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "APGAR Score | Free Medical & Nursing Calculator | SSDK TOOLS HUB",
+    "description": "Use the free APGAR Score for clinical education. ⚠️ For informational purposes only. Fast, private, and secure medical calculator."
+  },
+  "relatedTools": [],
+  "version": "1.1.0"
+}

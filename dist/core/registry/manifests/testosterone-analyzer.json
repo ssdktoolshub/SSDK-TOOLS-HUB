@@ -1,0 +1,48 @@
+{
+  "name": "Testosterone Analyzer",
+  "slug": "testosterone-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate serum total testosterone levels for androgen balance.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Hormones & Pancreatic"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Testosterone Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Testosterone Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Testosterone Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Testosterone Analyzer. Evaluate serum total testosterone levels for androgen balance."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

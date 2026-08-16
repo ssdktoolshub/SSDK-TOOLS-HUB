@@ -1,0 +1,72 @@
+{
+  "name": "PNG to JPG",
+  "slug": "png-to-jpg",
+  "category": "🖼 Image Tools",
+  "description": "Professional, free, and fast PNG to JPG online. Works instantly in your browser.",
+  "keywords": [
+    "png to jpg",
+    "image",
+    "photo",
+    "picture",
+    "edit"
+  ],
+  "inputs": [
+    {
+      "id": "imageFile",
+      "type": "file",
+      "label": "Upload Image",
+      "accept": "image/*"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "resultImage",
+      "type": "file",
+      "label": "Processed Image"
+    }
+  ],
+  "supportedFormats": [
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "bmp",
+    "gif",
+    "avif"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No image upload to server",
+    "Secure and private",
+    "High quality output",
+    "Multiple formats supported"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the PNG to JPG?",
+      "answer": "Simply drag and drop your image into the upload area, adjust the settings if needed, and download your processed image instantly."
+    },
+    {
+      "question": "Is the PNG to JPG free?",
+      "answer": "Yes, it is 100% free with no limits or watermarks."
+    },
+    {
+      "question": "Are my images secure?",
+      "answer": "Absolutely. All processing happens entirely within your web browser. No images are uploaded to any server."
+    },
+    {
+      "question": "Does it work on mobile?",
+      "answer": "Yes, this tool is fully responsive and works perfectly on smartphones, tablets, and desktop computers."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "We support JPG, PNG, WebP, BMP, and more, depending on the tool's specific functionality."
+    }
+  ],
+  "seo": {
+    "title": "PNG to JPG | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online PNG to JPG. Fast, secure, and private browser-based image processing."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

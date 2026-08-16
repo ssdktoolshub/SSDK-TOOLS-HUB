@@ -1,0 +1,48 @@
+{
+  "name": "Creatinine Clearance Calculator",
+  "slug": "creatinine-clearance-calculator",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Calculate Creatinine Clearance using the Cockcroft-Gault equation to estimate kidney function for medication dosing.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Blood & CBC Panel"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Creatinine Clearance Calculator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Creatinine Clearance Calculator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Creatinine Clearance Calculator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Creatinine Clearance Calculator. Calculate Creatinine Clearance using the Cockcroft-Gault equation to estimate kidney function for medication dosing."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

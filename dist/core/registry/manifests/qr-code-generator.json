@@ -1,0 +1,48 @@
+{
+  "name": "QR Code Generator",
+  "slug": "qr-code-generator",
+  "category": "🌐 Web Tools",
+  "description": "Make QR codes instantly.",
+  "keywords": [
+    "Web",
+    "Generators & Utilities"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use QR Code Generator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is QR Code Generator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "QR Code Generator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online QR Code Generator. Make QR codes instantly."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

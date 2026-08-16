@@ -1,0 +1,60 @@
+{
+  "name": "Image Color Extractor",
+  "slug": "image-color-extractor",
+  "category": "🎨 Color Tools",
+  "description": "Professional Image Color Extractor for designers and developers. Execute tasks natively in your browser.",
+  "keywords": [
+    "image color extractor",
+    "color",
+    "design",
+    "color",
+    "generator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload Vector/Image File"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Processed Output or Code"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "css",
+    "svg"
+  ],
+  "features": [
+    "Zero Dependencies",
+    "Real-time Browser Processing",
+    "Responsive Interface",
+    "Developer & Designer Friendly"
+  ],
+  "faq": [
+    {
+      "question": "Who is the Image Color Extractor for?",
+      "answer": "This tool is designed for web developers, UI/UX designers, and digital artists who need rapid, browser-based processing."
+    },
+    {
+      "question": "Is my design data uploaded?",
+      "answer": "No. All color calculations, CSS generation, and SVG optimizations are executed securely on your local device."
+    },
+    {
+      "question": "Why is there no live visual canvas?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visual canvas rendering engine is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Image Color Extractor | Enterprise Design & Color Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Image Color Extractor. Instantly generate CSS, manage colors, and optimize designs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

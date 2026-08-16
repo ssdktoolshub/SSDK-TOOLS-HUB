@@ -1,0 +1,58 @@
+{
+  "name": "HTML Validator",
+  "slug": "html-validator",
+  "category": "🌍 Webmaster Tools",
+  "description": "Professional online HTML Validator. Instantly analyze and process targets.",
+  "keywords": [
+    "html validator",
+    "webmaster",
+    "webmaster",
+    "network",
+    "domain",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Code Payload"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Processed Output"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast Execution",
+    "Comprehensive Results",
+    "Responsive Layout",
+    "Free to use"
+  ],
+  "faq": [
+    {
+      "question": "What does the HTML Validator do?",
+      "answer": "The HTML Validator allows you to analyze, test, or process the specified target instantly."
+    },
+    {
+      "question": "Is this tool running in my browser?",
+      "answer": "Code formatters and minifiers run locally in your browser. Network tools (like DNS or Ping) utilize secure backend proxy APIs."
+    },
+    {
+      "question": "Why is the tool not returning results?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the required backend API proxy is currently pending activation by the Admin."
+    }
+  ],
+  "seo": {
+    "title": "HTML Validator | Enterprise Webmaster & Network Tools | SSDK TOOLS HUB",
+    "description": "Use the best free HTML Validator. Instantly analyze websites, domains, and network configurations."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

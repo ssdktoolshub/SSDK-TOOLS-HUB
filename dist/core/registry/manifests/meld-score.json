@@ -1,0 +1,67 @@
+{
+  "name": "MELD Score",
+  "slug": "meld-score",
+  "category": "⚕️ Medical Tools",
+  "description": "⚠️ MEDICAL DISCLAIMER: This MELD Score is for educational and informational purposes only. It is NOT a substitute for professional medical advice, diagnosis, or treatment.",
+  "keywords": [
+    "meld score",
+    "medical",
+    "calculator",
+    "nursing",
+    "clinical",
+    "health"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data / Notes",
+      "placeholder": "Enter clinical data..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Clinical Result / Interpretation"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "⚠️ FOR EDUCATIONAL PURPOSES ONLY",
+    "Fast browser-side calculation",
+    "No patient data uploaded to server",
+    "100% HIPAA compliant (runs locally)",
+    "Responsive clinical interface"
+  ],
+  "faq": [
+    {
+      "question": "What is the MELD Score?",
+      "answer": "The MELD Score is an educational clinical tool designed to assist healthcare professionals and students in understanding medical calculations."
+    },
+    {
+      "question": "Can I use this for real patient care?",
+      "answer": "⚠️ NO. This tool is strictly for educational purposes and must not replace professional clinical judgment."
+    },
+    {
+      "question": "Is patient data secure?",
+      "answer": "Yes. This tool operates entirely within your web browser. No PHI (Protected Health Information) is ever transmitted to our servers."
+    },
+    {
+      "question": "How are the results calculated?",
+      "answer": "Results are based on standard clinical formulas taught in nursing and medical education."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "MELD Score | Free Medical & Nursing Calculator | SSDK TOOLS HUB",
+    "description": "Use the free MELD Score for clinical education. ⚠️ For informational purposes only. Fast, private, and secure medical calculator."
+  },
+  "relatedTools": [],
+  "version": "1.1.0"
+}

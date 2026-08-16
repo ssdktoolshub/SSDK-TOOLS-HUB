@@ -1,0 +1,66 @@
+{
+  "name": "Scan to PDF",
+  "slug": "scan-to-pdf",
+  "category": "📄 PDF Tools",
+  "description": "Professional, free, and secure Scan to PDF online. Process files instantly in your browser.",
+  "keywords": [
+    "scan to pdf",
+    "pdf",
+    "document",
+    "free pdf tool",
+    "secure pdf"
+  ],
+  "inputs": [
+    {
+      "id": "pdfFile",
+      "type": "file",
+      "label": "Upload PDF",
+      "accept": ".pdf"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "resultPdf",
+      "type": "file",
+      "label": "Processed PDF"
+    }
+  ],
+  "supportedFormats": [
+    "pdf"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No files uploaded to our server",
+    "100% Secure and private",
+    "Enterprise grade output",
+    "Batch processing support"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the Scan to PDF?",
+      "answer": "Simply drag and drop your PDF into the upload area, configure any options, and click process. Your file is ready instantly."
+    },
+    {
+      "question": "Is the Scan to PDF free?",
+      "answer": "Yes, it is 100% free with no hidden fees or watermarks."
+    },
+    {
+      "question": "Are my PDF documents secure?",
+      "answer": "Absolutely. All processing happens entirely within your web browser. No files are uploaded to any server, guaranteeing 100% privacy."
+    },
+    {
+      "question": "Does it work on mobile?",
+      "answer": "Yes, this tool is fully responsive and works perfectly on smartphones, tablets, and desktop computers."
+    },
+    {
+      "question": "Is there a file size limit?",
+      "answer": "Since processing happens in your browser, the limit depends on your device's memory. Most modern devices can handle very large PDFs easily."
+    }
+  ],
+  "seo": {
+    "title": "Scan to PDF | Free Secure Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Scan to PDF. Secure, private, browser-based document processing with no uploads."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

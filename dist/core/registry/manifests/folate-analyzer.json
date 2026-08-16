@@ -1,0 +1,19 @@
+{
+  "name": "Folate Analyzer",
+  "slug": "folate-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Folate (Vitamin B9) levels.",
+  "keywords": ["Medical Laboratory", "Vitamins"],
+  "inputs": [
+    { "id": "folate", "type": "number", "label": "Folate (ng/mL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Result" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Folate Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze Folate levels." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

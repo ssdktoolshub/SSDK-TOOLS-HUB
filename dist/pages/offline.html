@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline Mode &bull; SSDK TOOLS HUB</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/ssdk-style.css">
+  <link rel="stylesheet" href="../assets/css/content-presentation.css">
+  <script src="../assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+
+<main class="page" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+  <div class="content-card" style="max-width: 500px; padding: 40px;">
+    <div style="font-size: 3.5rem; margin-bottom: 16px;">📡</div>
+    <h1 class="page-title" style="font-size: 1.8rem; margin-bottom: 8px;">You Are Offline</h1>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 24px;">
+      It looks like your internet connection is currently unavailable. Don't worry! Cached static tools and assets remain accessible.
+    </p>
+
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <button onclick="window.location.reload()" class="btn btn-primary">🔄 Retry Connection</button>
+      <a href="../index.html" class="btn ghost">🏠 Return Home</a>
+    </div>
+  </div>
+</main>
+
+<!-- Dynamic Header and Footer Injections -->
+<script src="../assets/js/ssdk-header.js"></script>
+<script src="../assets/js/ssdk-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "name": "Percentile Calculator",
+  "slug": "percentile-calculator",
+  "category": "📈 Data Analysis",
+  "description": "Professional Percentile Calculator. Instantly perform complex data analysis and spreadsheet operations.",
+  "keywords": [
+    "percentile calculator",
+    "data-analysis",
+    "data",
+    "spreadsheet",
+    "analysis",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Enter comma-separated data values (e.g. 10, 20, 30)"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "csv",
+    "xlsx",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Performance Engine",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "Can I upload large datasets to the Percentile Calculator?",
+      "answer": "Yes. This tool is designed to utilize browser-based memory to handle large file uploads securely."
+    },
+    {
+      "question": "Is my confidential business data secure?",
+      "answer": "Absolutely. All processing occurs locally on your machine. Your data is never uploaded to external servers."
+    },
+    {
+      "question": "Why is the interactive table or chart not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like ag-Grid or Chart.js) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Percentile Calculator | Enterprise Data Analysis & Spreadsheet Tools | SSDK TOOLS HUB",
+    "description": "Use the free Percentile Calculator. Perform fast, secure, and accurate data operations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

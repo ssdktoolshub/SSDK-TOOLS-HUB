@@ -1,0 +1,9 @@
+{
+  "id": "template-tool",
+  "name": "Template Tool",
+  "version": "1.0.0",
+  "main": "tool.js",
+  "ui": {
+    "inputs": []
+  }
+}

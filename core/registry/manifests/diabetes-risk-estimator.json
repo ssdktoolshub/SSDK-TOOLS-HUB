@@ -1,0 +1,48 @@
+{
+  "name": "Diabetes Risk Estimator",
+  "slug": "diabetes-risk-estimator",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Estimate your risk of developing Type 2 diabetes based on age, lifestyle, weight, and family history.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Diabetes & Blood Sugar"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Diabetes Risk Estimator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Diabetes Risk Estimator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Diabetes Risk Estimator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Diabetes Risk Estimator. Estimate your risk of developing Type 2 diabetes based on age, lifestyle, weight, and family history."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

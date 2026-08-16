@@ -1,0 +1,48 @@
+{
+  "name": "Serum Lipase Analyzer",
+  "slug": "lipase-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate serum lipase levels for acute pancreatic injury diagnosis.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Hormones & Pancreatic"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Serum Lipase Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Serum Lipase Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Serum Lipase Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Serum Lipase Analyzer. Evaluate serum lipase levels for acute pancreatic injury diagnosis."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,67 @@
+{
+  "name": "Safe Area Calculator",
+  "slug": "safe-area-calculator",
+  "category": "📐 Design Tools",
+  "description": "Professional Safe Area Calculator for designers and developers. Execute tasks natively in your browser.",
+  "keywords": [
+    "safe area calculator",
+    "design",
+    "design",
+    "color",
+    "generator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "width",
+      "type": "number",
+      "label": "Width",
+      "defaultValue": 1920
+    },
+    {
+      "id": "height",
+      "type": "number",
+      "label": "Height",
+      "defaultValue": 1080
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "css",
+    "svg"
+  ],
+  "features": [
+    "Zero Dependencies",
+    "Real-time Browser Processing",
+    "Responsive Interface",
+    "Developer & Designer Friendly"
+  ],
+  "faq": [
+    {
+      "question": "Who is the Safe Area Calculator for?",
+      "answer": "This tool is designed for web developers, UI/UX designers, and digital artists who need rapid, browser-based processing."
+    },
+    {
+      "question": "Is my design data uploaded?",
+      "answer": "No. All color calculations, CSS generation, and SVG optimizations are executed securely on your local device."
+    },
+    {
+      "question": "Why is there no live visual canvas?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visual canvas rendering engine is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Safe Area Calculator | Enterprise Design & Color Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Safe Area Calculator. Instantly generate CSS, manage colors, and optimize designs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

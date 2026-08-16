@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Admin Dashboard &bull; SSDK TOOLS HUB</title>
+  <meta name="description" content="SSDK Tools Hub Enterprise Admin — Full platform management dashboard.">
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/ssdk-style.css">
+  <link rel="stylesheet" href="../assets/css/admin-panel.css">
+  <script src="../core/bootstrap.js" type="module"></script>
+  <script src="../assets/js/theme.js"></script>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+<div id="progress"></div>
+
+<!-- Top Navigation -->
+<header class="admin-topbar">
+  <div class="admin-topbar-left">
+    <button class="admin-mobile-toggle" id="adminMobileToggle" aria-label="Open sidebar menu">☰</button>
+    <a href="../index.html" class="admin-topbar-brand">
+      <span class="admin-topbar-brand-logo">SSDK</span>
+    </a>
+    <span class="admin-topbar-divider"></span>
+    <span class="admin-topbar-label">Enterprise Admin</span>
+  </div>
+  <div class="admin-topbar-right">
+    <a href="../index.html" class="admin-topbar-link">← Exit Admin</a>
+  </div>
+</header>
+
+<div id="adminContainer">
+  <div class="admin-layout">
+    <div class="admin-content" style="display:flex; align-items:center; justify-content:center; min-height: 60vh;">
+      <div class="admin-empty-state">
+        <div class="admin-empty-state-icon">⏳</div>
+        <div class="admin-empty-state-title">Booting Admin Panel Controller...</div>
+        <div class="admin-empty-state-desc">Loading core engines and platform data.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  const checkCore = setInterval(async () => {
+    if (window.SSDKCore) {
+      clearInterval(checkCore);
+      const core = window.SSDKCore;
+      const adminEngine = core.getEngine("admin");
+      if (adminEngine) {
+        await adminEngine.mountAdmin("adminContainer");
+      }
+    }
+  }, 100);
+</script>
+</body>
+</html>

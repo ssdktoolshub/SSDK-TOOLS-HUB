@@ -1,0 +1,19 @@
+{
+  "name": "Free T4 Analyzer",
+  "slug": "free-t4-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Free Thyroxine (Free T4) levels.",
+  "keywords": ["Medical Laboratory", "Thyroid Profile"],
+  "inputs": [
+    { "id": "t4", "type": "number", "label": "Free T4 (ng/dL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Result" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Free T4 Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze Free T4 levels." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,74 @@
+{
+  "name": "DNS Lookup",
+  "slug": "dns-lookup",
+  "category": "👨‍💻 Developer Tools",
+  "description": "Professional, free, and secure DNS Lookup online. Developer utility for instant processing.",
+  "keywords": [
+    "dns lookup",
+    "developer",
+    "tool",
+    "online",
+    "free",
+    "api"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data",
+      "placeholder": "Paste your input here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "json",
+    "xml",
+    "csv",
+    "yaml",
+    "html",
+    "css",
+    "js"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Copy and Download instantly",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the DNS Lookup?",
+      "answer": "Paste your data into the input field and the tool will automatically process it, or click the process button."
+    },
+    {
+      "question": "Is the DNS Lookup free?",
+      "answer": "Yes, it is 100% free with no limits."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. We query public APIs to get this information, but your personal browsing data remains secure."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "No, this specific tool requires internet access to query remote APIs."
+    },
+    {
+      "question": "Can I use keyboard shortcuts?",
+      "answer": "Yes, standard shortcuts like Ctrl+C for copying output are supported."
+    }
+  ],
+  "seo": {
+    "title": "DNS Lookup | Free Secure Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online DNS Lookup. Secure, private, and ultra-fast developer utility."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

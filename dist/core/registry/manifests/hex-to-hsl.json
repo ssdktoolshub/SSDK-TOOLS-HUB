@@ -1,0 +1,60 @@
+{
+  "name": "HEX to HSL",
+  "slug": "hex-to-hsl",
+  "category": "🎨 Color Tools",
+  "description": "Professional HEX to HSL for designers and developers. Execute tasks natively in your browser.",
+  "keywords": [
+    "hex to hsl",
+    "color",
+    "design",
+    "color",
+    "generator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "text",
+      "label": "Input Color Value (e.g. #FF5733 or 255,87,51)"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "text",
+      "label": "Converted Color Value"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "css",
+    "svg"
+  ],
+  "features": [
+    "Zero Dependencies",
+    "Real-time Browser Processing",
+    "Responsive Interface",
+    "Developer & Designer Friendly"
+  ],
+  "faq": [
+    {
+      "question": "Who is the HEX to HSL for?",
+      "answer": "This tool is designed for web developers, UI/UX designers, and digital artists who need rapid, browser-based processing."
+    },
+    {
+      "question": "Is my design data uploaded?",
+      "answer": "No. All color calculations, CSS generation, and SVG optimizations are executed securely on your local device."
+    },
+    {
+      "question": "Why is there no live visual canvas?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visual canvas rendering engine is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "HEX to HSL | Enterprise Design & Color Tools | SSDK TOOLS HUB",
+    "description": "Use the best free HEX to HSL. Instantly generate CSS, manage colors, and optimize designs."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

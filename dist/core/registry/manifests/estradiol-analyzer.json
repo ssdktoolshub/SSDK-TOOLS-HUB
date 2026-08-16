@@ -1,0 +1,48 @@
+{
+  "name": "Estradiol (E2) Analyzer",
+  "slug": "estradiol-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate serum estradiol levels for female reproductive cycle checks.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Hormones & Pancreatic"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Estradiol (E2) Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Estradiol (E2) Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Estradiol (E2) Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Estradiol (E2) Analyzer. Evaluate serum estradiol levels for female reproductive cycle checks."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Expense Tracker",
+  "slug": "expense-tracker",
+  "category": "💰 Finance Tools",
+  "description": "Professional Expense Tracker. Instantly perform complex financial calculations in your browser.",
+  "keywords": [
+    "expense tracker",
+    "finance",
+    "finance",
+    "business",
+    "calculator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data / Configuration"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Expense Tracker?",
+      "answer": "This tool utilizes high-precision native JavaScript mathematics to ensure accurate calculations."
+    },
+    {
+      "question": "Is my financial data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No financial data is ever uploaded."
+    },
+    {
+      "question": "Why are charts not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like Chart.js or PDF Export) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Expense Tracker | Enterprise Business & Finance Tools | SSDK TOOLS HUB",
+    "description": "Use the free Expense Tracker. Perform fast, secure, and accurate financial calculations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Potassium Analyzer",
+  "slug": "potassium-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze serum Potassium (K+) levels to monitor electrolyte balance, kidney health, or cardiac risk.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Other Clinical Markers"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Potassium Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Potassium Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Potassium Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Potassium Analyzer. Analyze serum Potassium (K+) levels to monitor electrolyte balance, kidney health, or cardiac risk."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,58 @@
+{
+  "name": "Domain Generator",
+  "slug": "domain-generator",
+  "category": "🏢 Domain Tools",
+  "description": "Professional online Domain Generator. Instantly analyze and process targets.",
+  "keywords": [
+    "domain generator",
+    "domain",
+    "webmaster",
+    "network",
+    "domain",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Configuration Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast Execution",
+    "Comprehensive Results",
+    "Responsive Layout",
+    "Free to use"
+  ],
+  "faq": [
+    {
+      "question": "What does the Domain Generator do?",
+      "answer": "The Domain Generator allows you to analyze, test, or process the specified target instantly."
+    },
+    {
+      "question": "Is this tool running in my browser?",
+      "answer": "Code formatters and minifiers run locally in your browser. Network tools (like DNS or Ping) utilize secure backend proxy APIs."
+    },
+    {
+      "question": "Why is the tool not returning results?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the required backend API proxy is currently pending activation by the Admin."
+    }
+  ],
+  "seo": {
+    "title": "Domain Generator | Enterprise Webmaster & Network Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Domain Generator. Instantly analyze websites, domains, and network configurations."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

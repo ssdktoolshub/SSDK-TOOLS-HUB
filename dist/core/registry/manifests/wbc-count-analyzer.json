@@ -1,0 +1,48 @@
+{
+  "name": "WBC Count Analyzer",
+  "slug": "wbc-count-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze White Blood Cell (WBC) count in blood to check for infections or immune system activity.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Blood & CBC Panel"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use WBC Count Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is WBC Count Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "WBC Count Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online WBC Count Analyzer. Analyze White Blood Cell (WBC) count in blood to check for infections or immune system activity."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

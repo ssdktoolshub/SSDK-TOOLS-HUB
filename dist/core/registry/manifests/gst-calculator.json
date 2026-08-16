@@ -1,0 +1,84 @@
+{
+  "name": "GST Calculator",
+  "slug": "gst-calculator",
+  "category": "🧮 Calculator Tools",
+  "description": "Fast, accurate, and free GST Calculator online. Solve complex math instantly in your browser.",
+  "keywords": [
+    "gst calculator",
+    "calculator",
+    "math",
+    "finance",
+    "free",
+    "online"
+  ],
+  "inputs": [
+    {
+      "id": "amount",
+      "type": "number",
+      "label": "Amount",
+      "placeholder": "e.g., 1000"
+    },
+    {
+      "id": "rate",
+      "type": "number",
+      "label": "Tax Rate (%)",
+      "placeholder": "e.g., 18"
+    },
+    {
+      "id": "operation",
+      "type": "select",
+      "label": "Operation",
+      "options": [
+        {
+          "value": "add",
+          "label": "Add Tax (Exclusive)"
+        },
+        {
+          "value": "remove",
+          "label": "Remove Tax (Inclusive)"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Instant browser-side calculation",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Supports offline mode",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the GST Calculator?",
+      "answer": "Simply enter your numbers into the fields provided and the calculation will be performed instantly."
+    },
+    {
+      "question": "Is the GST Calculator free?",
+      "answer": "Yes, it is completely free to use."
+    },
+    {
+      "question": "Are my numbers secure?",
+      "answer": "Absolutely. All calculations happen entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "GST Calculator | Free Online Calculator | SSDK TOOLS HUB",
+    "description": "Use the best free online GST Calculator. Secure, private, and ultra-fast calculator for math and finance."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

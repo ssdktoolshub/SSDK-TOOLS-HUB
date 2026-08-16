@@ -1,0 +1,59 @@
+{
+  "name": "Hosting Checker",
+  "slug": "hosting-checker",
+  "category": "🌐 Network Tools",
+  "description": "Professional online Hosting Checker. Instantly analyze and process targets.",
+  "keywords": [
+    "hosting checker",
+    "network",
+    "webmaster",
+    "network",
+    "domain",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "text",
+      "label": "Target Domain Name or IP Address",
+      "placeholder": "e.g., google.com or 8.8.8.8"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Analysis Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast Execution",
+    "Comprehensive Results",
+    "Responsive Layout",
+    "Free to use"
+  ],
+  "faq": [
+    {
+      "question": "What does the Hosting Checker do?",
+      "answer": "The Hosting Checker allows you to analyze, test, or process the specified target instantly."
+    },
+    {
+      "question": "Is this tool running in my browser?",
+      "answer": "Code formatters and minifiers run locally in your browser. Network tools (like DNS or Ping) utilize secure backend proxy APIs."
+    },
+    {
+      "question": "Why is the tool not returning results?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the required backend API proxy is currently pending activation by the Admin."
+    }
+  ],
+  "seo": {
+    "title": "Hosting Checker | Enterprise Webmaster & Network Tools | SSDK TOOLS HUB",
+    "description": "Use the best free Hosting Checker. Instantly analyze websites, domains, and network configurations."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "EMI Calculator",
+  "slug": "emi-calculator",
+  "category": "💵 Finance Tools",
+  "description": "Loan EMI & interest calc.",
+  "keywords": [
+    "Finance",
+    "Financial & Math"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use EMI Calculator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is EMI Calculator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "EMI Calculator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online EMI Calculator. Loan EMI & interest calc."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

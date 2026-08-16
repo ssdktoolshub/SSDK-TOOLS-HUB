@@ -1,0 +1,88 @@
+{
+  "name": "FAQ Schema Generator",
+  "slug": "faq-schema-generator",
+  "category": "📈 SEO Tools",
+  "description": "Professional, free, and precise FAQ Schema Generator online. Optimize your website instantly.",
+  "keywords": [
+    "faq schema generator",
+    "seo",
+    "optimization",
+    "webmaster",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "q1",
+      "type": "text",
+      "label": "Question 1",
+      "placeholder": "e.g., What is SEO?"
+    },
+    {
+      "id": "a1",
+      "type": "textarea",
+      "label": "Answer 1",
+      "placeholder": "Search Engine Optimization is..."
+    },
+    {
+      "id": "q2",
+      "type": "text",
+      "label": "Question 2",
+      "placeholder": "Optional"
+    },
+    {
+      "id": "a2",
+      "type": "textarea",
+      "label": "Answer 2",
+      "placeholder": "Optional"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "html",
+    "json",
+    "xml"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Copy and Download instantly",
+    "Follows latest Google guidelines"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the FAQ Schema Generator?",
+      "answer": "Fill in the required fields or paste your data, and the tool will automatically process and generate the result."
+    },
+    {
+      "question": "Is the FAQ Schema Generator free?",
+      "answer": "Yes, it is 100% free with no limits."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Absolutely. All processing happens entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it follow current SEO best practices?",
+      "answer": "Yes, all generated code and recommendations strictly adhere to the latest official guidelines from Google and Schema.org."
+    },
+    {
+      "question": "Can I use this on mobile?",
+      "answer": "Yes, the interface is fully responsive and optimized for mobile devices."
+    }
+  ],
+  "seo": {
+    "title": "FAQ Schema Generator | Free Online Webmaster Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online FAQ Schema Generator. Secure, private, and ultra-fast SEO utility for webmasters."
+  },
+  "relatedTools": [],
+  "version": "1.1.0"
+}

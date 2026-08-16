@@ -1,0 +1,48 @@
+{
+  "name": "Procalcitonin Analyzer",
+  "slug": "procalcitonin-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate procalcitonin levels for bacterial sepsis risk checks.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Infectious, Tumor & Autoimmune"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Procalcitonin Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Procalcitonin Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Procalcitonin Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Procalcitonin Analyzer. Evaluate procalcitonin levels for bacterial sepsis risk checks."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

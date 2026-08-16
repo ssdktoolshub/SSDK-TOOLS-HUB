@@ -1,0 +1,67 @@
+{
+  "name": "GCD Calculator",
+  "slug": "gcd-calculator",
+  "category": "🧮 Calculator Tools",
+  "description": "Fast, accurate, and free GCD Calculator online. Solve complex math instantly in your browser.",
+  "keywords": [
+    "gcd calculator",
+    "calculator",
+    "math",
+    "finance",
+    "free",
+    "online"
+  ],
+  "inputs": [
+    {
+      "id": "num1",
+      "type": "number",
+      "label": "Number 1"
+    },
+    {
+      "id": "num2",
+      "type": "number",
+      "label": "Number 2"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Instant browser-side calculation",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Supports offline mode",
+    "Responsive interface"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the GCD Calculator?",
+      "answer": "Simply enter your numbers into the fields provided and the calculation will be performed instantly."
+    },
+    {
+      "question": "Is the GCD Calculator free?",
+      "answer": "Yes, it is completely free to use."
+    },
+    {
+      "question": "Are my numbers secure?",
+      "answer": "Absolutely. All calculations happen entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Yes, once the page is loaded, the calculator functions completely offline."
+    }
+  ],
+  "seo": {
+    "title": "GCD Calculator | Free Online Calculator | SSDK TOOLS HUB",
+    "description": "Use the best free online GCD Calculator. Secure, private, and ultra-fast calculator for math and finance."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

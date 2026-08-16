@@ -1,0 +1,62 @@
+{
+  "name": "Video to MP3",
+  "slug": "video-to-mp3",
+  "category": "🎬 Video Tools",
+  "description": "Professional, private, and fast Video to MP3. Processes files securely directly in your browser.",
+  "keywords": [
+    "video to mp3",
+    "video",
+    "free",
+    "converter",
+    "online",
+    "ffmpeg"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload File",
+      "accept": "video/*"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "file",
+      "label": "Processed File"
+    }
+  ],
+  "supportedFormats": [
+    "mp4",
+    "webm",
+    "mkv",
+    "avi",
+    "mov"
+  ],
+  "features": [
+    "Client-Side Processing (FFmpeg WebAssembly)",
+    "No data uploaded to servers",
+    "100% Privacy Guaranteed",
+    "Fast encoding and processing"
+  ],
+  "faq": [
+    {
+      "question": "What is the Video to MP3?",
+      "answer": "The Video to MP3 allows you to manipulate and process media files entirely in your browser."
+    },
+    {
+      "question": "Are my files uploaded to your server?",
+      "answer": "No. This tool utilizes advanced FFmpeg WebAssembly technology to process your files locally on your device."
+    },
+    {
+      "question": "Why is the processing not starting?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the server requires specific Cross-Origin headers to enable WebAssembly. This will be activated soon."
+    }
+  ],
+  "seo": {
+    "title": "Video to MP3 | Free Online Media Tools | SSDK TOOLS HUB",
+    "description": "Use the best free online Video to MP3. Secure, private, and ultra-fast media processing directly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

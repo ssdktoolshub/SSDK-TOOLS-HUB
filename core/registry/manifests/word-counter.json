@@ -1,0 +1,56 @@
+{
+  "id": "word-counter",
+  "uuid": "7a35607a-241f-49ff-a128-bdf25efeeec9",
+  "name": "Word Counter",
+  "slug": "word-counter",
+  "shortName": "Words",
+  "category": "🛠 Developer Tools",
+  "subcategory": "Analysis & Parsing",
+  "version": "2.0.1",
+  "icon": "📝",
+  "url": "tools/utility/word-count.html",
+  "status": "active",
+  "author": "SSDK Core Team",
+  "description": "Calculate characters, words, sentences, and paragraphs in real time.",
+  "shortDescription": "Analyze and count text metrics instantly.",
+  "keywords": ["words", "characters", "sentence", "paragraph", "letters"],
+  "aliases": ["word count", "character counter"],
+  "searchSynonyms": ["text checker", "length test"],
+  "tags": ["Developer", "Text"],
+  "capabilities": {
+    "dragDrop": true,
+    "clipboard": true,
+    "download": true,
+    "share": true,
+    "offline": true,
+    "batch": false,
+    "print": true,
+    "fullscreen": true
+  },
+  "seo": {
+    "title": "Online Word & Character Counter Tool",
+    "description": "Free client-side word count utility to measure writing length, letters, and density.",
+    "keywords": "word counter, word count online, character checker",
+    "canonicalUrl": "https://ssdk-tools.com/pages/tool.html?id=word-counter"
+  },
+  "faq": [
+    {
+      "q": "Is my text uploaded to a server?",
+      "a": "No, all calculation runs inside your browser using JavaScript. No data leaves your machine."
+    },
+    {
+      "q": "Does it count spaces as characters?",
+      "a": "Yes, it shows character counts both with and without spaces."
+    }
+  ],
+  "useCases": [
+    "Checking essay length",
+    "Validating tweet length"
+  ],
+  "examples": [
+    {
+      "input": "Hello World!",
+      "output": "Words: 2, Characters: 12"
+    }
+  ]
+}

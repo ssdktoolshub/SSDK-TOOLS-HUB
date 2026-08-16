@@ -1,0 +1,36 @@
+{
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "status": "disabled",
+      "models": ["gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"],
+      "requiresKey": true
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "status": "disabled",
+      "models": ["gemini-1.5-pro", "gemini-1.5-flash"],
+      "requiresKey": true
+    },
+    {
+      "id": "claude",
+      "name": "Anthropic Claude",
+      "status": "disabled",
+      "models": ["claude-3-opus", "claude-3-sonnet", "claude-3-haiku"],
+      "requiresKey": true
+    },
+    {
+      "id": "local",
+      "name": "Local AI (Ollama/LM Studio)",
+      "status": "disabled",
+      "models": ["llama-3", "mistral"],
+      "requiresKey": false,
+      "endpoint": "http://localhost:11434/api/generate"
+    }
+  ],
+  "defaultProvider": null,
+  "systemStatus": "Future Ready",
+  "message": "AI Module is disabled globally. Awaiting API configuration from Admin."
+}

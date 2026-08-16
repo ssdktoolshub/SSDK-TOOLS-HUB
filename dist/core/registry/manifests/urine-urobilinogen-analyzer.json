@@ -1,0 +1,19 @@
+{
+  "name": "Urine Urobilinogen Analyzer",
+  "slug": "urine-urobilinogen-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze urine urobilinogen levels.",
+  "keywords": ["Medical Laboratory", "Urine Analysis"],
+  "inputs": [
+    { "id": "urobilinogen", "type": "number", "label": "Urobilinogen (mg/dL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Result" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Urine Urobilinogen Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze urine urobilinogen levels." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

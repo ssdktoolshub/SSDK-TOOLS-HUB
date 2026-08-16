@@ -1,0 +1,48 @@
+{
+  "name": "Arterial Blood Gas (ABG) Analyzer",
+  "slug": "abg-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Interpret arterial blood gas parameters to assess acid-base balance, oxygenation status, and metabolic or respiratory compensation.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Clinical Diagnostics"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Arterial Blood Gas (ABG) Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Arterial Blood Gas (ABG) Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Arterial Blood Gas (ABG) Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Arterial Blood Gas (ABG) Analyzer. Interpret arterial blood gas parameters to assess acid-base balance, oxygenation status, and metabolic or respiratory compensation."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

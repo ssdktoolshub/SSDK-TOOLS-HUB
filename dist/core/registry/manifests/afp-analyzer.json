@@ -1,0 +1,48 @@
+{
+  "name": "AFP Analyzer",
+  "slug": "afp-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Evaluate Alpha-Fetoprotein levels for hepatocellular carcinoma or fetal checks.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Infectious, Tumor & Autoimmune"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use AFP Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is AFP Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "AFP Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online AFP Analyzer. Evaluate Alpha-Fetoprotein levels for hepatocellular carcinoma or fetal checks."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

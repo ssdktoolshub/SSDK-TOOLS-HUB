@@ -1,0 +1,48 @@
+{
+  "name": "Liver Function Report Analyzer",
+  "slug": "liver-function-report-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze comprehensive liver function test (LFT) panels including ALT, AST, Bilirubin, ALP, Albumin, and ratios.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Liver & Hepatic Function"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Liver Function Report Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Liver Function Report Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Liver Function Report Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Liver Function Report Analyzer. Analyze comprehensive liver function test (LFT) panels including ALT, AST, Bilirubin, ALP, Albumin, and ratios."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "Markdown Converter",
+  "slug": "markdown-converter",
+  "category": "🗄️ File Converters",
+  "description": "Professional Markdown Converter. Instantly perform complex utility tasks in your browser.",
+  "keywords": [
+    "markdown converter",
+    "file-converters",
+    "utility",
+    "converter",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload File"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Converted Output / Download Link"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Markdown Converter?",
+      "answer": "This tool utilizes high-precision native JavaScript logic to ensure accurate results."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No data is ever uploaded."
+    },
+    {
+      "question": "Why is the tool not converting my file?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced WASM file conversion module is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Markdown Converter | Enterprise Utility & Converter Tools | SSDK TOOLS HUB",
+    "description": "Use the free Markdown Converter. Perform fast, secure, and accurate tasks instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

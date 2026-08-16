@@ -1,0 +1,48 @@
+{
+  "name": "Hemoglobin (Hb) Analyzer",
+  "slug": "hemoglobin-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Hemoglobin (Hb) levels in blood with interactive diagnostic summaries.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Blood & CBC Panel"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Hemoglobin (Hb) Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Hemoglobin (Hb) Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Hemoglobin (Hb) Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Hemoglobin (Hb) Analyzer. Analyze Hemoglobin (Hb) levels in blood with interactive diagnostic summaries."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

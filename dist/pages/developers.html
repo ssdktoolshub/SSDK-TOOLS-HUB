@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Platform &bull; SSDK TOOLS HUB</title>
+  <link rel="icon" href="../assets/images/favicon.ico">
+  <link rel="stylesheet" href="../assets/css/design-tokens.css">
+  <link rel="stylesheet" href="../assets/css/ssdk-style.css">
+  <link rel="stylesheet" href="../assets/css/content-presentation.css">
+  <script src="../assets/js/theme.js"></script>
+  <style>
+    .dev-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .dev-tab {
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .dev-tab.active {
+      background: var(--grad);
+      color: #fff;
+      border-color: transparent;
+    }
+    .code-block {
+      background: var(--card-bg-hover);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: monospace;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+<div id="progress"></div>
+
+<main class="page reveal-on-scroll">
+  <header class="tool-meta">
+    <h1 class="page-title">Developer Platform &amp; Public REST API v1</h1>
+    <p class="page-sub">Integrate 150+ online tools into your applications using REST APIs, SDKs, and Embeddable Widgets.</p>
+  </header>
+
+  <section class="dev-tabs">
+    <button class="dev-tab active" data-view="doc">📖 REST API Docs</button>
+    <button class="dev-tab" data-view="playground">⚡ API Playground</button>
+    <button class="dev-tab" data-view="keys">🔑 Manage API Keys</button>
+    <button class="dev-tab" data-view="snippets">💻 Code Generators</button>
+    <button class="dev-tab" data-view="embed">🖼 Embed Widget Builder</button>
+  </section>
+
+  <!-- 1. API Docs Panel -->
+  <div class="dev-panel" id="panel-doc">
+    <div class="content-card" style="margin-bottom: 24px;">
+      <h2>REST API v1 Overview</h2>
+      <p style="color: var(--text-muted); line-height: 1.6; margin-top: 8px;">
+        Base API URL: <code style="color: var(--accent-color);">http://localhost:8000/api/v1</code>
+      </p>
+      <p style="color: var(--text-muted); line-height: 1.6; margin-top: 8px;">
+        All API requests accept standard JSON payloads and require an <code>X-API-Key</code> or <code>Bearer</code> token header. Rate limits are 60 requests/minute for standard accounts.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <h3>Available Endpoints</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+        <div style="background: var(--card-bg-hover); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px;">
+          <span class="badge badge-info">GET</span> <code>/api/v1/tools</code> - List all public tools
+        </div>
+        <div style="background: var(--card-bg-hover); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px;">
+          <span class="badge badge-info">GET</span> <code>/api/v1/categories</code> - List all categories
+        </div>
+        <div style="background: var(--card-bg-hover); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px;">
+          <span class="badge badge-info">POST</span> <code>/api/v1/tools/{id}/execute</code> - Execute tool action
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Playground Panel -->
+  <div class="dev-panel" id="panel-playground" style="display: none;">
+    <div class="content-card">
+      <h2>⚡ Interactive REST API Playground</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Test API calls live against the backend:</p>
+      
+      <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+        <select id="playMethod" class="field-input" style="width: 100px;">
+          <option value="POST">POST</option>
+          <option value="GET">GET</option>
+        </select>
+        <input type="text" id="playUrl" value="http://localhost:8000/api/v1/execute" class="field-input" style="flex: 1;">
+      </div>
+
+      <textarea id="playPayload" rows="5" class="code-block" style="width: 100%; margin-bottom: 12px;">{
+  "tool_id": "case-converter",
+  "engine_type": "text",
+  "payload": "hello ssdk tools hub developer api",
+  "options": { "mode": "uppercase" }
+}</textarea>
+
+      <button id="btnSendPlay" class="btn btn-primary" style="margin-bottom: 16px;">🚀 Send Test Request</button>
+      
+      <h3>Response:</h3>
+      <div id="playResponse" class="code-block" style="min-height: 120px;">Click 'Send Test Request' to view payload...</div>
+    </div>
+  </div>
+
+  <!-- 3. API Keys Panel -->
+  <div class="dev-panel" id="panel-keys" style="display: none;">
+    <div class="content-card">
+      <h2>🔑 API Keys Manager</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Generate API keys to authorize external REST API requests:</p>
+      
+      <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+        <input type="text" id="keyNameInput" placeholder="Key name (e.g. My Mobile App)" class="field-input" style="flex: 1;">
+        <button id="btnGenKey" class="btn btn-primary"> Generate Key</button>
+      </div>
+
+      <div id="keysList">
+        <div style="background: var(--card-bg-hover); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong>Default Dev Key</strong>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">ssdk_live_9a8f...</div>
+          </div>
+          <span class="badge badge-info">60 req/min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Code Snippets Panel -->
+  <div class="dev-panel" id="panel-snippets" style="display: none;">
+    <div class="content-card">
+      <h2>💻 Code Snippet Generators</h2>
+      <div style="display: flex; gap: 8px; margin: 16px 0;">
+        <button class="btn ghost snip-btn active" data-lang="curl">cURL</button>
+        <button class="btn ghost snip-btn" data-lang="js">JavaScript</button>
+        <button class="btn ghost snip-btn" data-lang="py">Python</button>
+        <button class="btn ghost snip-btn" data-lang="php">PHP</button>
+      </div>
+      <div id="snipCode" class="code-block">curl -X POST "http://localhost:8000/api/v1/execute" \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -d '{"tool_id":"case-converter","engine_type":"text","payload":"hello world","options":{"mode":"uppercase"}}'</div>
+    </div>
+  </div>
+
+  <!-- 5. Embed Widget Builder Panel -->
+  <div class="dev-panel" id="panel-embed" style="display: none;">
+    <div class="content-card">
+      <h2>🖼 Embed Widget Builder</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Copy the iframe code snippet below to embed any SSDK tool into your website:</p>
+      
+      <div class="code-block">&lt;iframe src="https://ssdktoolshub.com/tools/word-counter.html?embed=true" width="100%" height="600" frameborder="0" style="border-radius: 16px; border: 1px solid var(--border-color);"&gt;&lt;/iframe&gt;</div>
+    </div>
+  </div>
+</main>
+
+<!-- Dynamic Header and Footer Injections -->
+<script src="../assets/js/ssdk-header.js"></script>
+<script src="../assets/js/ssdk-footer.js"></script>
+
+<script type="module">
+  const tabs = document.querySelectorAll(".dev-tab");
+  const panels = document.querySelectorAll(".dev-panel");
+
+  tabs.forEach(t => {
+    t.onclick = () => {
+      tabs.forEach(x => x.classList.remove("active"));
+      panels.forEach(p => p.style.display = "none");
+      t.classList.add("active");
+      document.getElementById(`panel-${t.dataset.view}`).style.display = "block";
+    };
+  });
+
+  // Playground send request logic
+  document.getElementById("btnSendPlay").onclick = async () => {
+    const url = document.getElementById("playUrl").value;
+    const body = document.getElementById("playPayload").value;
+    const resBox = document.getElementById("playResponse");
+
+    resBox.textContent = "Sending request...";
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body
+      });
+      const data = await res.json();
+      resBox.textContent = JSON.stringify(data, null, 2);
+    } catch(e) {
+      resBox.textContent = `[Request Error]: ${e.message}`;
+    }
+  };
+
+  // Snippets language switch logic
+  const snipCode = document.getElementById("snipCode");
+  const snipBtns = document.querySelectorAll(".snip-btn");
+  const snippets = {
+    curl: `curl -X POST "http://localhost:8000/api/v1/execute" \\\n  -H "Content-Type: application/json" \\\n  -H "X-API-Key: YOUR_API_KEY" \\\n  -d '{"tool_id":"case-converter","engine_type":"text","payload":"hello world","options":{"mode":"uppercase"}}'`,
+    js: `const response = await fetch("http://localhost:8000/api/v1/execute", {\n  method: "POST",\n  headers: { "Content-Type": "application/json", "X-API-Key": "YOUR_API_KEY" },\n  body: JSON.stringify({\n    tool_id: "case-converter",\n    engine_type: "text",\n    payload: "hello world",\n    options: { mode: "uppercase" }\n  })\n});\nconst data = await response.json();`,
+    py: `import requests\n\nresponse = requests.post(\n    "http://localhost:8000/api/v1/execute",\n    headers={"X-API-Key": "YOUR_API_KEY"},\n    json={\n        "tool_id": "case-converter",\n        "engine_type": "text",\n        "payload": "hello world",\n        "options": {"mode": "uppercase"}\n    }\n)\nprint(response.json())`,
+    php: `<?php\n$ch = curl_init("http://localhost:8000/api/v1/execute");\ncurl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json", "X-API-Key: YOUR_API_KEY"]);\ncurl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([\n    "tool_id" => "case-converter",\n    "engine_type" => "text",\n    "payload" => "hello world",\n    "options" => ["mode" => "uppercase"]\n]));\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n$response = curl_exec($ch);\ncurl_close($ch);\n?>`
+  };
+
+  snipBtns.forEach(b => {
+    b.onclick = () => {
+      snipBtns.forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      snipCode.textContent = snippets[b.dataset.lang];
+    };
+  });
+</script>
+</body>
+</html>

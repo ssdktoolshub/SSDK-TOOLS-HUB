@@ -1,0 +1,70 @@
+{
+  "name": "Viewport Checker",
+  "slug": "viewport-checker",
+  "category": "📈 SEO Tools",
+  "description": "Professional, free, and precise Viewport Checker online. Optimize your website instantly.",
+  "keywords": [
+    "viewport checker",
+    "seo",
+    "optimization",
+    "webmaster",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data",
+      "placeholder": "Paste your content or URL here..."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "html",
+    "json",
+    "xml"
+  ],
+  "features": [
+    "Fast browser-side processing",
+    "No data uploaded to server",
+    "100% Secure and private",
+    "Copy and Download instantly",
+    "Follows latest Google guidelines"
+  ],
+  "faq": [
+    {
+      "question": "How do I use the Viewport Checker?",
+      "answer": "Fill in the required fields or paste your data, and the tool will automatically process and generate the result."
+    },
+    {
+      "question": "Is the Viewport Checker free?",
+      "answer": "Yes, it is 100% free with no limits."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Absolutely. All processing happens entirely within your web browser. No data is sent to our servers."
+    },
+    {
+      "question": "Does it follow current SEO best practices?",
+      "answer": "Yes, all generated code and recommendations strictly adhere to the latest official guidelines from Google and Schema.org."
+    },
+    {
+      "question": "Can I use this on mobile?",
+      "answer": "Yes, the interface is fully responsive and optimized for mobile devices."
+    }
+  ],
+  "seo": {
+    "title": "Viewport Checker | Free Online Webmaster Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Viewport Checker. Secure, private, and ultra-fast SEO utility for webmasters."
+  },
+  "relatedTools": [],
+  "version": "1.1.0"
+}

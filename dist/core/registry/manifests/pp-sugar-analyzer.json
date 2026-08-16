@@ -1,0 +1,48 @@
+{
+  "name": "Postprandial (PP) Blood Sugar Analyzer",
+  "slug": "pp-sugar-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze 2-hour postprandial (PPBS) blood glucose levels to check post-meal insulin response.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Diabetes & Blood Sugar"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Postprandial (PP) Blood Sugar Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Postprandial (PP) Blood Sugar Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Postprandial (PP) Blood Sugar Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Postprandial (PP) Blood Sugar Analyzer. Analyze 2-hour postprandial (PPBS) blood glucose levels to check post-meal insulin response."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

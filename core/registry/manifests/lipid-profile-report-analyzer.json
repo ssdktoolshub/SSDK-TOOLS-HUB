@@ -1,0 +1,22 @@
+{
+  "name": "Lipid Profile Report Analyzer",
+  "slug": "lipid-profile-report-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze lipid profile report.",
+  "keywords": ["Medical Laboratory", "Lipid Profile"],
+  "inputs": [
+    { "id": "tc", "type": "number", "label": "Total Cholesterol (mg/dL)" },
+    { "id": "ldl", "type": "number", "label": "LDL (mg/dL)" },
+    { "id": "hdl", "type": "number", "label": "HDL (mg/dL)" },
+    { "id": "tg", "type": "number", "label": "Triglycerides (mg/dL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "Analysis Report" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "Lipid Profile Report Analyzer | Free Online Tool | SSDK TOOLS HUB", "description": "Analyze lipid profile report." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

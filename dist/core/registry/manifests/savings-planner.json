@@ -1,0 +1,59 @@
+{
+  "name": "Savings Planner",
+  "slug": "savings-planner",
+  "category": "💰 Finance Tools",
+  "description": "Professional Savings Planner. Instantly perform complex financial calculations in your browser.",
+  "keywords": [
+    "savings planner",
+    "finance",
+    "finance",
+    "business",
+    "calculator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data / Configuration"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Savings Planner?",
+      "answer": "This tool utilizes high-precision native JavaScript mathematics to ensure accurate calculations."
+    },
+    {
+      "question": "Is my financial data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No financial data is ever uploaded."
+    },
+    {
+      "question": "Why are charts not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like Chart.js or PDF Export) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Savings Planner | Enterprise Business & Finance Tools | SSDK TOOLS HUB",
+    "description": "Use the free Savings Planner. Perform fast, secure, and accurate financial calculations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

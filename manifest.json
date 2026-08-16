@@ -1,0 +1,25 @@
+{
+  "name": "SSDK TOOLS HUB - Smart Tools for Smart Creators",
+  "short_name": "SSDK Tools",
+  "description": "Multi-tool online platform containing 150+ free utilities for creators, developers, and users.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B0813",
+  "theme_color": "#7C3AED",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity", "developer tools"]
+}

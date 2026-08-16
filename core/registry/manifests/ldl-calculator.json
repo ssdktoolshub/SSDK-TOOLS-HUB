@@ -1,0 +1,21 @@
+{
+  "name": "LDL Calculator",
+  "slug": "ldl-calculator",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Calculate low-density lipoprotein (LDL) 'bad' cholesterol using Friedewald equation.",
+  "keywords": ["Medical Laboratory", "Lipid Profile"],
+  "inputs": [
+    { "id": "tc", "type": "number", "label": "Total Cholesterol (mg/dL)" },
+    { "id": "hdl", "type": "number", "label": "HDL (mg/dL)" },
+    { "id": "tg", "type": "number", "label": "Triglycerides (mg/dL)" }
+  ],
+  "outputs": [
+    { "id": "outputData", "type": "text", "label": "LDL Cholesterol (mg/dL)" }
+  ],
+  "supportedFormats": ["txt"],
+  "features": ["Fast and secure processing", "Works entirely in your browser", "No data is sent to the server"],
+  "faq": [],
+  "seo": { "title": "LDL Calculator | Free Online Tool | SSDK TOOLS HUB", "description": "Calculate LDL cholesterol." },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

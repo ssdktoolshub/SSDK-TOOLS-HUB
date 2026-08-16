@@ -1,0 +1,48 @@
+{
+  "name": "Uric Acid Analyzer",
+  "slug": "uric-acid-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze serum uric acid levels to evaluate gout risk, hyperuricemia, or renal clearance patterns.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Kidney & Renal Function"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Uric Acid Analyzer?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Uric Acid Analyzer free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Uric Acid Analyzer | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Uric Acid Analyzer. Analyze serum uric acid levels to evaluate gout risk, hyperuricemia, or renal clearance patterns."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

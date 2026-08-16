@@ -1,0 +1,58 @@
+{
+  "name": "Document Comparator",
+  "slug": "document-comparator",
+  "category": "📄 Document Tools",
+  "description": "Free and secure online Document Comparator. Fast browser-side processing for text and documents.",
+  "keywords": [
+    "document comparator",
+    "document",
+    "free",
+    "online",
+    "converter",
+    "generator"
+  ],
+  "inputs": [
+    {
+      "id": "fileInput",
+      "type": "file",
+      "label": "Upload Document",
+      "accept": ".txt,.md,.doc,.docx,.pdf,.rtf"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "file",
+      "label": "Processed Document"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Browser-side Execution",
+    "No data uploaded to servers",
+    "100% Secure & Private",
+    "Instant Results"
+  ],
+  "faq": [
+    {
+      "question": "What is the Document Comparator?",
+      "answer": "The Document Comparator helps you format, convert, or generate text and documents directly in your browser."
+    },
+    {
+      "question": "Are my documents uploaded to a server?",
+      "answer": "No. All text and document processing happens locally on your device for absolute privacy."
+    },
+    {
+      "question": "Is it completely free?",
+      "answer": "Yes, all our text utilities are entirely free to use without limits."
+    }
+  ],
+  "seo": {
+    "title": "Document Comparator | Free Online Text & Document Tools | SSDK TOOLS HUB",
+    "description": "Use the best free online Document Comparator. Instantly convert and format text with absolute privacy."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

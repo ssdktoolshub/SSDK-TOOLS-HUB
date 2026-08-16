@@ -1,0 +1,48 @@
+{
+  "name": "Globulin Calculator",
+  "slug": "globulin-calculator",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Calculate serum globulin levels from Total Protein and Albumin values and evaluate immune patterns.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Liver & Hepatic Function"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Globulin Calculator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Globulin Calculator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Globulin Calculator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Globulin Calculator. Calculate serum globulin levels from Total Protein and Albumin values and evaluate immune patterns."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Google Sheets Formula Helper",
+  "slug": "google-sheets-formula-helper",
+  "category": "📊 Spreadsheet Tools",
+  "description": "Professional Google Sheets Formula Helper. Instantly perform complex data analysis and spreadsheet operations.",
+  "keywords": [
+    "google sheets formula helper",
+    "spreadsheet",
+    "data",
+    "spreadsheet",
+    "analysis",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "toolInput",
+      "type": "textarea",
+      "label": "Input Data / Configuration"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Generated Result"
+    }
+  ],
+  "supportedFormats": [
+    "csv",
+    "xlsx",
+    "json"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Performance Engine",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "Can I upload large datasets to the Google Sheets Formula Helper?",
+      "answer": "Yes. This tool is designed to utilize browser-based memory to handle large file uploads securely."
+    },
+    {
+      "question": "Is my confidential business data secure?",
+      "answer": "Absolutely. All processing occurs locally on your machine. Your data is never uploaded to external servers."
+    },
+    {
+      "question": "Why is the interactive table or chart not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like ag-Grid or Chart.js) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Google Sheets Formula Helper | Enterprise Data Analysis & Spreadsheet Tools | SSDK TOOLS HUB",
+    "description": "Use the free Google Sheets Formula Helper. Perform fast, secure, and accurate data operations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

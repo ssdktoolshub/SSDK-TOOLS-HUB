@@ -1,0 +1,72 @@
+{
+  "name": "Car Loan Calculator",
+  "slug": "car-loan-calculator",
+  "category": "💰 Finance Tools",
+  "description": "Professional Car Loan Calculator. Instantly perform complex financial calculations in your browser.",
+  "keywords": [
+    "car loan calculator",
+    "finance",
+    "finance",
+    "business",
+    "calculator",
+    "free",
+    "tool"
+  ],
+  "inputs": [
+    {
+      "id": "principal",
+      "type": "number",
+      "label": "Principal Amount ($)",
+      "defaultValue": 100000
+    },
+    {
+      "id": "rate",
+      "type": "number",
+      "label": "Interest Rate (% p.a.)",
+      "defaultValue": 5
+    },
+    {
+      "id": "tenure",
+      "type": "number",
+      "label": "Tenure (Years)",
+      "defaultValue": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toolOutput",
+      "type": "textarea",
+      "label": "Calculation Results"
+    }
+  ],
+  "supportedFormats": [
+    "txt",
+    "csv"
+  ],
+  "features": [
+    "100% Client-Side Processing",
+    "High Mathematical Precision",
+    "Responsive Interface",
+    "No data sent to servers"
+  ],
+  "faq": [
+    {
+      "question": "How accurate is the Car Loan Calculator?",
+      "answer": "This tool utilizes high-precision native JavaScript mathematics to ensure accurate calculations."
+    },
+    {
+      "question": "Is my financial data secure?",
+      "answer": "Yes. All calculations are executed securely on your local device. No financial data is ever uploaded."
+    },
+    {
+      "question": "Why are charts not displaying?",
+      "answer": "If the tool is in 'Future Ready' mode, it means the advanced visualization engine (like Chart.js or PDF Export) is pending integration."
+    }
+  ],
+  "seo": {
+    "title": "Car Loan Calculator | Enterprise Business & Finance Tools | SSDK TOOLS HUB",
+    "description": "Use the free Car Loan Calculator. Perform fast, secure, and accurate financial calculations instantly in your browser."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Bilirubin Analyzer (Total, Direct, Indirect)",
+  "slug": "bilirubin-analyzer",
+  "category": "🩺 Medical & Laboratory Tools",
+  "description": "Analyze Total, Direct, and Indirect Bilirubin levels to evaluate jaundice, hemolysis, or biliary blockages.",
+  "keywords": [
+    "Medical  Laboratory",
+    "Liver & Hepatic Function"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Bilirubin Analyzer (Total, Direct, Indirect)?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Bilirubin Analyzer (Total, Direct, Indirect) free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Bilirubin Analyzer (Total, Direct, Indirect) | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Bilirubin Analyzer (Total, Direct, Indirect). Analyze Total, Direct, and Indirect Bilirubin levels to evaluate jaundice, hemolysis, or biliary blockages."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}

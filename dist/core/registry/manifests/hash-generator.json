@@ -1,0 +1,48 @@
+{
+  "name": "Hash Generator",
+  "slug": "hash-generator",
+  "category": "🔐 Security Tools",
+  "description": "MD5 / SHA hashes.",
+  "keywords": [
+    "Security",
+    "Cryptography & Access"
+  ],
+  "inputs": [
+    {
+      "id": "inputData",
+      "type": "text",
+      "label": "Input Data"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "outputData",
+      "type": "text",
+      "label": "Output Result"
+    }
+  ],
+  "supportedFormats": [
+    "txt"
+  ],
+  "features": [
+    "Fast and secure processing",
+    "Works entirely in your browser",
+    "No data is sent to the server"
+  ],
+  "faq": [
+    {
+      "question": "How to use Hash Generator?",
+      "answer": "Enter your input in the provided field and click process to generate the result."
+    },
+    {
+      "question": "Is Hash Generator free?",
+      "answer": "Yes, completely free with no limits."
+    }
+  ],
+  "seo": {
+    "title": "Hash Generator | Free Online Tool | SSDK TOOLS HUB",
+    "description": "Use the best free online Hash Generator. MD5 / SHA hashes."
+  },
+  "relatedTools": [],
+  "version": "1.0.0"
+}
