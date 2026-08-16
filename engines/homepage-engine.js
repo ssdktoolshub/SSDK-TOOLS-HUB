@@ -633,6 +633,7 @@ export class HomepageEngine {
         this.container.appendChild(block);
       }
     });
+    }
 
     const noResult = document.getElementById("noResult");
     if (noResult) {
