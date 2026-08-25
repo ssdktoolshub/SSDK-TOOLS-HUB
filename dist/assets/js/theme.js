@@ -3,7 +3,7 @@ const savedTheme = localStorage.getItem("ssdk-theme") || "dark";
 document.documentElement.setAttribute("data-theme", savedTheme);
 
 // Initialize scroll animations and background particles after DOM loads
-function initThemeDOM() {
+document.addEventListener("DOMContentLoaded", () => {
   // Scroll animations with IntersectionObserver
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -43,13 +43,7 @@ function initThemeDOM() {
   loadThreeJS(() => {
     initThreeParticles();
   });
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initThemeDOM);
-} else {
-  initThemeDOM();
-}
+});
 
 function loadThreeJS(callback) {
   if (window.THREE) {

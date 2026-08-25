@@ -156,7 +156,8 @@ if (dropCats) {
   });
 }
 
-function checkSessionOpenCategory() {
+// Check sessionStorage on page load to expand and scroll to requested category
+window.addEventListener("DOMContentLoaded", () => {
   const onLandingPage = document.getElementById("toolContainer") !== null;
   if (onLandingPage) {
     const catToOpen = sessionStorage.getItem("ssdk-open-category");
@@ -165,12 +166,7 @@ function checkSessionOpenCategory() {
       openCategoryOnLanding(catToOpen);
     }
   }
-}
-if (document.readyState === "loading") {
-  window.addEventListener("DOMContentLoaded", checkSessionOpenCategory);
-} else {
-  checkSessionOpenCategory();
-}
+});
 
 // Expose Auth update globally so pages can push logins
 window.updateHeaderAuth = (user) => {
@@ -335,7 +331,7 @@ function updateFavoritesBadge() {
   }
 }
 
-function initHeaderFavsAndLang() {
+window.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("toolFavBtn");
   if (btn) {
     const path = window.location.pathname;
@@ -377,12 +373,7 @@ function initHeaderFavsAndLang() {
   }
   
   updateFavoritesBadge();
-}
-if (document.readyState === "loading") {
-  window.addEventListener("DOMContentLoaded", initHeaderFavsAndLang);
-} else {
-  initHeaderFavsAndLang();
-}
+});
 
 // Translation Engine Global
 window.ssdkTranslations = {

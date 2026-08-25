@@ -95,7 +95,10 @@ export class ErrorEngine {
   async safeFetch(url, options = {}, module = "API") {
     try {
       this.log("debug", module, `Fetching: ${url}`);
-      const response = await fetch(url, options);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
+      const response = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(timeoutId);
       if (!response.ok) {
         throw new Error(`HTTP Error: ${response.status}`);
       }

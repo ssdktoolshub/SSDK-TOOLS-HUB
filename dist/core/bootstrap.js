@@ -42,7 +42,7 @@ import { ImageEngine } from "../engines/image-engine.js";
 import { PDFEngine } from "../engines/pdf-engine.js";
 import { SupabaseEngine } from "../engines/supabase-engine.js";
 
-async function bootstrap() {
+document.addEventListener("DOMContentLoaded", async () => {
   console.log("[Bootstrap] Booting SSDK Tools Hub platform...");
 
   // 1. Initialize Core Engine Orchestrator
@@ -105,13 +105,7 @@ async function bootstrap() {
       .then(reg => console.log("[Bootstrap] ServiceWorker registered with scope:", reg.scope))
       .catch(err => console.error("[Bootstrap] ServiceWorker registration failed:", err));
   }
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", bootstrap);
-} else {
-  bootstrap();
-}
+});
 
 async function renderLayoutFramework(core) {
   const prefix = core.prefix;
@@ -129,68 +123,7 @@ async function renderLayoutFramework(core) {
   setupHeaderControls(core);
 }
 
-function renderHeader(prefix, categoriesList = [], siteConfig = {}) {
-  if (document.getElementById("nav")) return;
 
-  const categories = categoriesList && categoriesList.length ? categoriesList : [
-    { name: "⚡ AI Tools", emoji: "⚡" },
-    { name: "🖼 Image Tools", emoji: "🖼" },
-    { name: "📄 PDF Tools", emoji: "📄" },
-    { name: "📝 Text Tools", emoji: "📝" },
-    { name: "🛠 Developer Tools", emoji: "🛠" },
-    { name: "🩺 Medical & Lab Tools", emoji: "🩺" },
-    { name: "🔄 Unit Converters", emoji: "🔄" },
-    { name: "🔐 Security Tools", emoji: "🔐" },
-    { name: "🎨 Color Tools", emoji: "🎨" },
-    { name: "💰 Finance Tools", emoji: "💰" }
-  ];
-
-  const headerHTML = `
-    <nav id="nav">
-      <a href="${prefix}/index.html" class="logo">
-        <span class="logo-title"><span class="brand-ssdk">SSDK</span> <span class="brand-th">Tools Hub</span></span>
-      </a>
-
-      <button class="burger" id="burger" aria-label="Toggle navigation">☰</button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="${prefix}/index.html">Home</a>
-        <a href="${prefix}/index.html#favorites" id="navFavsLink">Favorites <span class="fav-badge" id="favBadge" style="display:none">0</span></a>
-
-        <div class="dropdown">
-          <a class="dropdown-trigger" style="cursor:pointer;">Categories ▾</a>
-          <div class="dropdown-menu" id="dropCats">
-            ${categories.slice(0, 16).map(c => `
-              <a href="${prefix}/index.html#tools" class="mega-item" data-cat="${c.name}">
-                <span>${c.emoji || '🔧'}</span> ${c.name}
-              </a>
-            `).join('')}
-            <a href="${prefix}/index.html#tools" class="mega-item" style="grid-column: 1 / -1; text-align:center; font-weight:700; border-top:1px solid var(--color-border, #333);">
-              🌐 View All Categories
-            </a>
-          </div>
-        </div>
-
-        <a href="${prefix}/pages/about.html">About</a>
-        <a href="${prefix}/pages/contact.html">Contact</a>
-        
-        <button id="globalSearchBtn" class="btn btn-sm btn-secondary" title="Search Tools (Ctrl+K)" style="display:flex; align-items:center; gap:6px; padding:6px 12px; border-radius:var(--radius-pill, 20px);">
-          <span>🔍</span> <span style="font-size:0.8rem; opacity:0.8;">Ctrl+K</span>
-        </button>
-
-        <select id="langSelect" style="background:var(--color-surface-elevated, rgba(255,255,255,0.05)); border:1px solid var(--color-border, rgba(255,255,255,0.1)); border-radius:15px; color:var(--color-foreground, #fff); outline:none; cursor:pointer; font-weight:600; font-size:0.85rem; padding:4px 8px;">
-          <option value="en">🌐 English</option>
-          <option value="bn">🌐 বাংলা</option>
-          <option value="hi">🌐 हिन्दी</option>
-        </select>
-
-        <button class="toggle" id="themeBtn" style="cursor:pointer;">🌙 Dark</button>
-        <a href="${prefix}/pages/login.html" id="navAuthBtn" class="btn btn-sm btn-primary" style="border-radius:20px; padding:6px 16px; text-decoration:none;">Login</a>
-      </div>
-    </nav>
-  `;
-  document.body.insertAdjacentHTML("afterbegin", headerHTML);
-}
 
 function renderFooter(prefix, siteConfig = {}) {
   const company = siteConfig.company || {
@@ -1038,18 +971,13 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 // Mount Floating AI Assistant Widget
-function mountAIChatWidget() {
+window.addEventListener("DOMContentLoaded", () => {
   if (window.SSDKCore && window.GlassComponents && typeof window.GlassComponents.createAIChatWidget === "function") {
     if (!document.getElementById("ssdkAiChatWidget")) {
       const widget = window.GlassComponents.createAIChatWidget(window.SSDKCore);
       document.body.appendChild(widget);
     }
   }
-}
-if (document.readyState === "loading") {
-  window.addEventListener("DOMContentLoaded", mountAIChatWidget);
-} else {
-  mountAIChatWidget();
-}
+});
 
 

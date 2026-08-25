@@ -983,7 +983,7 @@ export class HomepageEngine {
     if (!config) return;
     
     const tools = await config.getTools();
-    const categories = await config.loadJSON("categories.json", true) || [];
+    const categories = await config.loadJSON("categories.json", false) || [];
     
     // Count tools per category id
     const toolCounts = {};
