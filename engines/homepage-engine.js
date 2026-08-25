@@ -983,7 +983,7 @@ export class HomepageEngine {
     if (!config) return;
     
     const tools = await config.getTools();
-    const categories = await config.getCategories();
+    const categories = await config.loadJSON("categories.json", true) || [];
     
     // Count tools per category id
     const toolCounts = {};
@@ -1156,12 +1156,6 @@ export class HomepageEngine {
 
   initScrollReveal() {
     const reveals = document.querySelectorAll(".reveal-on-scroll, .home-section");
-    reveals.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add("revealed");
-      }
-    });
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1169,7 +1163,7 @@ export class HomepageEngine {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05 });
+    }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   }
 
