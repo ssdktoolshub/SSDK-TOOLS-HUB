@@ -19,8 +19,8 @@
   ],
   "announcement": {
     "id": "v14-release",
-    "active": true,
-    "text": "🎉 SSDK Tools Hub Enterprise Edition (Phase 14) is now live with high contrast accessibility mode!",
+    "active": false,
+    "text": "",
     "type": "info"
   },
   "footer": {
