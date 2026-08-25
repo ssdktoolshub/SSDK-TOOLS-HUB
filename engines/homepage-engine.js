@@ -107,12 +107,15 @@ export class HomepageEngine {
   }
 
   async applyHomepageMetadata() {
-    // Get global settings (which loads home.json via our mapped configs structure)
     const config = this.core.getEngine("config");
     const meta = await config.loadJSON("home.json", true);
     if (meta) {
+      const heroBadge = document.querySelector(".hero-badge");
       const heroTitle = document.querySelector(".hero h1.text-3d");
       const heroSub = document.querySelector(".hero p.subtitle");
+      if (heroBadge && meta.heroBadge) {
+        heroBadge.textContent = meta.heroBadge;
+      }
       if (heroTitle && meta.heroTitle) {
         heroTitle.textContent = meta.heroTitle;
       }
