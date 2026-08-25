@@ -23,7 +23,7 @@ export class PDFEngine {
     this.container = document.querySelector(containerSelector);
     if (!this.container) return;
 
-    this.container.innerHTML = \`
+    this.container.innerHTML = `
       <div class="pdf-workspace" style="display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%;">
         
         <!-- Upload Zone -->
@@ -57,7 +57,7 @@ export class PDFEngine {
           </div>
         </div>
       </div>
-    \`;
+    `;
 
     this.setupEventListeners();
   }
@@ -91,7 +91,7 @@ export class PDFEngine {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       if (file.type !== "application/pdf") {
-         this.core.getEngine("notification")?.show(\`Skipped \${file.name} - Not a PDF\`, "warning");
+         this.core.getEngine("notification")?.show(`Skipped ${file.name} - Not a PDF`, "warning");
          continue;
       }
 
@@ -102,7 +102,7 @@ export class PDFEngine {
     if (this.activeFiles.length > 0) {
       this.renderFileList();
       this.showWorkspace();
-      this.core.getEngine("notification")?.show(\`Loaded \${this.activeFiles.length} PDF(s)\`, "success");
+      this.core.getEngine("notification")?.show(`Loaded ${this.activeFiles.length} PDF(s)`, "success");
       
       // Notify tool that files are ready
       document.dispatchEvent(new CustomEvent("ssdk:pdfLoaded", { detail: { files: this.activeFiles } }));
@@ -114,12 +114,12 @@ export class PDFEngine {
     list.innerHTML = "";
     this.activeFiles.forEach((item, index) => {
       const sizeStr = (item.file.size / 1024 / 1024).toFixed(2) + " MB";
-      list.innerHTML += \`
+      list.innerHTML += `
         <li style="display:flex; justify-content:space-between; padding:8px 10px; background: rgba(255,255,255,0.05); margin-bottom: 5px; border-radius: 4px;">
-           <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%;">\${item.file.name}</span>
-           <span style="color:var(--text-muted); font-size: 0.85rem;">\${sizeStr}</span>
+           <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%;">${item.file.name}</span>
+           <span style="color:var(--text-muted); font-size: 0.85rem;">${sizeStr}</span>
         </li>
-      \`;
+      `;
     });
     document.getElementById("pdf-count-text").textContent = this.activeFiles.length;
   }
@@ -150,7 +150,7 @@ export class PDFEngine {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-    this.core.getEngine("notification")?.show(\`Downloaded \${filename}\`, "success");
+    this.core.getEngine("notification")?.show(`Downloaded ${filename}`, "success");
   }
 
   /**

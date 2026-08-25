@@ -42,70 +42,83 @@ import { ImageEngine } from "../engines/image-engine.js";
 import { PDFEngine } from "../engines/pdf-engine.js";
 import { SupabaseEngine } from "../engines/supabase-engine.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function startApp() {
+  if (window.__SSDK_BOOTED__) return;
+  window.__SSDK_BOOTED__ = true;
+  
   console.log("[Bootstrap] Booting SSDK Tools Hub platform...");
 
-  // 1. Initialize Core Engine Orchestrator
-  const core = new CoreEngine();
-  window.SSDKCore = core;
+  try {
+    // 1. Initialize Core Engine Orchestrator
+    const core = new CoreEngine();
+    window.SSDKCore = core;
 
-  // 2. Register all support modules
-  await core.registerEngine("error", new ErrorEngine());
-  await core.registerEngine("theme", new ThemeEngine());
-  await core.registerEngine("router", new RouterEngine());
-  await core.registerEngine("tool", new ToolEngine());
-  await core.registerEngine("search", new SearchEngine());
-  await core.registerEngine("history", new HistoryEngine());
-  await core.registerEngine("favorites", new FavoritesEngine());
-  await core.registerEngine("seo", new SEOEngine());
-  await core.registerEngine("homepage", new HomepageEngine());
-  await core.registerEngine("analytics", new AnalyticsEngine());
-  await core.registerEngine("notification", new NotificationEngine());
-  await core.registerEngine("recommendation", new RecommendationEngine());
-  await core.registerEngine("python", new PythonEngine());
-  await core.registerEngine("ai", new AIEngine());
-  await core.registerEngine("plugin", new PluginEngine());
-  await core.registerEngine("update", new UpdateEngine());
-  await core.registerEngine("category", new CategoryEngine());
-  await core.registerEngine("state", new StateEngine());
-  await core.registerEngine("admin", new AdminEngine());
-  await core.registerEngine("storage", new StorageEngine());
-  await core.registerEngine("logger", new LoggerEngine());
-  await core.registerEngine("security", new SecurityEngine());
-  await core.registerEngine("health", new HealthMonitor());
-  await core.registerEngine("job", new JobEngine());
-  await core.registerEngine("workflow", new WorkflowEngine());
-  await core.registerEngine("capability", new CapabilityEngine());
-  await core.registerEngine("image", new ImageEngine());
-  await core.registerEngine("pdf", new PDFEngine());
-  await core.registerEngine("supabase", new SupabaseEngine());
-  
-  // Phase 16 Abstractions
-  await core.registerEngine("i18n", new I18nEngine());
-  await core.registerEngine("a11y", new A11yEngine());
-  await core.registerEngine("bridge", new PlatformBridge());
-  await core.registerEngine("pluginManager", new PluginManager());
-  await core.registerEngine("marketplace", new MarketplaceEngine());
-  await core.registerEngine("community", new CommunityEngine());
-  await core.registerEngine("reputation", new ReputationEngine());
-  await core.registerEngine("sync", new SyncEngine());
-  await core.registerEngine("workspace", new WorkspaceEngine());
-  await core.registerEngine("billing", new BillingEngine());
+    // 2. Register all support modules
+    await core.registerEngine("error", new ErrorEngine());
+    await core.registerEngine("theme", new ThemeEngine());
+    await core.registerEngine("router", new RouterEngine());
+    await core.registerEngine("tool", new ToolEngine());
+    await core.registerEngine("search", new SearchEngine());
+    await core.registerEngine("history", new HistoryEngine());
+    await core.registerEngine("favorites", new FavoritesEngine());
+    await core.registerEngine("seo", new SEOEngine());
+    await core.registerEngine("homepage", new HomepageEngine());
+    await core.registerEngine("analytics", new AnalyticsEngine());
+    await core.registerEngine("notification", new NotificationEngine());
+    await core.registerEngine("recommendation", new RecommendationEngine());
+    await core.registerEngine("python", new PythonEngine());
+    await core.registerEngine("ai", new AIEngine());
+    await core.registerEngine("plugin", new PluginEngine());
+    await core.registerEngine("update", new UpdateEngine());
+    await core.registerEngine("category", new CategoryEngine());
+    await core.registerEngine("state", new StateEngine());
+    await core.registerEngine("admin", new AdminEngine());
+    await core.registerEngine("storage", new StorageEngine());
+    await core.registerEngine("logger", new LoggerEngine());
+    await core.registerEngine("security", new SecurityEngine());
+    await core.registerEngine("health", new HealthMonitor());
+    await core.registerEngine("job", new JobEngine());
+    await core.registerEngine("workflow", new WorkflowEngine());
+    await core.registerEngine("capability", new CapabilityEngine());
+    await core.registerEngine("image", new ImageEngine());
+    await core.registerEngine("pdf", new PDFEngine());
+    await core.registerEngine("supabase", new SupabaseEngine());
+    
+    // Phase 16 Abstractions
+    await core.registerEngine("i18n", new I18nEngine());
+    await core.registerEngine("a11y", new A11yEngine());
+    await core.registerEngine("bridge", new PlatformBridge());
+    await core.registerEngine("pluginManager", new PluginManager());
+    await core.registerEngine("marketplace", new MarketplaceEngine());
+    await core.registerEngine("community", new CommunityEngine());
+    await core.registerEngine("reputation", new ReputationEngine());
+    await core.registerEngine("sync", new SyncEngine());
+    await core.registerEngine("workspace", new WorkspaceEngine());
+    await core.registerEngine("billing", new BillingEngine());
 
-  // 3. Boot the Core Orchestration
-  await core.init();
+    // 3. Boot the Core Orchestration
+    await core.init();
 
-  // 4. Dynamically Render Header & Footer Layouts
-  await renderLayoutFramework(core);
+    // 4. Dynamically Render Header & Footer Layouts
+    await renderLayoutFramework(core);
 
-  // 5. Register Service Worker for offline support and speed caching
-  const prefix = core.prefix;
-  if ("serviceWorker" in navigator && window.location.protocol !== "file:") {
-    navigator.serviceWorker.register(`${prefix}/sw.js`)
-      .then(reg => console.log("[Bootstrap] ServiceWorker registered with scope:", reg.scope))
-      .catch(err => console.error("[Bootstrap] ServiceWorker registration failed:", err));
+    // 5. Register Service Worker for offline support and speed caching
+    const prefix = core.prefix;
+    if ("serviceWorker" in navigator && window.location.protocol !== "file:") {
+      navigator.serviceWorker.register(`${prefix}/sw.js`)
+        .then(reg => console.log("[Bootstrap] ServiceWorker registered with scope:", reg.scope))
+        .catch(err => console.error("[Bootstrap] ServiceWorker registration failed:", err));
+    }
+  } catch (err) {
+    console.error("[Bootstrap] Critical error during platform bootstrap:", err);
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startApp, { once: true });
+} else {
+  startApp();
+}
 
 async function renderLayoutFramework(core) {
   const prefix = core.prefix;
@@ -124,6 +137,65 @@ async function renderLayoutFramework(core) {
 }
 
 
+
+function renderHeader(prefix, categoriesList = [], siteConfig = {}) {
+  let nav = document.getElementById("nav");
+  if (!nav) {
+    const headerHTML = `
+      <nav id="nav">
+        <a href="${prefix}/index.html" class="logo">
+          <img src="${prefix}/assets/images/logo.png" alt="SSDK" onerror="this.style.display='none'">
+          <div class="logo-text-container">
+            <span class="logo-title"><span class="brand-ssdk">SSDK</span> <span class="brand-th">Tools Hub</span></span>
+            <span class="logo-tagline">One Platform. Every Tool You Need.</span>
+          </div>
+        </a>
+
+        <button class="burger" id="burger" aria-label="Toggle navigation">☰</button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="${prefix}/index.html">Home</a>
+          <a href="${prefix}/index.html#favorites" id="navFavsLink">Favorites <span class="fav-badge" id="favBadge" style="display:none">0</span></a>
+
+          <div class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-trigger">Categories ▾</a>
+            <div class="dropdown-menu mega-menu" id="dropCats"></div>
+          </div>
+
+          <a href="${prefix}/pages/about.html">About</a>
+          <a href="${prefix}/pages/contact.html">Contact</a>
+          <a href="${prefix}/pages/developers.html">Developers</a>
+          <a href="${prefix}/pages/login.html" id="navAuthBtn" class="toggle" style="border-radius:30px;padding:8px 20px;">Login</a>
+          
+          <button id="globalSearchBtn" class="nav-cmd-btn" title="Quick Search (Ctrl+K)" style="background:rgba(255,255,255,0.06);border:1px solid var(--color-border);border-radius:var(--radius-pill);padding:6px 12px;color:var(--color-muted);font-size:var(--font-size-micro);cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+            <span>🔍 Search</span>
+            <kbd style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;font-size:10px;">⌘K</kbd>
+          </button>
+
+          <select id="langSelect" style="background:transparent;border:1px solid var(--color-border);border-radius:15px;color:var(--color-foreground);outline:none;cursor:pointer;font-weight:600;font-size:0.85rem;padding:4px 8px;margin-right:6px;">
+            <option value="en">🌐 English</option>
+            <option value="bn">🌐 বাংলা</option>
+            <option value="hi">🌐 हिन्दी</option>
+          </select>
+          
+          <button class="toggle" id="themeBtn">🌙 Dark</button>
+        </div>
+      </nav>
+    `;
+    document.body.insertAdjacentHTML("afterbegin", headerHTML);
+  }
+
+  // Populate Categories Dropdown
+  const dropCats = document.getElementById("dropCats");
+  if (dropCats && Array.isArray(categoriesList) && categoriesList.length > 0) {
+    dropCats.innerHTML = categoriesList.map(cat => `
+      <a href="${prefix}/index.html#category-${cat.id || cat.name}" class="mega-item dropdown-item" data-cat="${cat.name}">
+        <span class="cat-emoji" style="margin-right:8px;font-size:1.1rem;">${cat.emoji || '🛠️'}</span>
+        <span class="cat-label">${cat.name}</span>
+      </a>
+    `).join("");
+  }
+}
 
 function renderFooter(prefix, siteConfig = {}) {
   const company = siteConfig.company || {
@@ -263,18 +335,20 @@ function setupHeaderControls(core) {
     const st = window.pageYOffset || document.documentElement.scrollTop;
     
     // Solid backdrop highlight on scroll
-    if (st > 50) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
+    if (nav) {
+      if (st > 50) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
 
-    // Hide/Show Header
-    if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
-    if (st > lastScrollTop && st > 100) {
-      nav.classList.add("nav-hidden");
-    } else {
-      nav.classList.remove("nav-hidden");
+      // Hide/Show Header
+      if (Math.abs(lastScrollTop - st) <= scrollThreshold) return;
+      if (st > lastScrollTop && st > 100) {
+        nav.classList.add("nav-hidden");
+      } else {
+        nav.classList.remove("nav-hidden");
+      }
     }
     lastScrollTop = st;
 

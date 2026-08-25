@@ -6,8 +6,8 @@
   "hybrid": 5,
   "manualQA": 10,
   "blocked": 6,
-  "productionReady": 954,
-  "broken": 0,
+  "productionReady": 952,
+  "broken": 2,
   "partial": 0,
   "tools": [
     {
@@ -157,7 +157,7 @@
       "id": "age-calculator",
       "name": "Age Calculator",
       "category": "🏥 Health Calculators",
-      "categorySlug": "calculator",
+      "categorySlug": "medical",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -178,8 +178,8 @@
     {
       "id": "emi-calculator",
       "name": "EMI Calculator",
-      "category": "💵 Finance Tools",
-      "categorySlug": "calculator",
+      "category": "💰 Finance Tools",
+      "categorySlug": "finance",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -233,8 +233,8 @@
     {
       "id": "word-counter",
       "name": "Word Counter",
-      "category": "🔤 Text Tools",
-      "categorySlug": "developer",
+      "category": "📝 Text Tools",
+      "categorySlug": "text",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -244,8 +244,8 @@
     {
       "id": "case-converter",
       "name": "Case Converter",
-      "category": "🔤 Text Tools",
-      "categorySlug": "developer",
+      "category": "📝 Text Tools",
+      "categorySlug": "text",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -255,7 +255,7 @@
     {
       "id": "text-to-speech",
       "name": "Text to Speech",
-      "category": "🔤 Text Tools",
+      "category": "📝 Text Tools",
       "categorySlug": "text",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -278,7 +278,7 @@
       "id": "url-encoder",
       "name": "URL Encoder",
       "category": "🌐 Web Tools",
-      "categorySlug": "developer",
+      "categorySlug": "web",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -289,17 +289,15 @@
       "id": "meta-tag-generator",
       "name": "Meta Tag Generator",
       "category": "🌐 Web Tools",
-      "categorySlug": "seo",
-      "implementationType": "BROWSER_SIDE",
-      "status": "PRODUCTION_READY",
-      "problems": [],
-      "tested": true,
-      "verified": true
+      "certStatus": "BROKEN",
+      "problems": [
+        "Module import failed: Invalid or unexpected token"
+      ]
     },
     {
       "id": "keyword-density",
       "name": "Keyword Density",
-      "category": "📊 SEO Tools",
+      "category": "📈 SEO Tools",
       "categorySlug": "seo",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -310,7 +308,7 @@
     {
       "id": "robots-txt-generator",
       "name": "Robots.txt Generator",
-      "category": "📊 SEO Tools",
+      "category": "📈 SEO Tools",
       "categorySlug": "seo",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -321,7 +319,7 @@
     {
       "id": "sitemap-generator",
       "name": "Sitemap Generator",
-      "category": "📊 SEO Tools",
+      "category": "📈 SEO Tools",
       "categorySlug": "seo",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2868,7 +2866,7 @@
     {
       "id": "json-validator",
       "name": "JSON Validator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2879,7 +2877,7 @@
     {
       "id": "json-minifier",
       "name": "JSON Minifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2890,7 +2888,7 @@
     {
       "id": "json-beautifier",
       "name": "JSON Beautifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2901,7 +2899,7 @@
     {
       "id": "json-compare",
       "name": "JSON Compare",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2912,7 +2910,7 @@
     {
       "id": "json-diff",
       "name": "JSON Diff",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2923,7 +2921,7 @@
     {
       "id": "json-viewer",
       "name": "JSON Viewer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2934,7 +2932,7 @@
     {
       "id": "json-editor",
       "name": "JSON Editor",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2945,7 +2943,7 @@
     {
       "id": "json-to-xml",
       "name": "JSON to XML",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2956,7 +2954,7 @@
     {
       "id": "json-to-csv",
       "name": "JSON to CSV",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2967,7 +2965,7 @@
     {
       "id": "json-to-yaml",
       "name": "JSON to YAML",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2978,7 +2976,7 @@
     {
       "id": "xml-formatter",
       "name": "XML Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -2989,7 +2987,7 @@
     {
       "id": "xml-validator",
       "name": "XML Validator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3000,7 +2998,7 @@
     {
       "id": "xml-viewer",
       "name": "XML Viewer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3011,7 +3009,7 @@
     {
       "id": "xml-to-json",
       "name": "XML to JSON",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3022,7 +3020,7 @@
     {
       "id": "yaml-formatter",
       "name": "YAML Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3033,7 +3031,7 @@
     {
       "id": "yaml-validator",
       "name": "YAML Validator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3044,7 +3042,7 @@
     {
       "id": "yaml-to-json",
       "name": "YAML to JSON",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3055,7 +3053,7 @@
     {
       "id": "html-formatter",
       "name": "HTML Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3066,7 +3064,7 @@
     {
       "id": "html-minifier",
       "name": "HTML Minifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3077,7 +3075,7 @@
     {
       "id": "html-beautifier",
       "name": "HTML Beautifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3088,7 +3086,7 @@
     {
       "id": "html-encoder",
       "name": "HTML Encoder",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3099,7 +3097,7 @@
     {
       "id": "html-decoder",
       "name": "HTML Decoder",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3110,7 +3108,7 @@
     {
       "id": "html-preview",
       "name": "HTML Preview",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3121,7 +3119,7 @@
     {
       "id": "css-formatter",
       "name": "CSS Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3132,7 +3130,7 @@
     {
       "id": "css-minifier",
       "name": "CSS Minifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3143,7 +3141,7 @@
     {
       "id": "css-beautifier",
       "name": "CSS Beautifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3154,7 +3152,7 @@
     {
       "id": "javascript-formatter",
       "name": "JavaScript Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3165,7 +3163,7 @@
     {
       "id": "javascript-minifier",
       "name": "JavaScript Minifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3176,7 +3174,7 @@
     {
       "id": "javascript-beautifier",
       "name": "JavaScript Beautifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3187,7 +3185,7 @@
     {
       "id": "sql-formatter",
       "name": "SQL Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3198,7 +3196,7 @@
     {
       "id": "sql-minifier",
       "name": "SQL Minifier",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3209,7 +3207,7 @@
     {
       "id": "markdown-editor",
       "name": "Markdown Editor",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3220,7 +3218,7 @@
     {
       "id": "markdown-preview",
       "name": "Markdown Preview",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3231,7 +3229,7 @@
     {
       "id": "markdown-to-html",
       "name": "Markdown to HTML",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3242,7 +3240,7 @@
     {
       "id": "csv-viewer",
       "name": "CSV Viewer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3253,7 +3251,7 @@
     {
       "id": "csv-to-json",
       "name": "CSV to JSON",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3264,7 +3262,7 @@
     {
       "id": "csv-formatter",
       "name": "CSV Formatter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3275,7 +3273,7 @@
     {
       "id": "base64-encode",
       "name": "Base64 Encode",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3286,7 +3284,7 @@
     {
       "id": "base64-decode",
       "name": "Base64 Decode",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3297,7 +3295,7 @@
     {
       "id": "url-decoder",
       "name": "URL Decoder",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3308,7 +3306,7 @@
     {
       "id": "jwt-decoder",
       "name": "JWT Decoder",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3319,7 +3317,7 @@
     {
       "id": "jwt-generator",
       "name": "JWT Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3330,7 +3328,7 @@
     {
       "id": "md5-generator",
       "name": "MD5 Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3341,7 +3339,7 @@
     {
       "id": "sha1-generator",
       "name": "SHA1 Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3352,7 +3350,7 @@
     {
       "id": "sha256-generator",
       "name": "SHA256 Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3363,7 +3361,7 @@
     {
       "id": "sha512-generator",
       "name": "SHA512 Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3374,7 +3372,7 @@
     {
       "id": "password-strength-checker",
       "name": "Password Strength Checker",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3385,7 +3383,7 @@
     {
       "id": "cron-expression-generator",
       "name": "Cron Expression Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3396,7 +3394,7 @@
     {
       "id": "unix-timestamp-converter",
       "name": "Unix Timestamp Converter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3407,7 +3405,7 @@
     {
       "id": "epoch-converter",
       "name": "Epoch Converter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3418,7 +3416,7 @@
     {
       "id": "uuid-validator",
       "name": "UUID Validator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3429,7 +3427,7 @@
     {
       "id": "slug-generator",
       "name": "Slug Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3440,7 +3438,7 @@
     {
       "id": "lorem-ipsum-generator",
       "name": "Lorem Ipsum Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3451,7 +3449,7 @@
     {
       "id": "text-diff-checker",
       "name": "Text Diff Checker",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3462,7 +3460,7 @@
     {
       "id": "whitespace-remover",
       "name": "Whitespace Remover",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3473,7 +3471,7 @@
     {
       "id": "duplicate-line-remover",
       "name": "Duplicate Line Remover",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3484,7 +3482,7 @@
     {
       "id": "sort-lines",
       "name": "Sort Lines",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3495,8 +3493,8 @@
     {
       "id": "reverse-text",
       "name": "Reverse Text",
-      "category": "👨‍💻 Developer Tools",
-      "categorySlug": "developer",
+      "category": "🛠 Developer Tools",
+      "categorySlug": "text",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -3506,18 +3504,16 @@
     {
       "id": "character-counter",
       "name": "Character Counter",
-      "category": "👨‍💻 Developer Tools",
-      "categorySlug": "developer",
-      "implementationType": "BROWSER_SIDE",
-      "status": "PRODUCTION_READY",
-      "problems": [],
-      "tested": true,
-      "verified": true
+      "category": "🛠 Developer Tools",
+      "certStatus": "BROKEN",
+      "problems": [
+        "Module import failed: Invalid or unexpected token"
+      ]
     },
     {
       "id": "qr-code-reader",
       "name": "QR Code Reader",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3528,7 +3524,7 @@
     {
       "id": "barcode-generator",
       "name": "Barcode Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3539,7 +3535,7 @@
     {
       "id": "barcode-reader",
       "name": "Barcode Reader",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3550,7 +3546,7 @@
     {
       "id": "hex-to-rgb",
       "name": "HEX to RGB",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3561,7 +3557,7 @@
     {
       "id": "rgb-to-hex",
       "name": "RGB to HEX",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3572,7 +3568,7 @@
     {
       "id": "hsl-converter",
       "name": "HSL Converter",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3583,7 +3579,7 @@
     {
       "id": "css-box-shadow-generator",
       "name": "CSS Box Shadow Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3594,7 +3590,7 @@
     {
       "id": "css-border-radius-generator",
       "name": "CSS Border Radius Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3605,7 +3601,7 @@
     {
       "id": "css-clip-path-generator",
       "name": "CSS Clip Path Generator",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3616,7 +3612,7 @@
     {
       "id": "svg-optimizer",
       "name": "SVG Optimizer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3627,7 +3623,7 @@
     {
       "id": "svg-viewer",
       "name": "SVG Viewer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3638,7 +3634,7 @@
     {
       "id": "svg-to-png",
       "name": "SVG to PNG",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3649,7 +3645,7 @@
     {
       "id": "svg-to-jpg",
       "name": "SVG to JPG",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3660,7 +3656,7 @@
     {
       "id": "svg-compressor",
       "name": "SVG Compressor",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3671,7 +3667,7 @@
     {
       "id": "url-parser",
       "name": "URL Parser",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3682,7 +3678,7 @@
     {
       "id": "http-header-viewer",
       "name": "HTTP Header Viewer",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3693,7 +3689,7 @@
     {
       "id": "user-agent-parser",
       "name": "User Agent Parser",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3704,7 +3700,7 @@
     {
       "id": "mime-type-checker",
       "name": "MIME Type Checker",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3715,7 +3711,7 @@
     {
       "id": "dns-lookup",
       "name": "DNS Lookup",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3726,7 +3722,7 @@
     {
       "id": "whois-lookup",
       "name": "WHOIS Lookup",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3737,7 +3733,7 @@
     {
       "id": "ip-lookup",
       "name": "IP Lookup",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3748,7 +3744,7 @@
     {
       "id": "geoip-lookup",
       "name": "GeoIP Lookup",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3759,7 +3755,7 @@
     {
       "id": "port-checker",
       "name": "Port Checker",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -3770,7 +3766,7 @@
     {
       "id": "ssl-checker",
       "name": "SSL Checker",
-      "category": "👨‍💻 Developer Tools",
+      "category": "🛠 Developer Tools",
       "categorySlug": "developer",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -5685,7 +5681,7 @@
       "id": "random-number-generator",
       "name": "Random Number Generator",
       "category": "🧮 Calculator Tools",
-      "categorySlug": "calculator",
+      "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
       "problems": [],
@@ -5772,7 +5768,7 @@
     {
       "id": "prompt-generator",
       "name": "Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5783,7 +5779,7 @@
     {
       "id": "prompt-optimizer",
       "name": "Prompt Optimizer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5794,7 +5790,7 @@
     {
       "id": "prompt-refiner",
       "name": "Prompt Refiner",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5805,7 +5801,7 @@
     {
       "id": "prompt-improver",
       "name": "Prompt Improver",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5816,7 +5812,7 @@
     {
       "id": "prompt-library",
       "name": "Prompt Library",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5827,7 +5823,7 @@
     {
       "id": "prompt-categorizer",
       "name": "Prompt Categorizer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5838,7 +5834,7 @@
     {
       "id": "prompt-translator",
       "name": "Prompt Translator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5849,7 +5845,7 @@
     {
       "id": "ai-prompt-templates",
       "name": "AI Prompt Templates",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5860,7 +5856,7 @@
     {
       "id": "ai-chat-playground",
       "name": "AI Chat Playground",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5871,7 +5867,7 @@
     {
       "id": "ai-image-prompt-generator",
       "name": "AI Image Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5882,7 +5878,7 @@
     {
       "id": "ai-logo-prompt-generator",
       "name": "AI Logo Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5893,7 +5889,7 @@
     {
       "id": "ai-ui-prompt-generator",
       "name": "AI UI Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5904,7 +5900,7 @@
     {
       "id": "ai-website-prompt-generator",
       "name": "AI Website Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5915,7 +5911,7 @@
     {
       "id": "ai-coding-prompt-generator",
       "name": "AI Coding Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5926,7 +5922,7 @@
     {
       "id": "ai-sql-prompt-generator",
       "name": "AI SQL Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5937,7 +5933,7 @@
     {
       "id": "ai-marketing-prompt-generator",
       "name": "AI Marketing Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5948,7 +5944,7 @@
     {
       "id": "ai-resume-prompt-generator",
       "name": "AI Resume Prompt Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5959,7 +5955,7 @@
     {
       "id": "ai-cover-letter-generator",
       "name": "AI Cover Letter Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5970,7 +5966,7 @@
     {
       "id": "ai-email-generator",
       "name": "AI Email Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5981,7 +5977,7 @@
     {
       "id": "ai-blog-generator",
       "name": "AI Blog Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -5992,7 +5988,7 @@
     {
       "id": "ai-article-generator",
       "name": "AI Article Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6003,7 +5999,7 @@
     {
       "id": "ai-headline-generator",
       "name": "AI Headline Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6014,7 +6010,7 @@
     {
       "id": "ai-caption-generator",
       "name": "AI Caption Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6025,7 +6021,7 @@
     {
       "id": "ai-hashtag-generator",
       "name": "AI Hashtag Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6036,7 +6032,7 @@
     {
       "id": "ai-tweet-generator",
       "name": "AI Tweet Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6047,7 +6043,7 @@
     {
       "id": "ai-linkedin-post-generator",
       "name": "AI LinkedIn Post Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6058,7 +6054,7 @@
     {
       "id": "ai-instagram-caption-generator",
       "name": "AI Instagram Caption Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6069,7 +6065,7 @@
     {
       "id": "ai-youtube-title-generator",
       "name": "AI YouTube Title Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6080,7 +6076,7 @@
     {
       "id": "ai-youtube-description-generator",
       "name": "AI YouTube Description Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6091,7 +6087,7 @@
     {
       "id": "ai-keyword-generator",
       "name": "AI Keyword Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6102,7 +6098,7 @@
     {
       "id": "ai-faq-generator",
       "name": "AI FAQ Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6113,7 +6109,7 @@
     {
       "id": "ai-meta-generator",
       "name": "AI Meta Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6124,7 +6120,7 @@
     {
       "id": "ai-product-description-generator",
       "name": "AI Product Description Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6135,7 +6131,7 @@
     {
       "id": "ai-story-generator",
       "name": "AI Story Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6146,7 +6142,7 @@
     {
       "id": "ai-grammar-checker",
       "name": "AI Grammar Checker",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6157,7 +6153,7 @@
     {
       "id": "ai-rewriter",
       "name": "AI Rewriter",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6168,7 +6164,7 @@
     {
       "id": "ai-text-summarizer",
       "name": "AI Text Summarizer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6179,7 +6175,7 @@
     {
       "id": "ai-tone-changer",
       "name": "AI Tone Changer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6190,7 +6186,7 @@
     {
       "id": "ai-translator",
       "name": "AI Translator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6201,7 +6197,7 @@
     {
       "id": "ai-code-explainer",
       "name": "AI Code Explainer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6212,7 +6208,7 @@
     {
       "id": "ai-regex-generator",
       "name": "AI Regex Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6223,7 +6219,7 @@
     {
       "id": "ai-sql-builder",
       "name": "AI SQL Builder",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6234,7 +6230,7 @@
     {
       "id": "ai-json-generator",
       "name": "AI JSON Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6245,7 +6241,7 @@
     {
       "id": "ai-html-generator",
       "name": "AI HTML Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6256,7 +6252,7 @@
     {
       "id": "ai-css-generator",
       "name": "AI CSS Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6267,7 +6263,7 @@
     {
       "id": "ai-javascript-generator",
       "name": "AI JavaScript Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6278,7 +6274,7 @@
     {
       "id": "ai-python-generator",
       "name": "AI Python Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6289,7 +6285,7 @@
     {
       "id": "ai-bug-explainer",
       "name": "AI Bug Explainer",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6300,7 +6296,7 @@
     {
       "id": "ai-test-case-generator",
       "name": "AI Test Case Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -6311,7 +6307,7 @@
     {
       "id": "ai-documentation-generator",
       "name": "AI Documentation Generator",
-      "category": "🤖 AI Tools",
+      "category": "⚡ AI Tools",
       "categorySlug": "ai",
       "implementationType": "API",
       "status": "PRODUCTION_READY",
@@ -7433,7 +7429,7 @@
     {
       "id": "secure-password-creator",
       "name": "Secure Password Creator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7444,7 +7440,7 @@
     {
       "id": "random-string-generator",
       "name": "Random String Generator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7455,7 +7451,7 @@
     {
       "id": "crc32-generator",
       "name": "CRC32 Generator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7466,7 +7462,7 @@
     {
       "id": "jwt-encoder",
       "name": "JWT Encoder",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7477,7 +7473,7 @@
     {
       "id": "jwt-inspector",
       "name": "JWT Inspector",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7488,7 +7484,7 @@
     {
       "id": "json-web-key-viewer",
       "name": "JSON Web Key Viewer",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7499,7 +7495,7 @@
     {
       "id": "hmac-generator",
       "name": "HMAC Generator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7510,7 +7506,7 @@
     {
       "id": "checksum-generator",
       "name": "Checksum Generator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7521,7 +7517,7 @@
     {
       "id": "file-hash-checker",
       "name": "File Hash Checker",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7532,7 +7528,7 @@
     {
       "id": "file-integrity-checker",
       "name": "File Integrity Checker",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7543,7 +7539,7 @@
     {
       "id": "aes-encrypt",
       "name": "AES Encrypt",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7554,7 +7550,7 @@
     {
       "id": "aes-decrypt",
       "name": "AES Decrypt",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7565,7 +7561,7 @@
     {
       "id": "rsa-key-generator",
       "name": "RSA Key Generator",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7576,7 +7572,7 @@
     {
       "id": "rsa-encrypt",
       "name": "RSA Encrypt",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7587,7 +7583,7 @@
     {
       "id": "rsa-decrypt",
       "name": "RSA Decrypt",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7598,7 +7594,7 @@
     {
       "id": "pgp-key-viewer",
       "name": "PGP Key Viewer",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7609,7 +7605,7 @@
     {
       "id": "qr-code-decoder",
       "name": "QR Code Decoder",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",
@@ -7620,7 +7616,7 @@
     {
       "id": "barcode-decoder",
       "name": "Barcode Decoder",
-      "category": "🔒 Security Tools",
+      "category": "🔐 Security Tools",
       "categorySlug": "security",
       "implementationType": "BROWSER_SIDE",
       "status": "PRODUCTION_READY",

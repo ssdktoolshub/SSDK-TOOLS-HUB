@@ -1,16 +1,22 @@
-export async function execute(inputs) {
+export async function execute(inputs = {}) {
   const length = parseInt(inputs.length) || 16;
+  let numStr = "";
   
-  const array = new Uint32Array(1);
-  window.crypto.getRandomValues(array);
+  const cryptoObj = typeof globalThis !== 'undefined' && globalThis.crypto ? globalThis.crypto : (typeof window !== 'undefined' ? window.crypto : null);
   
-  let numStr = array[0].toString();
-  while(numStr.length < length) {
-      const extra = new Uint32Array(1);
-      window.crypto.getRandomValues(extra);
-      numStr += extra[0].toString();
+  if (cryptoObj && cryptoObj.getRandomValues) {
+    const array = new Uint32Array(Math.ceil(length / 9) + 1);
+    cryptoObj.getRandomValues(array);
+    for (let i = 0; i < array.length && numStr.length < length; i++) {
+      numStr += array[i].toString();
+    }
+  } else {
+    while (numStr.length < length) {
+      numStr += Math.floor(Math.random() * 1000000000).toString();
+    }
   }
   
-  return { toolOutput: numStr.substring(0, length) };
+  const result = numStr.substring(0, length);
+  return { toolOutput: result, outputData: result };
 }
 export function validate(inputs) { return true; }

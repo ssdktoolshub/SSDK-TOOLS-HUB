@@ -28,7 +28,7 @@ export class HomepageEngine {
     await this.applyHomepageMetadata();
 
     // 1. Inject Premium Search & Suggestions structure
-    this.injectSearchUI();
+    await this.injectSearchUI();
 
     // 2. Inject Sticky Categories Bar & Popular Categories
     this.renderFilterBar();
@@ -122,7 +122,7 @@ export class HomepageEngine {
     }
   }
 
-  injectSearchUI() {
+  async injectSearchUI() {
     const suggestionsPanel = document.getElementById("searchSuggestions");
     if (suggestionsPanel && !suggestionsPanel.innerHTML.trim()) {
       suggestionsPanel.innerHTML = `
@@ -133,6 +133,23 @@ export class HomepageEngine {
         <div class="suggestion-group-title" data-translate="recentTitle">Recent Searches</div>
         <div class="tags-container" id="recentSearches"></div>
       `;
+    }
+
+    // Populate searchCategorySelect with all registry categories
+    const categorySelect = document.getElementById("searchCategorySelect");
+    const config = this.core ? this.core.getEngine("config") : null;
+    if (categorySelect && config) {
+      try {
+        const categories = await config.getCategories();
+        if (Array.isArray(categories) && categories.length > 0) {
+          const currentVal = categorySelect.value || "all";
+          categorySelect.innerHTML = `<option value="all">All Categories</option>` +
+            categories.map(c => `<option value="${c.name}">${c.emoji ? c.emoji + ' ' : ''}${c.name}</option>`).join('');
+          categorySelect.value = currentVal;
+        }
+      } catch (err) {
+        console.warn("[HomepageEngine] Could not populate category dropdown:", err);
+      }
     }
   }
 
@@ -994,7 +1011,10 @@ export class HomepageEngine {
     });
 
     const popularIds = ["image-tools", "pdf-tools", "developer-tools", "ai-tools", "text-tools", "medical-tools", "unit-converters", "security-tools"];
-    const popularCats = categories.filter(c => popularIds.includes(c.id));
+    let popularCats = categories.filter(c => popularIds.includes(c.id));
+    if (popularCats.length === 0 && categories.length > 0) {
+      popularCats = categories.slice(0, 8);
+    }
 
     grid.innerHTML = popularCats.map(cat => {
       const count = toolCounts[cat.id] || 0;

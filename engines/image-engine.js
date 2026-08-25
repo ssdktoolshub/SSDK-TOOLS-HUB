@@ -26,7 +26,7 @@ export class ImageEngine {
     this.container = document.querySelector(containerSelector);
     if (!this.container) return;
 
-    this.container.innerHTML = \`
+    this.container.innerHTML = `
       <div class="image-workspace" style="display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%;">
         
         <!-- Upload Zone -->
@@ -58,7 +58,7 @@ export class ImageEngine {
            <button id="btn-process-download" class="btn btn-success" style="width: 100%; max-width: 300px; margin-top: 15px;">Process & Download</button>
         </div>
       </div>
-    \`;
+    `;
 
     this.previewCanvas = document.getElementById("image-processing-canvas");
     this.ctx = this.previewCanvas.getContext("2d", { willReadFrequently: true });
@@ -134,7 +134,7 @@ export class ImageEngine {
     this.previewCanvas.width = img.width;
     this.previewCanvas.height = img.height;
     this.ctx.drawImage(img, 0, 0);
-    document.getElementById("image-info-text").textContent = \`\${this.activeFileName} (\${img.width}x\${img.height}px)\`;
+    document.getElementById("image-info-text").textContent = `${this.activeFileName} (${img.width}x${img.height}px)`;
   }
 
   showWorkspace() {
@@ -165,6 +165,6 @@ export class ImageEngine {
     link.download = filename;
     link.href = this.previewCanvas.toDataURL(format, quality);
     link.click();
-    this.core.getEngine("notification")?.show(\`Downloaded \${filename}\`, "success");
+    this.core.getEngine("notification")?.show(`Downloaded ${filename}`, "success");
   }
 }

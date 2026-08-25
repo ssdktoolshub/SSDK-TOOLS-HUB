@@ -1,12 +1,14 @@
 // SSDK Tools Hub Service Worker - Coordinates offline caching and instant asset delivery
 
-const CACHE_NAME = "ssdk-cache-v2";
+const CACHE_NAME = "ssdk-cache-v3";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./assets/css/design-tokens.css",
   "./assets/css/ssdk-style.css",
+  "./assets/css/content-presentation.css",
+  "./assets/css/tool-workspace.css",
   "./assets/images/logo.png",
   "./core/core.js",
   "./core/bootstrap.js",
@@ -45,11 +47,11 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   
-  if (url.origin.includes("supabase") || url.origin.includes("firebase") || url.origin.includes("googleapis")) {
+  if (url.origin.includes("supabase") || url.origin.includes("firebase") || url.origin.includes("googleapis") || url.origin.includes("onrender.com")) {
     return;
   }
 
-  const isConfigJson = url.pathname.includes("/json/");
+  const isConfigJson = url.pathname.includes("/json/") || url.pathname.includes("/registry/") || url.pathname.includes("/configs/");
 
   if (isConfigJson) {
     e.respondWith(
