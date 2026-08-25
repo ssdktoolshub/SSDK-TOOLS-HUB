@@ -1140,6 +1140,16 @@ export class HomepageEngine {
     const grid = document.getElementById(containerId);
     if (!grid) return;
     
+    if (!Array.isArray(tools) || tools.length === 0) {
+      grid.innerHTML = "";
+      const sec = grid.closest(".home-section");
+      if (sec) sec.style.display = "none";
+      return;
+    }
+
+    const sec = grid.closest(".home-section");
+    if (sec) sec.style.display = "block";
+    
     grid.innerHTML = tools.map(t => {
       const isFav = favorites ? favorites.isFavorite(t.id) : false;
       const favClass = isFav ? "fav-btn on" : "fav-btn";

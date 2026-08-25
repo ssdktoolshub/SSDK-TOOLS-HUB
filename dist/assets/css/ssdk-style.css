@@ -4051,21 +4051,64 @@ body, .body-text {
 }
 
 .search-category-select-wrap {
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   padding-left: var(--space-12);
   display: flex;
   align-items: center;
 }
 
-.search-category-select-wrap select {
-  background: transparent;
-  border: none;
+.search-category-select-wrap select,
+#searchCategorySelect {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: var(--radius-pill);
   outline: none;
-  color: var(--color-foreground);
+  color: #ffffff !important;
   font-size: var(--font-size-small);
-  font-weight: var(--font-weight-semibold);
+  font-weight: 600;
   cursor: pointer;
-  padding-right: var(--space-12);
+  padding: 6px 14px;
+  padding-right: 28px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: all var(--transition-fast);
+}
+
+.search-category-select-wrap select:hover,
+#searchCategorySelect:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+}
+
+.search-category-select-wrap select option,
+#searchCategorySelect option {
+  background-color: #0f121c !important;
+  color: #ffffff !important;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+[data-theme="light"] .search-category-select-wrap {
+  border-left-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .search-category-select-wrap select,
+[data-theme="light"] #searchCategorySelect {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #0f172a !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+[data-theme="light"] .search-category-select-wrap select option,
+[data-theme="light"] #searchCategorySelect option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
 }
 
 /* Suggestions dropdown panel positioning */

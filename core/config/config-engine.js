@@ -29,56 +29,26 @@ export class ConfigEngine {
 
   /**
    * Fetches the entire tools registry index database.
-   * Hybrid Architecture: Tries Live FastAPI first -> Falls back to Static JSON.
+   * Instant 0ms load directly from static registry with local memory cache.
    */
   async getTools() {
-    await this.getSettings();
-    let tools = [];
-    
-    // 1. Attempt Enterprise API Fetch First
-    const apiUrl = this.getApiUrl("tools");
-    if (apiUrl) {
-      try {
-        const errorEngine = this.core ? this.core.getEngine("error") : null;
-        if (errorEngine && typeof errorEngine.safeFetch === "function") {
-          const apiResponse = await errorEngine.safeFetch(apiUrl, {}, "ConfigEngine");
-          if (apiResponse && Array.isArray(apiResponse)) {
-            tools = apiResponse;
-            errorEngine.log("info", "ConfigEngine", "Tools loaded from Live FastAPI backend.");
-          }
-        }
-      } catch (err) {
-        console.warn("[ConfigEngine] API unreachable, falling back to static JSON.", err);
-      }
+    if (this.cache["tools.json"]) {
+      return this.cache["tools.json"];
     }
-    
-    // 2. Fallback to Static Registry if API fails
-    if (!tools || tools.length === 0) {
-      tools = await this.loadJSON("tools.json", false) || [];
-    }
-    
-    return tools;
+    const tools = await this.loadJSON("tools.json", false);
+    return Array.isArray(tools) ? tools : [];
   }
 
   /**
    * Fetches the list of active categories.
-   * Hybrid Architecture: Tries Live FastAPI first -> Falls back to Static JSON.
+   * Instant 0ms load directly from static registry with local memory cache.
    */
   async getCategories() {
-    await this.getSettings();
-    const apiUrl = this.getApiUrl("categories");
-    if (apiUrl) {
-      try {
-        const errorEngine = this.core ? this.core.getEngine("error") : null;
-        if (errorEngine && typeof errorEngine.safeFetch === "function") {
-          const apiResponse = await errorEngine.safeFetch(apiUrl, {}, "ConfigEngine");
-          if (apiResponse && Array.isArray(apiResponse) && apiResponse.length > 0) {
-            return apiResponse;
-          }
-        }
-      } catch (err) {}
+    if (this.cache["categories.json"]) {
+      return this.cache["categories.json"];
     }
-    return await this.loadJSON("categories.json") || [];
+    const categories = await this.loadJSON("categories.json", false);
+    return Array.isArray(categories) ? categories : [];
   }
 
   /**
