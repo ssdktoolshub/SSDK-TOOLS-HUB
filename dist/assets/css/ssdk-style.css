@@ -4175,7 +4175,7 @@ body, .body-text {
 
 /* 4. Popular Categories Grid Section styling */
 .popular-categories-section {
-  padding: var(--space-32) 0;
+  padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -4274,16 +4274,16 @@ body, .body-text {
 
 /* Section spacing & visual flow */
 .home-section {
-  padding: 36px 0;
+  padding: 24px 0;
 }
 @media (min-width: 768px) {
   .home-section {
-    padding: 44px 0;
+    padding: 32px 0;
   }
 }
 @media (max-width: 480px) {
   .home-section {
-    padding: 28px 0;
+    padding: 16px 0;
   }
 }
 

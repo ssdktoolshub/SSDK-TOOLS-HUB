@@ -566,9 +566,9 @@ export class HomepageEngine {
       categories.forEach(cat => {
         // Group tools under their normalized category properties
         const catTools = toolsList.filter(t => {
-          const tCat = t.category.replace(/[^a-zA-Z]/g, "").toLowerCase();
-          const cName = cat.name.replace(/[^a-zA-Z]/g, "").toLowerCase();
-          return tCat === cName;
+          const tCat = (t.category || "").replace(/[^a-zA-Z]/g, "").toLowerCase();
+          const cName = (cat.name || "").replace(/[^a-zA-Z]/g, "").toLowerCase();
+          return tCat.includes(cName);
         });
 
         if (catTools.length > 0) {
@@ -1026,7 +1026,11 @@ export class HomepageEngine {
     // Count tools per category id
     const toolCounts = {};
     tools.forEach(t => {
-      const matchedCat = categories.find(c => c.name === t.category);
+      const tCatNorm = (t.category || "").replace(/[^a-zA-Z]/g, "").toLowerCase();
+      const matchedCat = categories.find(c => {
+        const cNameNorm = (c.name || "").replace(/[^a-zA-Z]/g, "").toLowerCase();
+        return tCatNorm.includes(cNameNorm);
+      });
       const catId = matchedCat ? matchedCat.id : t.category;
       toolCounts[catId] = (toolCounts[catId] || 0) + 1;
     });
