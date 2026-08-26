@@ -41,6 +41,7 @@ import { CapabilityEngine } from "../engines/capability-engine.js";
 import { ImageEngine } from "../engines/image-engine.js";
 import { PDFEngine } from "../engines/pdf-engine.js";
 import { SupabaseEngine } from "../engines/supabase-engine.js";
+import { GlassComponents } from "../components/glass-components.js";
 
 async function startApp() {
   if (window.__SSDK_BOOTED__) return;
@@ -134,6 +135,12 @@ async function renderLayoutFramework(core) {
 
   // Initialize theme controls and auth listeners in header
   setupHeaderControls(core);
+
+  // Mount Floating AI Assistant Widget if not already present
+  if (!document.getElementById("ssdkAiChatWidget") && typeof GlassComponents.createAIChatWidget === "function") {
+    const aiWidget = GlassComponents.createAIChatWidget(core);
+    document.body.appendChild(aiWidget);
+  }
 }
 
 

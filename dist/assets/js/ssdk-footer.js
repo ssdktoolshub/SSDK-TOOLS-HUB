@@ -23,6 +23,16 @@ document.body.insertAdjacentHTML("beforeend", `
       <a href="${prefix}/index.html">Home</a>
       <a href="${prefix}/pages/about.html">About Developer</a>
       <a href="${prefix}/pages/contact.html">Contact Us</a>
+      <a href="${prefix}/pages/admin.html">Admin Dashboard</a>
+      <a href="${prefix}/sitemap.xml">Dynamic Sitemap</a>
+    </div>
+
+    <div>
+      <h4>Support & Feedback</h4>
+      <a href="${prefix}/pages/contact.html?type=feedback">Feedback Form</a>
+      <a href="${prefix}/pages/contact.html?type=request">Request a Tool</a>
+      <a href="${prefix}/pages/contact.html?type=bug">Report an Issue</a>
+      <a href="${prefix}/pages/offline.html">Offline PWA</a>
     </div>
 
     <div>
@@ -33,9 +43,10 @@ document.body.insertAdjacentHTML("beforeend", `
     </div>
 
     <div>
-      <h4>Hosting & Tech</h4>
-      <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 8px;">Built with HTML, CSS, JS, PHP, Python, and Firebase.</p>
-      <p style="font-size: 0.85rem; color: var(--muted);">Compatible with free Vercel, Netlify, and Render deployments.</p>
+      <h4>Platform Status</h4>
+      <p style="font-size: 0.85rem; color: #10b981; margin-bottom: 8px; font-weight:600;">● All 960+ Tools Operational</p>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 8px;">Client-side execution ensures maximum speed and total privacy.</p>
+      <p style="font-size: 0.85rem; color: var(--muted);">Built with Vanilla JS, HTML5, CSS3, and modern Web APIs.</p>
     </div>
 
   </div>

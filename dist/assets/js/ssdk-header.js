@@ -20,14 +20,19 @@ document.body.insertAdjacentHTML("afterbegin", `
     <a href="${prefix}/index.html#favorites" id="navFavsLink">Favorites <span class="fav-badge" id="favBadge" style="display:none">0</span></a>
 
     <div class="dropdown">
-      <a>Categories ▾</a>
-      <div class="dropdown-menu" id="dropCats"></div>
+      <a class="dropdown-trigger" style="cursor:pointer;">Categories ▾</a>
+      <div class="dropdown-menu mega-menu" id="dropCats"></div>
     </div>
 
     <a href="${prefix}/pages/about.html">About</a>
     <a href="${prefix}/pages/contact.html">Contact</a>
     <a href="${prefix}/pages/login.html" id="navAuthBtn" class="toggle" style="border-radius:30px;padding:8px 20px;">Login</a>
     
+    <button id="globalSearchBtn" class="nav-cmd-btn" title="Quick Search (Ctrl+K)" style="background:rgba(255,255,255,0.06);border:1px solid var(--border, rgba(255,255,255,0.15));border-radius:20px;padding:6px 12px;color:var(--text-muted, #94a3b8);font-size:0.8rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+      <span>🔍 Search</span>
+      <kbd style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px;font-size:10px;">⌘K</kbd>
+    </button>
+
     <select id="langSelect" style="background:transparent;border:1px solid var(--border);border-radius:15px;color:var(--text);outline:none;cursor:pointer;font-weight:600;font-size:0.85rem;padding:4px 8px;margin-right:10px;">
       <option value="en">🌐 English</option>
       <option value="bn">🌐 বাংলা</option>
@@ -66,7 +71,35 @@ if (themeBtn) {
   };
 }
 
-// Scroll styling navigation effect
+// Search Button Click & Keyboard shortcut handler
+const globalSearchBtn = document.getElementById("globalSearchBtn");
+if (globalSearchBtn) {
+  globalSearchBtn.onclick = () => {
+    const modal = document.getElementById("globalSearchModal");
+    if (modal) {
+      modal.classList.add("active");
+      const input = document.getElementById("cmdSearchInput");
+      if (input) input.focus();
+    } else {
+      const searchInput = document.getElementById("search");
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        window.location.href = `${prefix}/index.html#search`;
+      }
+    }
+  };
+}
+
+// Global Ctrl+K / Cmd+K listener
+window.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+    e.preventDefault();
+    if (globalSearchBtn) globalSearchBtn.click();
+  }
+});
+
 window.addEventListener("scroll", () => {
   const nav = document.getElementById("nav");
   if (nav) {

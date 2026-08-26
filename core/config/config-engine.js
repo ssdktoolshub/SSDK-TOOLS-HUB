@@ -125,6 +125,43 @@ export class ConfigEngine {
   }
 
   /**
+   * Saves a newly created or edited custom category from the Admin Panel.
+   */
+  saveCustomCategory(cat) {
+    try {
+      const customCats = JSON.parse(localStorage.getItem("ssdk_custom_categories") || "[]");
+      const idx = customCats.findIndex(c => (c.id && c.id === cat.id) || c.name === cat.name);
+      if (idx >= 0) {
+        customCats[idx] = cat;
+      } else {
+        customCats.push(cat);
+      }
+      localStorage.setItem("ssdk_custom_categories", JSON.stringify(customCats));
+      delete this.cache["categories.json"];
+      return true;
+    } catch (e) {
+      console.error("[ConfigEngine] Failed to save custom category:", e);
+      return false;
+    }
+  }
+
+  /**
+   * Deletes a custom category from browser storage.
+   */
+  deleteCustomCategory(catIdOrName) {
+    try {
+      const customCats = JSON.parse(localStorage.getItem("ssdk_custom_categories") || "[]");
+      const filtered = customCats.filter(c => (c.id !== catIdOrName) && (c.name !== catIdOrName));
+      localStorage.setItem("ssdk_custom_categories", JSON.stringify(filtered));
+      delete this.cache["categories.json"];
+      return true;
+    } catch (e) {
+      console.error("[ConfigEngine] Failed to delete custom category:", e);
+      return false;
+    }
+  }
+
+  /**
    * Fetches FAQ schemas.
    */
   async getFAQ() {
