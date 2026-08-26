@@ -455,6 +455,22 @@ export class ToolEngine {
   }
 
   async loadToolModule(tool) {
+    if (tool.customLogic) {
+      try {
+        const userFn = new Function('inputs', tool.customLogic);
+        this.activeModule = {
+          execute: async (inputs) => {
+            return userFn(inputs);
+          },
+          validate: () => true
+        };
+        console.log(`[ToolEngine] Dynamic custom tool logic initialized for ${tool.id}`);
+        return;
+      } catch (e) {
+        console.error(`[ToolEngine] Error evaluating custom tool logic for ${tool.id}:`, e);
+      }
+    }
+
     try {
       const map = await this.getCategoryMap();
       const catSlug = map[tool.id] || tool.category.replace(/^[\uD800-\uDBFF\uDC00-\uDFFF\u200D\uFE0F\u2600-\u27BF\s]+/, '').toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-tools$/, '');
@@ -466,7 +482,7 @@ export class ToolEngine {
       }
       console.log(`[ToolEngine] Tool module loaded: ${modulePath}`);
     } catch (e) {
-      console.warn(`[ToolEngine] No module logic found at tools category path for ${tool.id}. Error: ${e.message}`);
+      console.warn(`[ToolEngine] No module logic found at tools category path for ${tool.id}.`);
       this.activeModule = null;
     }
   }

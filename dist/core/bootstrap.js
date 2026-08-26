@@ -164,7 +164,6 @@ function renderHeader(prefix, categoriesList = [], siteConfig = {}) {
 
           <a href="${prefix}/pages/about.html">About</a>
           <a href="${prefix}/pages/contact.html">Contact</a>
-          <a href="${prefix}/pages/developers.html">Developers</a>
           <a href="${prefix}/pages/login.html" id="navAuthBtn" class="toggle" style="border-radius:30px;padding:8px 20px;">Login</a>
           
           <button id="globalSearchBtn" class="nav-cmd-btn" title="Quick Search (Ctrl+K)" style="background:rgba(255,255,255,0.06);border:1px solid var(--color-border);border-radius:var(--radius-pill);padding:6px 12px;color:var(--color-muted);font-size:var(--font-size-micro);cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
@@ -206,7 +205,8 @@ function renderFooter(prefix, siteConfig = {}) {
   };
 
   const resources = (siteConfig.footer && siteConfig.footer.resources) || [
-    { name: "API Reference", url: "pages/developers.html" }
+    { name: "Dynamic Sitemap", url: "sitemap.xml" },
+    { name: "Offline PWA Fallback", url: "pages/offline.html" }
   ];
 
   const policies = (siteConfig.footer && siteConfig.footer.policies) || [
@@ -232,11 +232,10 @@ function renderFooter(prefix, siteConfig = {}) {
             </div>
           </div>
           <div class="foot-col">
-            <h4>Resources & API</h4>
-            ${resources.map(res => `
+            <h4>Platform & Tools</h4>
+            ${resources.filter(res => !res.url.includes("developers")).map(res => `
               <a href="${prefix}/${res.url}">${res.name}</a>
             `).join('')}
-            <a href="${prefix}/pages/developers.html">Developer Portal</a>
             <a href="${prefix}/pages/admin.html">Admin Dashboard</a>
           </div>
           <div class="foot-col">

@@ -29,26 +29,99 @@ export class ConfigEngine {
 
   /**
    * Fetches the entire tools registry index database.
-   * Instant 0ms load directly from static registry with local memory cache.
+   * Merges static registry with dynamic admin-created custom tools.
    */
   async getTools() {
+    let baseTools = [];
     if (this.cache["tools.json"]) {
-      return this.cache["tools.json"];
+      baseTools = this.cache["tools.json"];
+    } else {
+      const tools = await this.loadJSON("tools.json", false);
+      baseTools = Array.isArray(tools) ? tools : [];
     }
-    const tools = await this.loadJSON("tools.json", false);
-    return Array.isArray(tools) ? tools : [];
+
+    try {
+      const customTools = JSON.parse(localStorage.getItem("ssdk_custom_tools") || "[]");
+      if (Array.isArray(customTools) && customTools.length > 0) {
+        const map = new Map();
+        baseTools.forEach(t => map.set(t.id, t));
+        customTools.forEach(t => map.set(t.id, t));
+        return Array.from(map.values());
+      }
+    } catch (e) {
+      console.warn("[ConfigEngine] Could not read custom tools from storage:", e);
+    }
+    return baseTools;
   }
 
   /**
    * Fetches the list of active categories.
-   * Instant 0ms load directly from static registry with local memory cache.
+   * Merges static registry with dynamic admin-created custom categories.
    */
   async getCategories() {
+    let baseCats = [];
     if (this.cache["categories.json"]) {
-      return this.cache["categories.json"];
+      baseCats = this.cache["categories.json"];
+    } else {
+      const categories = await this.loadJSON("categories.json", false);
+      baseCats = Array.isArray(categories) ? categories : [];
     }
-    const categories = await this.loadJSON("categories.json", false);
-    return Array.isArray(categories) ? categories : [];
+
+    try {
+      const customCats = JSON.parse(localStorage.getItem("ssdk_custom_categories") || "[]");
+      if (Array.isArray(customCats) && customCats.length > 0) {
+        const map = new Map();
+        baseCats.forEach(c => map.set(c.id || c.name, c));
+        customCats.forEach(c => map.set(c.id || c.name, c));
+        return Array.from(map.values());
+      }
+    } catch (e) {
+      console.warn("[ConfigEngine] Could not read custom categories from storage:", e);
+    }
+    return baseCats;
+  }
+
+  /**
+   * Saves a newly created or edited custom tool from the Admin Panel.
+   */
+  saveCustomTool(tool) {
+    try {
+      const customTools = JSON.parse(localStorage.getItem("ssdk_custom_tools") || "[]");
+      const idx = customTools.findIndex(t => t.id === tool.id);
+      if (idx >= 0) {
+        customTools[idx] = tool;
+      } else {
+        customTools.unshift(tool);
+      }
+      localStorage.setItem("ssdk_custom_tools", JSON.stringify(customTools));
+      delete this.cache["tools.json"];
+      if (this.core && this.core.getEngine("search")) {
+        this.core.getEngine("search").buildIndex();
+      }
+      return true;
+    } catch (e) {
+      console.error("[ConfigEngine] Failed to save custom tool:", e);
+      return false;
+    }
+  }
+
+  /**
+   * Deletes a custom tool from browser storage.
+   */
+  deleteCustomTool(toolId) {
+    try {
+      const customTools = JSON.parse(localStorage.getItem("ssdk_custom_tools") || "[]");
+      const filtered = customTools.filter(t => t.id !== toolId);
+      localStorage.setItem("ssdk_custom_tools", JSON.stringify(filtered));
+      delete this.cache["tools.json"];
+      if (this.core && this.core.getEngine("search")) {
+        this.core.getEngine("search").buildIndex();
+      }
+      return true;
+    } catch (e) {
+      console.error("[ConfigEngine] Failed to delete custom tool:", e);
+      return false;
+    }
   }
 
   /**

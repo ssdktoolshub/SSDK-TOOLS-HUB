@@ -7,8 +7,7 @@
   },
   "navigation": [
     { "name": "All Tools", "url": "#tools" },
-    { "name": "Developers", "url": "pages/developers.html" },
-    { "name": "Admin Panel", "url": "admin/index.html" },
+    { "name": "About", "url": "pages/about.html" },
     { "name": "Contact", "url": "pages/contact.html" }
   ],
   "categories": [
@@ -25,9 +24,8 @@
   },
   "footer": {
     "resources": [
-      { "name": "API v1 Reference", "url": "pages/developers.html" },
       { "name": "Dynamic Sitemap", "url": "sitemap.xml" },
-      { "name": "Offline PWA Fallback", "url": "offline.html" }
+      { "name": "Offline PWA Fallback", "url": "pages/offline.html" }
     ],
     "policies": [
       { "name": "Privacy Policy", "url": "#" },

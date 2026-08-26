@@ -10,6 +10,10 @@ export class AdminEngine {
     this.toolSearchQuery = "";
     this.toolPage = 0;
     this.toolsPerPage = 25;
+
+    this.AUTH_STORAGE_KEY = "ssdk_admin_custom_passkey";
+    this.DEFAULT_PASSKEY = "admin@ssdk2026";
+    this.SESSION_STORAGE_KEY = "ssdk_admin_session_active";
   }
 
   async init(core) {
@@ -21,13 +25,120 @@ export class AdminEngine {
     console.log("[AdminEngine] Initialized Enterprise CMS Controller.");
   }
 
+  getPasskey() {
+    return localStorage.getItem(this.AUTH_STORAGE_KEY) || this.DEFAULT_PASSKEY;
+  }
+
+  setPasskey(newKey) {
+    if (!newKey || newKey.length < 4) return false;
+    localStorage.setItem(this.AUTH_STORAGE_KEY, newKey);
+    return true;
+  }
+
+  isAuthenticated() {
+    return sessionStorage.getItem(this.SESSION_STORAGE_KEY) === "true";
+  }
+
+  login(passkey) {
+    if (passkey === this.getPasskey()) {
+      sessionStorage.setItem(this.SESSION_STORAGE_KEY, "true");
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+    sessionStorage.removeItem(this.SESSION_STORAGE_KEY);
+    this.mountAdmin();
+  }
+
   /**
-   * Bootstraps and mounts the Admin Dashboard interface
+   * Bootstraps and mounts the Admin Dashboard interface or Passkey Gatekeeper
    */
   async mountAdmin(containerId = "adminContainer") {
     const container = document.getElementById(containerId);
     if (!container) return;
 
+    if (!this.isAuthenticated()) {
+      this.renderGatekeeper(container);
+      return;
+    }
+
+    this.renderDashboard(container);
+  }
+
+  /**
+   * Renders the Glassmorphic Passkey Gatekeeper Lock Screen
+   */
+  renderGatekeeper(container) {
+    container.innerHTML = `
+      <div class="admin-gatekeeper-wrap">
+        <div class="admin-gatekeeper-card" id="adminGatekeeperCard">
+          <div class="admin-gatekeeper-icon">🔐</div>
+          <h1 class="admin-gatekeeper-title">Admin Access Gate</h1>
+          <p class="admin-gatekeeper-sub">Enter your master passkey to access and manage SSDK Tools Hub.</p>
+
+          <form id="adminLoginForm" onsubmit="event.preventDefault();">
+            <div class="admin-gatekeeper-input-group">
+              <label for="adminPasskeyInput" class="admin-form-label" style="margin-bottom:6px; display:block; text-align:left;">Master Passkey</label>
+              <input 
+                type="password" 
+                id="adminPasskeyInput" 
+                class="admin-gatekeeper-input" 
+                placeholder="Enter passkey..." 
+                autocomplete="current-password"
+                required
+                autofocus
+              >
+            </div>
+            
+            <button type="submit" class="admin-btn admin-btn--primary" id="btnAdminLogin" style="width: 100%; padding: 14px; font-size: 1rem; justify-content: center; margin-bottom: 16px;">
+              <span>Unlock Admin Panel →</span>
+            </button>
+          </form>
+
+          <div id="adminLoginFeedback" style="color: var(--color-danger, #EF4444); font-size: 13px; min-height: 20px; margin-bottom: 12px;"></div>
+
+          <div style="font-size: 12px; color: var(--color-muted); border-top: 1px solid var(--color-border); padding-top: 16px; margin-top: 8px;">
+            Default Master Key: <code style="background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; color: var(--color-primary);">admin@ssdk2026</code>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <a href="../index.html" style="color: var(--color-muted); text-decoration: none; font-size: 13px;">← Return to Main Website</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const form = document.getElementById("adminLoginForm");
+    const input = document.getElementById("adminPasskeyInput");
+    const feedback = document.getElementById("adminLoginFeedback");
+    const card = document.getElementById("adminGatekeeperCard");
+
+    if (form && input) {
+      form.onsubmit = () => {
+        const val = input.value.trim();
+        if (this.login(val)) {
+          feedback.textContent = "";
+          this.mountAdmin();
+        } else {
+          feedback.textContent = "❌ Invalid passkey. Please try again.";
+          if (card) {
+            card.classList.remove("shake");
+            void card.offsetWidth;
+            card.classList.add("shake");
+          }
+          input.value = "";
+          input.focus();
+        }
+      };
+    }
+  }
+
+  /**
+   * Renders the Full Authenticated Dashboard Layout
+   */
+  renderDashboard(container) {
     container.innerHTML = `
       <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
       <div class="admin-layout" id="adminLayout">
@@ -37,7 +148,7 @@ export class AdminEngine {
             <div class="admin-sidebar-brand-icon">S</div>
             <div class="admin-sidebar-brand-text">
               <span class="admin-sidebar-brand-name">SSDK TOOLS</span>
-              <span class="admin-sidebar-brand-label">Admin Panel</span>
+              <span class="admin-sidebar-brand-label">Admin Control Panel</span>
             </div>
           </div>
 
@@ -47,41 +158,31 @@ export class AdminEngine {
               <span class="admin-nav-icon">📊</span>
               <span class="admin-nav-label">Overview & Stats</span>
             </li>
-            <li class="admin-nav-item" data-view="saas" title="SaaS & Feature Flags" role="menuitem" tabindex="0">
-              <span class="admin-nav-icon">💎</span>
-              <span class="admin-nav-label">SaaS & Feature Flags</span>
-            </li>
             <li class="admin-nav-item" data-view="tools" title="Tool Registry" role="menuitem" tabindex="0">
               <span class="admin-nav-icon">🛠</span>
               <span class="admin-nav-label">Tool Registry</span>
+            </li>
+            <li class="admin-nav-item" data-view="categories" title="Categories" role="menuitem" tabindex="0">
+              <span class="admin-nav-icon">📂</span>
+              <span class="admin-nav-label">Categories</span>
+            </li>
+            <li class="admin-nav-item" data-view="saas" title="SaaS & Feature Flags" role="menuitem" tabindex="0">
+              <span class="admin-nav-icon">💎</span>
+              <span class="admin-nav-label">SaaS & Feature Flags</span>
             </li>
             <li class="admin-nav-item" data-view="json" title="JSON Manager" role="menuitem" tabindex="0">
               <span class="admin-nav-icon">⚙️</span>
               <span class="admin-nav-label">JSON Manager</span>
             </li>
-            <li class="admin-nav-item" data-view="seo" title="SEO Config" role="menuitem" tabindex="0">
-              <span class="admin-nav-icon">🔍</span>
-              <span class="admin-nav-label">SEO Config</span>
+            <li class="admin-nav-item" data-view="security" title="Security & Passkey" role="menuitem" tabindex="0">
+              <span class="admin-nav-icon">🔒</span>
+              <span class="admin-nav-label">Security Settings</span>
             </li>
 
-            <li class="admin-sidebar-section" style="padding-left:0;">Content</li>
-            <li class="admin-nav-item" data-view="categories" title="Categories" role="menuitem" tabindex="0">
-              <span class="admin-nav-icon">📂</span>
-              <span class="admin-nav-label">Categories</span>
-            </li>
-            <li class="admin-nav-item" data-view="users" title="Users & Roles" role="menuitem" tabindex="0">
-              <span class="admin-nav-icon">👥</span>
-              <span class="admin-nav-label">Users & Roles</span>
-            </li>
+            <li class="admin-sidebar-section" style="padding-left:0;">Analytics & Operations</li>
             <li class="admin-nav-item" data-view="analytics" title="Search Analytics" role="menuitem" tabindex="0">
               <span class="admin-nav-icon">📈</span>
               <span class="admin-nav-label">Search Analytics</span>
-            </li>
-
-            <li class="admin-sidebar-section" style="padding-left:0;">Operations</li>
-            <li class="admin-nav-item" data-view="reviews" title="Review Moderation" role="menuitem" tabindex="0">
-              <span class="admin-nav-icon">💬</span>
-              <span class="admin-nav-label">Review Moderation</span>
             </li>
             <li class="admin-nav-item" data-view="announcements" title="Announcements" role="menuitem" tabindex="0">
               <span class="admin-nav-icon">📢</span>
@@ -89,7 +190,7 @@ export class AdminEngine {
             </li>
             <li class="admin-nav-item" data-view="export" title="Data Export" role="menuitem" tabindex="0">
               <span class="admin-nav-icon">💾</span>
-              <span class="admin-nav-label">Data Export</span>
+              <span class="admin-nav-label">Data Export & Backup</span>
             </li>
           </ul>
 
@@ -97,13 +198,18 @@ export class AdminEngine {
             <div class="admin-sidebar-user">
               <div class="admin-sidebar-user-avatar">A</div>
               <div class="admin-sidebar-user-info">
-                <div class="admin-sidebar-user-name">Admin</div>
-                <div class="admin-sidebar-user-role">Super Admin</div>
+                <div class="admin-sidebar-user-name">Master Admin</div>
+                <div class="admin-sidebar-user-role">Full Access</div>
               </div>
             </div>
-            <button class="admin-sidebar-collapse-btn" id="adminCollapseBtn" aria-label="Toggle sidebar">
-              <span>◀ Collapse</span>
-            </button>
+            <div style="display:flex; gap:8px; margin-top:8px;">
+              <button class="admin-btn admin-btn--ghost admin-btn--sm" id="adminLogoutBtn" style="flex:1; justify-content:center;">
+                🔒 Log Out
+              </button>
+              <button class="admin-sidebar-collapse-btn" id="adminCollapseBtn" aria-label="Toggle sidebar" style="padding:4px 8px;">
+                <span>◀</span>
+              </button>
+            </div>
           </div>
         </aside>
 
@@ -117,6 +223,9 @@ export class AdminEngine {
           </div>
         </main>
       </div>
+
+      <!-- Container for dynamic modals -->
+      <div id="adminModalContainer"></div>
     `;
 
     // Bind sidebar navigation clicks + keyboard
@@ -127,12 +236,17 @@ export class AdminEngine {
         const view = item.getAttribute("data-view");
         this.activeView = view;
         this.renderView(view);
-        // Close mobile sidebar
         this.closeMobileSidebar();
       };
       item.onclick = handler;
       item.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } };
     });
+
+    // Logout
+    const logoutBtn = document.getElementById("adminLogoutBtn");
+    if (logoutBtn) {
+      logoutBtn.onclick = () => this.logout();
+    }
 
     // Sidebar collapse
     const collapseBtn = document.getElementById("adminCollapseBtn");
@@ -146,14 +260,14 @@ export class AdminEngine {
       overlay.onclick = () => this.closeMobileSidebar();
     }
 
-    // Mobile toggle (in topbar)
+    // Mobile toggle
     const mobileToggle = document.getElementById("adminMobileToggle");
     if (mobileToggle) {
       mobileToggle.onclick = () => this.openMobileSidebar();
     }
 
-    // Default view
-    await this.renderView("overview");
+    // Render initial view
+    this.renderView(this.activeView);
   }
 
   toggleSidebar() {
@@ -196,8 +310,9 @@ export class AdminEngine {
           <div class="admin-content-header">
             <div class="admin-content-header-left">
               <h1 class="admin-page-title">📊 Platform Overview</h1>
-              <p class="admin-page-desc">Real-time metrics and system health at a glance.</p>
+              <p class="admin-page-desc">Real-time metrics, active registry, and platform health.</p>
             </div>
+            <button class="admin-btn admin-btn--primary" id="btnOverviewAddTool">＋ Add New Tool</button>
           </div>
 
           <div class="admin-kpi-grid">
@@ -219,51 +334,36 @@ export class AdminEngine {
             <div class="admin-kpi-card">
               <div class="admin-kpi-header">
                 <div class="admin-kpi-icon admin-kpi-icon--success">✅</div>
-                <span class="admin-badge admin-badge--success">● Healthy</span>
+                <span class="admin-badge admin-badge--success">● Protected</span>
               </div>
               <div class="admin-kpi-value" style="color: var(--color-success);">Operational</div>
-              <div class="admin-kpi-label">System Status</div>
+              <div class="admin-kpi-label">Admin Passkey Guard</div>
             </div>
             <div class="admin-kpi-card">
               <div class="admin-kpi-header">
-                <div class="admin-kpi-icon admin-kpi-icon--warning">⭐</div>
+                <div class="admin-kpi-icon admin-kpi-icon--warning">⚡</div>
               </div>
-              <div class="admin-kpi-value" style="color: var(--color-warning);">4.9 ★</div>
-              <div class="admin-kpi-label">Avg Platform Rating</div>
+              <div class="admin-kpi-value" style="color: var(--color-warning);">Client-Side</div>
+              <div class="admin-kpi-label">Instant Execution</div>
             </div>
           </div>
 
           <div class="admin-card">
             <div class="admin-card-header">
-              <span class="admin-card-title">🕒 Recent Activity</span>
+              <span class="admin-card-title">🚀 Quick Actions</span>
             </div>
-            <div class="admin-card-body">
-              <div class="admin-timeline">
-                <div class="admin-timeline-item">
-                  <div class="admin-timeline-dot admin-timeline-dot--success">✓</div>
-                  <div class="admin-timeline-content">
-                    <div class="admin-timeline-title">System initialized cleanly</div>
-                    <div class="admin-timeline-meta">Supabase backend RLS policies active</div>
-                  </div>
-                </div>
-                <div class="admin-timeline-item">
-                  <div class="admin-timeline-dot admin-timeline-dot--info">↻</div>
-                  <div class="admin-timeline-content">
-                    <div class="admin-timeline-title">Tool registry loaded</div>
-                    <div class="admin-timeline-meta">${tools.length} tools registered across ${categories.length} categories</div>
-                  </div>
-                </div>
-                <div class="admin-timeline-item">
-                  <div class="admin-timeline-dot admin-timeline-dot--success">●</div>
-                  <div class="admin-timeline-content">
-                    <div class="admin-timeline-title">All engines operational</div>
-                    <div class="admin-timeline-meta">Search, Discovery, SEO, Analytics — running</div>
-                  </div>
-                </div>
-              </div>
+            <div class="admin-card-body" style="display:flex; gap:16px; flex-wrap:wrap;">
+              <button class="admin-btn admin-btn--primary" id="btnQuickCreateTool">＋ Create & Publish New Tool</button>
+              <button class="admin-btn admin-btn--ghost" id="btnQuickExportJSON">💾 Export All Tools JSON</button>
+              <button class="admin-btn admin-btn--ghost" id="btnQuickChangePass">🔒 Update Admin Passkey</button>
             </div>
           </div>
         `;
+
+        document.getElementById("btnOverviewAddTool")?.addEventListener("click", () => this.openToolBuilderModal());
+        document.getElementById("btnQuickCreateTool")?.addEventListener("click", () => this.openToolBuilderModal());
+        document.getElementById("btnQuickExportJSON")?.addEventListener("click", () => this.exportToolsJSON(tools));
+        document.getElementById("btnQuickChangePass")?.addEventListener("click", () => this.renderView("security"));
         break;
       
       case "saas":
@@ -307,53 +407,85 @@ export class AdminEngine {
         this._renderToolsView(viewEl, tools);
         break;
 
+      case "security":
+        viewEl.innerHTML = `
+          <div class="admin-content-header">
+            <div class="admin-content-header-left">
+              <h1 class="admin-page-title">🔒 Admin Security & Passkey</h1>
+              <p class="admin-page-desc">Change the Master Passkey required to access this dashboard.</p>
+            </div>
+          </div>
+
+          <div class="admin-card" style="max-width: 540px;">
+            <div class="admin-card-body">
+              <form id="changePasskeyForm" onsubmit="event.preventDefault();">
+                <div class="admin-form-group" style="margin-bottom: 16px;">
+                  <label class="admin-form-label" for="currentPasskey">Current Passkey</label>
+                  <input type="password" id="currentPasskey" class="admin-form-input" required placeholder="Enter current passkey...">
+                </div>
+                <div class="admin-form-group" style="margin-bottom: 16px;">
+                  <label class="admin-form-label" for="newPasskey">New Passkey</label>
+                  <input type="password" id="newPasskey" class="admin-form-input" required minlength="4" placeholder="Enter new passkey...">
+                </div>
+                <div class="admin-form-group" style="margin-bottom: 20px;">
+                  <label class="admin-form-label" for="confirmPasskey">Confirm New Passkey</label>
+                  <input type="password" id="confirmPasskey" class="admin-form-input" required minlength="4" placeholder="Confirm new passkey...">
+                </div>
+
+                <div id="passkeyChangeFeedback" style="font-size:13px; margin-bottom:16px;"></div>
+
+                <button type="submit" class="admin-btn admin-btn--primary">
+                  Save New Passkey
+                </button>
+              </form>
+            </div>
+          </div>
+        `;
+
+        const pForm = document.getElementById("changePasskeyForm");
+        const fb = document.getElementById("passkeyChangeFeedback");
+        if (pForm) {
+          pForm.onsubmit = () => {
+            const cur = document.getElementById("currentPasskey").value;
+            const newP = document.getElementById("newPasskey").value;
+            const conf = document.getElementById("confirmPasskey").value;
+
+            if (cur !== this.getPasskey()) {
+              fb.style.color = "var(--color-danger)";
+              fb.textContent = "❌ Current passkey is incorrect.";
+              return;
+            }
+            if (newP !== conf) {
+              fb.style.color = "var(--color-danger)";
+              fb.textContent = "❌ New passkeys do not match.";
+              return;
+            }
+            if (this.setPasskey(newP)) {
+              fb.style.color = "var(--color-success)";
+              fb.textContent = "✅ Passkey updated successfully!";
+              pForm.reset();
+            }
+          };
+        }
+        break;
+
       case "json":
         viewEl.innerHTML = `
           <div class="admin-content-header">
             <div class="admin-content-header-left">
               <h1 class="admin-page-title">⚙️ JSON Configuration Manager</h1>
-              <p class="admin-page-desc">Edit site configs dynamically without changing source code.</p>
+              <p class="admin-page-desc">View and export platform registries.</p>
             </div>
           </div>
-
           <div class="admin-config-grid">
-            <div>
-              <div class="admin-config-item" style="margin-bottom: var(--space-16);">
-                <div class="admin-config-title">📄 site.json</div>
-                <div class="admin-config-desc">Controls theme defaults, global layout, header/footer links.</div>
-                <button class="admin-btn admin-btn--ghost" onclick="alert('site.json raw configuration is loading...')">Edit JSON</button>
-              </div>
-              <div class="admin-config-item">
-                <div class="admin-config-title">📦 tools.json</div>
-                <div class="admin-config-desc">The universal registry containing definitions for all ${tools.length} tools.</div>
-                <button class="admin-btn admin-btn--ghost" onclick="alert('tools.json registry config is loading...')">Edit JSON</button>
-              </div>
-            </div>
-
-            <div class="admin-form-section">
-              <div class="admin-form-section-header">
-                <div class="admin-form-section-title">📢 Announcement & Alert Editor</div>
-                <div class="admin-form-section-desc">Update the platform announcement banner</div>
-              </div>
-              <div class="admin-form-section-body">
-                <div class="admin-form-group">
-                  <label class="admin-form-label" for="cmsBannerText">Banner Message Text</label>
-                  <textarea class="admin-form-textarea" id="cmsBannerText" rows="3">🎉 SSDK Tools Hub Enterprise Edition (Phase 14) is now live with high contrast accessibility mode!</textarea>
-                </div>
-                <div class="admin-form-group">
-                  <label class="admin-form-label" for="cmsBannerType">Banner Theme Style</label>
-                  <select class="admin-form-select" id="cmsBannerType">
-                    <option value="info">Info (Purple)</option>
-                    <option value="maintenance">Maintenance (Red)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="admin-form-actions">
-                <button class="admin-btn admin-btn--primary" onclick="alert('CMS settings saved to Supabase settings cache!')">Update Announcement</button>
-              </div>
+            <div class="admin-config-item">
+              <div class="admin-config-title">📦 tools.json Registry (${tools.length} Tools)</div>
+              <div class="admin-config-desc">Complete database of all tools including dynamic additions.</div>
+              <button class="admin-btn admin-btn--primary" id="btnExportToolsJson">Download tools.json</button>
             </div>
           </div>
         `;
+        document.getElementById("btnExportToolsJson")?.addEventListener("click", () => this.exportToolsJSON(tools));
         break;
 
       case "seo":
@@ -612,91 +744,6 @@ export class AdminEngine {
               <p class="admin-page-desc">Admin panel section ready.</p>
             </div>
           </div>
-          <div class="admin-card">
-            <div class="admin-card-body">
-              <div class="admin-empty-state">
-                <div class="admin-empty-state-icon">📋</div>
-                <div class="admin-empty-state-title">Section available</div>
-                <div class="admin-empty-state-desc">This admin section is ready for content.</div>
-              </div>
-            </div>
-          </div>
-        `;
-        break;
-    }
-  }
-
-  /**
-   * Renders the Tools Management view with search, pagination, status badges
-   */
-  _renderToolsView(viewEl, tools) {
-    const filtered = this.toolSearchQuery
-      ? tools.filter(t =>
-          t.name.toLowerCase().includes(this.toolSearchQuery.toLowerCase()) ||
-          t.category.toLowerCase().includes(this.toolSearchQuery.toLowerCase()) ||
-          t.id.toLowerCase().includes(this.toolSearchQuery.toLowerCase())
-        )
-      : tools;
-
-    const totalPages = Math.ceil(filtered.length / this.toolsPerPage);
-    const page = Math.min(this.toolPage, totalPages - 1);
-    const start = page * this.toolsPerPage;
-    const paged = filtered.slice(start, start + this.toolsPerPage);
-
-    viewEl.innerHTML = `
-      <div class="admin-content-header">
-        <div class="admin-content-header-left">
-          <h1 class="admin-page-title">🛠 Universal Tool Registry</h1>
-          <p class="admin-page-desc">JSON-driven architecture. ${tools.length} tools loaded.</p>
-        </div>
-        <button class="admin-btn admin-btn--primary" onclick="alert('Opening No-Code Tool Builder...')">＋ Add New Tool</button>
-      </div>
-
-      <div class="admin-card">
-        <div class="admin-table-toolbar">
-          <div class="admin-table-search">
-            <span class="admin-table-search-icon">🔍</span>
-            <input type="text" placeholder="Search tools by name, category, or ID..." id="adminToolSearch" value="${this._esc(this.toolSearchQuery)}" aria-label="Search tools">
-          </div>
-          <span class="admin-table-count">${filtered.length} tool${filtered.length !== 1 ? 's' : ''}</span>
-        </div>
-
-        <div class="admin-card-body admin-card-body--flush" style="overflow-x: auto;">
-          ${paged.length > 0 ? `
-            <table class="admin-data-table">
-              <thead>
-                <tr>
-                  <th>Tool</th>
-                  <th>Category</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${paged.map(t => `
-                  <tr>
-                    <td data-label="Tool">
-                      <div class="admin-cell-primary">${this._esc(t.icon || '🛠')} ${this._esc(t.name)}</div>
-                      <div class="admin-cell-secondary">${this._esc(t.id)}</div>
-                    </td>
-                    <td data-label="Category">${this._esc(t.category)}</td>
-                    <td data-label="Status">
-                      <span class="admin-badge ${t.featured ? 'admin-badge--success' : 'admin-badge--info'}">
-                        ${t.featured ? '★ Featured' : '● Active'}
-                      </span>
-                    </td>
-                    <td data-label="Actions">
-                      <div class="admin-cell-actions">
-                        <button class="admin-btn admin-btn--ghost admin-btn--sm" onclick="alert('Editing tool JSON...')">Edit</button>
-                        <button class="admin-btn admin-btn--danger admin-btn--sm" onclick="alert('Disabling tool...')">Disable</button>
-                      </div>
-                    </td>
-                  </tr>
-                `).join('')}
-              </tbody>
-            </table>
-          ` : `
-            <div class="admin-empty-state">
               <div class="admin-empty-state-icon">🔍</div>
               <div class="admin-empty-state-title">No tools found</div>
               <div class="admin-empty-state-desc">Try changing your search query.</div>
@@ -721,7 +768,34 @@ export class AdminEngine {
       </div>
     `;
 
-    // Bind search
+    // Button triggers
+    document.getElementById("btnOpenToolBuilder")?.addEventListener("click", () => this.openToolBuilderModal());
+    document.getElementById("btnExportRegistry")?.addEventListener("click", () => this.exportToolsJSON(tools));
+
+    // Edit tool triggers
+    viewEl.querySelectorAll(".btn-edit-tool").forEach(btn => {
+      btn.onclick = () => {
+        const id = btn.dataset.id;
+        const target = tools.find(x => x.id === id);
+        if (target) this.openToolBuilderModal(target);
+      };
+    });
+
+    // Delete custom tool triggers
+    viewEl.querySelectorAll(".btn-delete-tool").forEach(btn => {
+      btn.onclick = () => {
+        const id = btn.dataset.id;
+        if (confirm(`Are you sure you want to delete custom tool "${id}"?`)) {
+          const config = this.core.getEngine("config");
+          if (config && config.deleteCustomTool) {
+            config.deleteCustomTool(id);
+            this.renderView("tools");
+          }
+        }
+      };
+    });
+
+    // Search
     const searchInput = document.getElementById("adminToolSearch");
     if (searchInput) {
       let debounce;
@@ -731,21 +805,18 @@ export class AdminEngine {
           this.toolSearchQuery = e.target.value;
           this.toolPage = 0;
           this._renderToolsView(viewEl, tools);
-        }, 300);
+        }, 250);
       };
     }
 
-    // Bind clear search
-    const clearBtn = document.getElementById("adminClearToolSearch");
-    if (clearBtn) {
-      clearBtn.onclick = () => {
-        this.toolSearchQuery = "";
-        this.toolPage = 0;
-        this._renderToolsView(viewEl, tools);
-      };
-    }
+    // Clear search
+    document.getElementById("adminClearToolSearch")?.addEventListener("click", () => {
+      this.toolSearchQuery = "";
+      this.toolPage = 0;
+      this._renderToolsView(viewEl, tools);
+    });
 
-    // Bind pagination
+    // Pagination
     const prevBtn = document.getElementById("adminToolPrev");
     const nextBtn = document.getElementById("adminToolNext");
     if (prevBtn) prevBtn.onclick = () => { this.toolPage = Math.max(0, this.toolPage - 1); this._renderToolsView(viewEl, tools); };
@@ -757,5 +828,233 @@ export class AdminEngine {
         this._renderToolsView(viewEl, tools);
       };
     });
+  }
+
+  /**
+   * Opens the Dynamic No-Code & JavaScript Tool Builder Modal
+   */
+  async openToolBuilderModal(existingTool = null) {
+    const modalContainer = document.getElementById("adminModalContainer");
+    if (!modalContainer) return;
+
+    const config = this.core.getEngine("config");
+    const categories = await config.getCategories();
+
+    const isEdit = !!existingTool;
+    const tool = existingTool || {
+      id: "",
+      name: "",
+      category: categories[0] ? categories[0].name : "Developer Tools",
+      subcategory: "Utilities",
+      icon: "⚡",
+      description: "",
+      type: "js",
+      featured: false,
+      tags: [],
+      schema: {
+        inputs: [
+          { id: "toolInput", type: "textarea", label: "Input Payload", placeholder: "Enter text or data here..." }
+        ],
+        outputs: [
+          { id: "toolOutput", type: "textarea", label: "Processed Output" }
+        ]
+      },
+      customLogic: `// Execution function receives inputs object\n// e.g. inputs.toolInput\nconst text = inputs.toolInput || "";\nreturn {\n  toolOutput: text.toUpperCase()\n};`
+    };
+
+    modalContainer.innerHTML = `
+      <div class="admin-modal-overlay" id="toolBuilderOverlay">
+        <div class="admin-modal" role="dialog" aria-modal="true">
+          <div class="admin-modal-header">
+            <h2 class="admin-modal-title">
+              <span>${isEdit ? '✏️ Edit Tool' : '✨ Create New Tool'}</span>
+            </h2>
+            <button class="admin-modal-close" id="btnCloseToolModal" aria-label="Close">✕</button>
+          </div>
+
+          <div class="admin-modal-body">
+            <form id="toolBuilderForm" onsubmit="event.preventDefault();">
+              <div class="admin-form-grid-2">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="tbName">Tool Display Name *</label>
+                  <input type="text" id="tbName" class="admin-form-input" required value="${this._esc(tool.name)}" placeholder="e.g. Markdown to HTML Converter">
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="tbId">Tool ID (URL Slug) *</label>
+                  <input type="text" id="tbId" class="admin-form-input" required value="${this._esc(tool.id)}" placeholder="e.g. markdown-to-html" ${isEdit ? 'readonly style="opacity:0.7;"' : ''}>
+                </div>
+              </div>
+
+              <div class="admin-form-grid-2" style="margin-top:14px;">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="tbCategory">Category *</label>
+                  <select id="tbCategory" class="admin-form-select">
+                    ${categories.map(c => `
+                      <option value="${this._esc(c.name)}" ${tool.category === c.name ? 'selected' : ''}>${c.emoji || '📁'} ${this._esc(c.name)}</option>
+                    `).join('')}
+                  </select>
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="tbIcon">Icon (Emoji or Symbol)</label>
+                  <input type="text" id="tbIcon" class="admin-form-input" value="${this._esc(tool.icon || '🛠️')}" placeholder="e.g. 🔄 or 🚀">
+                </div>
+              </div>
+
+              <div class="admin-form-group" style="margin-top:14px;">
+                <label class="admin-form-label" for="tbDesc">Short Description *</label>
+                <input type="text" id="tbDesc" class="admin-form-input" required value="${this._esc(tool.description)}" placeholder="Describe what this tool does in 1-2 sentences...">
+              </div>
+
+              <div class="admin-form-grid-2" style="margin-top:14px;">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="tbSubcat">Subcategory</label>
+                  <input type="text" id="tbSubcat" class="admin-form-input" value="${this._esc(tool.subcategory || 'Utilities')}" placeholder="e.g. Formatters, Encoders">
+                </div>
+
+                <div class="admin-form-group" style="display:flex; align-items:center; gap:12px; margin-top:24px;">
+                  <label class="admin-toggle">
+                    <input type="checkbox" id="tbFeatured" ${tool.featured ? 'checked' : ''}>
+                    <span class="admin-toggle-slider"></span>
+                  </label>
+                  <span style="font-size:14px; font-weight:600; color:var(--color-foreground);">Feature on Homepage ⭐</span>
+                </div>
+              </div>
+
+              <!-- Custom JavaScript Logic Code Editor -->
+              <div class="admin-form-group" style="margin-top:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <label class="admin-form-label" for="tbLogicCode" style="margin:0;">JavaScript Execution Logic</label>
+                  <span style="font-size:12px; color:var(--color-muted);">Receives <code>inputs</code> object, returns <code>{ toolOutput: string }</code></span>
+                </div>
+                <textarea id="tbLogicCode" class="admin-code-editor" rows="7">${this._esc(tool.customLogic || `// Write your client-side execution logic here:\nconst input = inputs.toolInput || "";\nreturn {\n  toolOutput: input.split("").reverse().join("")\n};`)}</textarea>
+              </div>
+
+              <div id="toolBuilderFeedback" style="font-size:13px; margin-top:10px;"></div>
+            </form>
+          </div>
+
+          <div class="admin-modal-footer">
+            <button class="admin-btn admin-btn--ghost" id="btnCancelToolModal">Cancel</button>
+            <button class="admin-btn admin-btn--primary" id="btnSaveToolModal">
+              <span>🚀 Save & Publish Tool</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Auto-generate slug ID from name if creating new
+    const nameInput = document.getElementById("tbName");
+    const idInput = document.getElementById("tbId");
+    if (!isEdit && nameInput && idInput) {
+      nameInput.oninput = () => {
+        idInput.value = nameInput.value
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .trim()
+          .replace(/\s+/g, '-');
+      };
+    }
+
+    // Close logic
+    const closeModal = () => { modalContainer.innerHTML = ""; };
+    document.getElementById("btnCloseToolModal")?.addEventListener("click", closeModal);
+    document.getElementById("btnCancelToolModal")?.addEventListener("click", closeModal);
+    document.getElementById("toolBuilderOverlay")?.addEventListener("click", (e) => {
+      if (e.target.id === "toolBuilderOverlay") closeModal();
+    });
+
+    // Save logic
+    const saveBtn = document.getElementById("btnSaveToolModal");
+    const feedback = document.getElementById("toolBuilderFeedback");
+    if (saveBtn) {
+      saveBtn.onclick = () => {
+        const name = document.getElementById("tbName").value.trim();
+        const id = document.getElementById("tbId").value.trim();
+        const category = document.getElementById("tbCategory").value;
+        const icon = document.getElementById("tbIcon").value.trim() || "🛠️";
+        const desc = document.getElementById("tbDesc").value.trim();
+        const subcat = document.getElementById("tbSubcat").value.trim() || "Utilities";
+        const featured = document.getElementById("tbFeatured").checked;
+        const customLogic = document.getElementById("tbLogicCode").value;
+
+        if (!name || !id || !desc) {
+          feedback.style.color = "var(--color-danger)";
+          feedback.textContent = "❌ Please fill in all required fields (Name, ID, Description).";
+          return;
+        }
+
+        // Validate JS logic syntax
+        try {
+          new Function('inputs', customLogic);
+        } catch (err) {
+          feedback.style.color = "var(--color-danger)";
+          feedback.textContent = `❌ JavaScript Syntax Error: ${err.message}`;
+          return;
+        }
+
+        const newToolObj = {
+          id,
+          name,
+          category,
+          description: desc,
+          icon,
+          url: `pages/tool.html?id=${encodeURIComponent(id)}`,
+          type: "js",
+          featured,
+          addedDate: new Date().toISOString().split("T")[0],
+          subcategory: subcat,
+          tags: [category, subcat],
+          customLogic,
+          schema: {
+            inputs: [
+              { id: "toolInput", type: "textarea", label: "Input Payload", placeholder: "Enter input text..." }
+            ],
+            outputs: [
+              { id: "toolOutput", type: "textarea", label: "Output Result" }
+            ]
+          }
+        };
+
+        const cfg = this.core.getEngine("config");
+        if (cfg && cfg.saveCustomTool) {
+          cfg.saveCustomTool(newToolObj);
+          closeModal();
+          this.renderView("tools");
+          if (this.core.getEngine("notification")) {
+            this.core.getEngine("notification").show(`Tool "${name}" published successfully!`, "success");
+          }
+        }
+      };
+    }
+  }
+
+  /**
+   * Exports the entire tool registry as a JSON file backup
+   */
+  exportToolsJSON(tools) {
+    const blob = new Blob([JSON.stringify(tools, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `ssdk-tools-registry-${new Date().toISOString().split("T")[0]}.json`;
+    link.click();
+  }
+
+  /**
+   * Exports tools as a spreadsheet CSV file
+   */
+  exportToolsCSV(tools) {
+    const keys = ["id", "name", "category", "subcategory", "url", "featured"];
+    let csv = keys.join(",") + "\n";
+    tools.forEach(t => {
+      csv += `"${t.id}","${(t.name||'').replace(/"/g, '""')}","${(t.category||'').replace(/"/g, '""')}","${(t.subcategory||'').replace(/"/g, '""')}","${t.url}",${t.featured}\n`;
+    });
+    const blob = new Blob([csv], { type: "text/csv" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `ssdk-tools-export-${new Date().toISOString().split("T")[0]}.csv`;
+    link.click();
   }
 }
