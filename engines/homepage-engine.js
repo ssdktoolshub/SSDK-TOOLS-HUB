@@ -501,7 +501,7 @@ export class HomepageEngine {
               const highlightedName = this.highlightMatch(this.translate(t.name), filterQuery);
               const highlightedDesc = this.highlightMatch(this.translate(t.description), filterQuery);
               return `
-                <a class="card-list-view" href="${this.core.prefix}/${t.url}" target="_blank">
+                <a class="card-list-view" href="${this.core.prefix}/${t.url}">
                   <div class="card-list-left">
                     <span class="icon" style="font-size:2rem; flex-shrink:0;">${t.icon}</span>
                     <div class="card-list-text" style="display:flex; flex-direction:column; gap:4px; text-align:left;">
@@ -527,7 +527,7 @@ export class HomepageEngine {
               const highlightedName = this.highlightMatch(this.translate(t.name), filterQuery);
               const highlightedDesc = this.highlightMatch(this.translate(t.description), filterQuery);
               return `
-                <a class="card card-interactive ${isFeatured} card-tool show" href="${this.core.prefix}/${t.url}" target="_blank">
+                <a class="card card-interactive ${isFeatured} card-tool show" href="${this.core.prefix}/${t.url}">
                   <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
                     <span class="icon" style="font-size:1.8rem; margin-bottom:12px;">${t.icon}</span>
                     <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
@@ -598,7 +598,7 @@ export class HomepageEngine {
             const highlightedDesc = this.highlightMatch(this.translate(t.description), filterQuery);
             
             return `
-              <a class="card show" href="${this.core.prefix}/${t.url}" target="_blank">
+              <a class="card show" href="${this.core.prefix}/${t.url}">
                 <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
                   <span class="icon">${t.icon}</span>
@@ -758,7 +758,7 @@ export class HomepageEngine {
       </div>
       <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;">
         ${recents.slice(0, 4).map(t => `
-          <a class="card show" href="${this.core.prefix}/${t.url}" target="_blank">
+          <a class="card show" href="${this.core.prefix}/${t.url}">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
               <span class="icon">${t.icon}</span>
               <h3>${t.name}</h3>
@@ -787,7 +787,7 @@ export class HomepageEngine {
       const favClass = isFav ? "fav-btn on" : "fav-btn";
       
       return `
-        <a class="card show" href="${this.core.prefix}/${t.url}" target="_blank" style="background: var(--card2)">
+        <a class="card show" href="${this.core.prefix}/${t.url}" style="background: var(--card2)">
           <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
             <span class="icon">${t.icon}</span>
@@ -1174,7 +1174,7 @@ export class HomepageEngine {
       const isFeatured = t.featured ? "card-featured" : "card-default";
       
       return `
-        <a class="card card-interactive ${isFeatured} card-tool" href="${this.core.prefix}/${t.url}" target="_blank">
+        <a class="card card-interactive ${isFeatured} card-tool" href="${this.core.prefix}/${t.url}">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
             <span class="icon" style="font-size:1.8rem; margin-bottom:12px;">${t.icon}</span>
             <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
@@ -1206,16 +1206,7 @@ export class HomepageEngine {
   }
 
   initScrollReveal() {
-    const reveals = document.querySelectorAll(".reveal-on-scroll, .home-section");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    // Scroll reveal removed to fix blank space issues
   }
 
   initStatsObserver() {
