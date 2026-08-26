@@ -25,24 +25,28 @@ export class HomepageEngine {
     if (!this.container) return; // Exit if not on landing index page
 
     // Dynamic hero text injection from homepage.json
-    await this.applyHomepageMetadata();
+    try { await this.applyHomepageMetadata(); } catch (e) { console.warn("[HomepageEngine] applyHomepageMetadata failed:", e); }
 
     // 1. Inject Premium Search & Suggestions structure
-    await this.injectSearchUI();
+    try { await this.injectSearchUI(); } catch (e) { console.warn("[HomepageEngine] injectSearchUI failed:", e); }
 
     // 2. Inject Sticky Categories Bar & Popular Categories
-    this.renderFilterBar();
-    await this.renderPopularCategories();
+    try { this.renderFilterBar(); } catch (e) { console.warn("[HomepageEngine] renderFilterBar failed:", e); }
+    try { await this.renderPopularCategories(); } catch (e) { console.warn("[HomepageEngine] renderPopularCategories failed:", e); }
     
     // 4. Initial Render
-    await this.render();
+    try { await this.render(); } catch (e) { console.warn("[HomepageEngine] render failed:", e); }
 
     // 5. Bind Search events & Voice recognition
-    this.bindSearch();
-    this.initCategoryRedirectionScrolls();
-    this.initScrollReveal();
-    this.initStatsObserver();
-    this.initFAQAccordion();
+    try {
+      this.bindSearch();
+      this.initCategoryRedirectionScrolls();
+      this.initScrollReveal();
+      this.initStatsObserver();
+      this.initFAQAccordion();
+    } catch (e) {
+      console.warn("[HomepageEngine] event binding failed:", e);
+    }
 
     // Curated Collections card filter triggers
     document.querySelectorAll(".collection-card").forEach(card => {

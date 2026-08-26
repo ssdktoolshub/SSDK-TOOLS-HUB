@@ -98,9 +98,13 @@ async function startApp() {
     await core.registerEngine("billing", new BillingEngine());
 
     // 3. Boot the Core Orchestration
-    await core.init();
+    try {
+      await core.init();
+    } catch (err) {
+      console.error("[Bootstrap] Core init failed, continuing with layout render:", err);
+    }
 
-    // 4. Dynamically Render Header & Footer Layouts
+    // 4. Dynamically Render Header & Footer Layouts (always attempted)
     await renderLayoutFramework(core);
 
     // 5. Register Service Worker for offline support and speed caching
@@ -112,6 +116,14 @@ async function startApp() {
     }
   } catch (err) {
     console.error("[Bootstrap] Critical error during platform bootstrap:", err);
+    // LAST RESORT: try to render a basic header/footer even if everything failed
+    try {
+      const prefix = ".";
+      renderHeader(prefix, [], {});
+      renderFooter(prefix, {});
+    } catch (e) {
+      console.error("[Bootstrap] Fallback header/footer also failed:", e);
+    }
   }
 }
 
@@ -123,23 +135,49 @@ if (document.readyState === "loading") {
 
 async function renderLayoutFramework(core) {
   const prefix = core.prefix;
-  const config = core.getEngine("config");
-  const categoriesList = await config.getCategories();
-  const siteConfig = await config.loadJSON("site.json") || {};
-  
-  // Inject Header
-  renderHeader(prefix, categoriesList, siteConfig);
-  
-  // Inject Footer
-  renderFooter(prefix, siteConfig);
+  let categoriesList = [];
+  let siteConfig = {};
+
+  // Fetch data with fault tolerance
+  try {
+    const config = core.getEngine("config");
+    if (config) {
+      categoriesList = await config.getCategories() || [];
+      siteConfig = await config.loadJSON("site.json") || {};
+    }
+  } catch (e) {
+    console.warn("[Bootstrap] Failed to load config data for layout, using defaults:", e);
+  }
+
+  // Inject Header (always renders even without data)
+  try {
+    renderHeader(prefix, categoriesList, siteConfig);
+  } catch (e) {
+    console.error("[Bootstrap] Header render failed:", e);
+  }
+
+  // Inject Footer (always renders even without data)
+  try {
+    renderFooter(prefix, siteConfig);
+  } catch (e) {
+    console.error("[Bootstrap] Footer render failed:", e);
+  }
 
   // Initialize theme controls and auth listeners in header
-  setupHeaderControls(core);
+  try {
+    setupHeaderControls(core);
+  } catch (e) {
+    console.error("[Bootstrap] Header controls setup failed:", e);
+  }
 
   // Mount Floating AI Assistant Widget if not already present
-  if (!document.getElementById("ssdkAiChatWidget") && typeof GlassComponents.createAIChatWidget === "function") {
-    const aiWidget = GlassComponents.createAIChatWidget(core);
-    document.body.appendChild(aiWidget);
+  try {
+    if (!document.getElementById("ssdkAiChatWidget") && typeof GlassComponents !== "undefined" && typeof GlassComponents.createAIChatWidget === "function") {
+      const aiWidget = GlassComponents.createAIChatWidget(core);
+      if (aiWidget) document.body.appendChild(aiWidget);
+    }
+  } catch (e) {
+    console.warn("[Bootstrap] AI Chat Widget mount failed:", e);
   }
 }
 
