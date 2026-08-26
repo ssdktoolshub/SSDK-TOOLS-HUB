@@ -7,7 +7,6 @@
   },
   "navigation": [
     { "name": "All Tools", "url": "#tools" },
-    { "name": "About", "url": "pages/about.html" },
     { "name": "Contact", "url": "pages/contact.html" }
   ],
   "categories": [
@@ -25,7 +24,7 @@
   "footer": {
     "resources": [
       { "name": "Dynamic Sitemap", "url": "sitemap.xml" },
-      { "name": "Offline PWA Fallback", "url": "pages/offline.html" }
+      { "name": "Offline PWA Fallback", "url": "offline.html" }
     ],
     "policies": [
       { "name": "Privacy Policy", "url": "#" },

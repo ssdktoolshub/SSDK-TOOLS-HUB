@@ -1056,6 +1056,6 @@ export class GlassComponents {
   }
 }
 
-if (typeof window !== "undefined") {
-  window.GlassComponents = GlassComponents;
-}
+
+
+

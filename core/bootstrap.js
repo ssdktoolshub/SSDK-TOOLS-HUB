@@ -41,7 +41,6 @@ import { CapabilityEngine } from "../engines/capability-engine.js";
 import { ImageEngine } from "../engines/image-engine.js";
 import { PDFEngine } from "../engines/pdf-engine.js";
 import { SupabaseEngine } from "../engines/supabase-engine.js";
-import { GlassComponents } from "../components/glass-components.js";
 
 async function startApp() {
   if (window.__SSDK_BOOTED__) return;
@@ -98,13 +97,9 @@ async function startApp() {
     await core.registerEngine("billing", new BillingEngine());
 
     // 3. Boot the Core Orchestration
-    try {
-      await core.init();
-    } catch (err) {
-      console.error("[Bootstrap] Core init failed, continuing with layout render:", err);
-    }
+    await core.init();
 
-    // 4. Dynamically Render Header & Footer Layouts (always attempted)
+    // 4. Dynamically Render Header & Footer Layouts
     await renderLayoutFramework(core);
 
     // 5. Register Service Worker for offline support and speed caching
@@ -116,14 +111,6 @@ async function startApp() {
     }
   } catch (err) {
     console.error("[Bootstrap] Critical error during platform bootstrap:", err);
-    // LAST RESORT: try to render a basic header/footer even if everything failed
-    try {
-      const prefix = ".";
-      renderHeader(prefix, [], {});
-      renderFooter(prefix, {});
-    } catch (e) {
-      console.error("[Bootstrap] Fallback header/footer also failed:", e);
-    }
   }
 }
 
@@ -135,50 +122,18 @@ if (document.readyState === "loading") {
 
 async function renderLayoutFramework(core) {
   const prefix = core.prefix;
-  let categoriesList = [];
-  let siteConfig = {};
-
-  // Fetch data with fault tolerance
-  try {
-    const config = core.getEngine("config");
-    if (config) {
-      categoriesList = await config.getCategories() || [];
-      siteConfig = await config.loadJSON("site.json") || {};
-    }
-  } catch (e) {
-    console.warn("[Bootstrap] Failed to load config data for layout, using defaults:", e);
-  }
-
-  // Inject Header (always renders even without data)
-  try {
-    renderHeader(prefix, categoriesList, siteConfig);
-  } catch (e) {
-    console.error("[Bootstrap] Header render failed:", e);
-  }
-
-  // Inject Footer (always renders even without data)
-  try {
-    renderFooter(prefix, siteConfig);
-  } catch (e) {
-    console.error("[Bootstrap] Footer render failed:", e);
-  }
+  const config = core.getEngine("config");
+  const categoriesList = await config.getCategories();
+  const siteConfig = await config.loadJSON("site.json") || {};
+  
+  // Inject Header
+  renderHeader(prefix, categoriesList, siteConfig);
+  
+  // Inject Footer
+  renderFooter(prefix, siteConfig);
 
   // Initialize theme controls and auth listeners in header
-  try {
-    setupHeaderControls(core);
-  } catch (e) {
-    console.error("[Bootstrap] Header controls setup failed:", e);
-  }
-
-  // Mount Floating AI Assistant Widget if not already present
-  try {
-    if (!document.getElementById("ssdkAiChatWidget") && typeof GlassComponents !== "undefined" && typeof GlassComponents.createAIChatWidget === "function") {
-      const aiWidget = GlassComponents.createAIChatWidget(core);
-      if (aiWidget) document.body.appendChild(aiWidget);
-    }
-  } catch (e) {
-    console.warn("[Bootstrap] AI Chat Widget mount failed:", e);
-  }
+  setupHeaderControls(core);
 }
 
 
@@ -209,6 +164,7 @@ function renderHeader(prefix, categoriesList = [], siteConfig = {}) {
 
           <a href="${prefix}/pages/about.html">About</a>
           <a href="${prefix}/pages/contact.html">Contact</a>
+          <a href="${prefix}/index.html#tools">All Tools</a>
           <a href="${prefix}/pages/login.html" id="navAuthBtn" class="toggle" style="border-radius:30px;padding:8px 20px;">Login</a>
           
           <button id="globalSearchBtn" class="nav-cmd-btn" title="Quick Search (Ctrl+K)" style="background:rgba(255,255,255,0.06);border:1px solid var(--color-border);border-radius:var(--radius-pill);padding:6px 12px;color:var(--color-muted);font-size:var(--font-size-micro);cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
@@ -250,8 +206,7 @@ function renderFooter(prefix, siteConfig = {}) {
   };
 
   const resources = (siteConfig.footer && siteConfig.footer.resources) || [
-    { name: "Dynamic Sitemap", url: "sitemap.xml" },
-    { name: "Offline PWA Fallback", url: "pages/offline.html" }
+    { name: "API Reference", url: "pages/developers.html" }
   ];
 
   const policies = (siteConfig.footer && siteConfig.footer.policies) || [
@@ -277,11 +232,10 @@ function renderFooter(prefix, siteConfig = {}) {
             </div>
           </div>
           <div class="foot-col">
-            <h4>Platform & Tools</h4>
-            ${resources.filter(res => !res.url.includes("developers")).map(res => `
+            <h4>Resources & API</h4>
+            ${resources.map(res => `
               <a href="${prefix}/${res.url}">${res.name}</a>
             `).join('')}
-            <a href="${prefix}/pages/admin.html">Admin Dashboard</a>
           </div>
           <div class="foot-col">
             <h4>Support & Feedback</h4>

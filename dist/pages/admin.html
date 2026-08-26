@@ -16,7 +16,7 @@
 <body>
 
   <!-- Top Navigation -->
-  <header class="admin-topbar" id="adminHeaderTopbar">
+  <header class="admin-topbar">
     <div class="admin-topbar-left">
       <button class="admin-mobile-toggle" id="adminMobileToggle" aria-label="Open sidebar menu">☰</button>
       <a href="../index.html" class="admin-topbar-brand">
@@ -26,7 +26,7 @@
       <span class="admin-topbar-label">Enterprise Admin</span>
     </div>
     <div class="admin-topbar-right">
-      <a href="../index.html" class="admin-topbar-link">← Exit to Website</a>
+      <a href="../index.html" class="admin-topbar-link">← Exit Admin</a>
     </div>
   </header>
 
@@ -40,6 +40,13 @@
     import { AdminEngine } from '../engines/admin-engine.js';
     
     document.addEventListener("DOMContentLoaded", async () => {
+      // Basic client-side admin lock
+      const pass = prompt("Enter Admin Password:");
+      if (pass !== "admin123") {
+        document.body.innerHTML = "<h2 style='text-align:center;color:white;margin-top:50px;'>Access Denied. Invalid Password.</h2>";
+        return;
+      }
+
       const core = new CoreEngine();
       
       const adminEngine = new AdminEngine();
