@@ -1,6 +1,6 @@
 // SSDK Tools Hub Service Worker - Coordinates offline caching and instant asset delivery
 
-const CACHE_NAME = "ssdk-cache-v3";
+const CACHE_NAME = "ssdk-cache-v4";
 const STATIC_ASSETS = [
   "./",
   "./index.html",
