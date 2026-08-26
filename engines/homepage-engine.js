@@ -422,35 +422,53 @@ export class HomepageEngine {
       const trendingSec = document.getElementById("trendingSection");
       const newSec = document.getElementById("newSection");
       const collectionsSec = document.getElementById("collectionsSection");
-      
-      if (collectionsSec) collectionsSec.style.display = "block";
 
+      const showSection = (sec) => {
+        if (!sec) return;
+        sec.style.display = "block";
+        sec.classList.add("revealed");
+      };
+      const hideSection = (sec) => {
+        if (!sec) return;
+        sec.style.display = "none";
+      };
+
+      // Featured tools
       const featuredTools = toolsList.filter(t => t.featured === true);
       if (featuredTools.length > 0 && featuredSec) {
-        featuredSec.style.display = "block";
-        this.renderToolCardsGrid("featuredToolsGrid", featuredTools.slice(0, 3), favorites);
-      } else if (featuredSec) {
-        featuredSec.style.display = "none";
+        showSection(featuredSec);
+        this.renderToolCardsGrid("featuredToolsGrid", featuredTools.slice(0, 6), favorites);
+      } else {
+        hideSection(featuredSec);
       }
 
-      // Sort popular/trending
+      // Popular/trending tools
       const popularTools = [...toolsList];
       popularTools.sort((a, b) => {
         const aScore = a.featured ? 100 : (a.name.charCodeAt(0) % 50);
         const bScore = b.featured ? 100 : (b.name.charCodeAt(0) % 50);
         return bScore - aScore;
       });
-      if (trendingSec) {
-        trendingSec.style.display = "block";
+      if (popularTools.length > 0 && trendingSec) {
+        showSection(trendingSec);
         this.renderToolCardsGrid("trendingToolsGrid", popularTools.slice(0, 8), favorites);
+      } else {
+        hideSection(trendingSec);
       }
 
-      // Sort newest tools
+      // Newest tools
       const newestTools = [...toolsList];
       newestTools.sort((a, b) => new Date(b.addedDate || 0) - new Date(a.addedDate || 0));
-      if (newSec) {
-        newSec.style.display = "block";
+      if (newestTools.length > 0 && newSec) {
+        showSection(newSec);
         this.renderToolCardsGrid("newToolsGrid", newestTools.slice(0, 4), favorites);
+      } else {
+        hideSection(newSec);
+      }
+
+      // Collections (static HTML cards)
+      if (collectionsSec) {
+        showSection(collectionsSec);
       }
     } else {
       // Hide sections when searching or filtering
