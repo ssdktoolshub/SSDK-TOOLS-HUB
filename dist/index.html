@@ -100,6 +100,79 @@
   </div>
 </div>
 
+<section class="tools" id="tools">
+  <!-- Category View Container (Visible when a category is selected) -->
+  <div id="categoryViewContainer" style="display: none; margin-bottom: var(--space-40);">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--space-24);">
+      <a href="#" id="categoryHomeBreadcrumb" style="text-decoration:none; color:var(--color-muted); font-size:var(--font-size-small);">Home</a>
+      <span class="sep" style="color:var(--color-muted); margin:0 var(--space-8);">›</span>
+      <span class="active" id="categoryBreadcrumbActive" style="color:var(--color-foreground); font-size:var(--font-size-small); font-weight:var(--font-weight-semibold);">Image Tools</span>
+    </nav>
+
+    <!-- Category Hero Banner -->
+    <div class="category-hero-card">
+      <div class="category-hero-glow"></div>
+      <div class="category-hero-content">
+        <div class="category-hero-icon" id="categoryHeroIcon">🖼</div>
+        <h1 class="text-3d" id="categoryHeroName" style="margin-top: 0;">Image Tools</h1>
+        <p class="subtitle" id="categoryHeroDesc">
+          Powerful tools for resizing, compressing, converting, and editing images directly in your browser.
+        </p>
+        <div style="display:flex; align-items:center; gap:var(--space-16);">
+          <span class="badge badge-popular" id="categoryHeroCount">32 Tools</span>
+          <button class="btn btn-primary" id="categoryHeroCTA">Explore Tools ↓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Toolbar (Search, Filter, Sort, View Toggle) -->
+    <div class="category-toolbar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-16); padding:var(--space-16) var(--space-24); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-pill); margin-bottom:var(--space-32);">
+      
+      <!-- Category Specific Search -->
+      <div class="category-search-wrap" style="display:flex; align-items:center; gap:var(--space-8); flex:1; min-width:240px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:8px 16px; border-radius:var(--radius-pill);">
+        <span>🔍</span>
+        <input type="text" id="categorySearchInput" placeholder="Search in category..." style="background:transparent; border:none; outline:none; color:var(--color-foreground); flex:1; font-size:var(--font-size-small);">
+      </div>
+
+      <!-- Toolbar Right (Sort, View Toggle) -->
+      <div style="display:flex; align-items:center; gap:var(--space-16); flex-wrap:wrap;">
+        <!-- Sort Dropdown -->
+        <div style="display:flex; align-items:center; gap:var(--space-8);">
+          <span style="font-size:var(--font-size-small); color:var(--color-muted);">Sort:</span>
+          <select id="categorySortSelect" style="background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:6px 12px; color:var(--color-foreground); font-size:var(--font-size-small); outline:none; cursor:pointer;">
+            <option value="name">Alphabetical</option>
+            <option value="popular">Popular</option>
+            <option value="new">Recently Added</option>
+          </select>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle-buttons" style="display:flex; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:2px;">
+          <button id="viewToggleGrid" class="btn-icon active" title="Grid View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
+            Grid
+          </button>
+          <button id="viewToggleList" class="btn-icon" title="List View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
+            List
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 class="sec-title" id="exploreCategoriesTitle">Explore Tool Categories</h2>
+  <p class="sec-sub" id="exploreCategoriesSubtitle">Click a category to open its tools, or use the dropdown in the menu</p>
+  <div id="toolContainer"></div>
+  <div class="no-result" id="noResult">No tools found 😕</div>
+
+  <!-- Related Categories Strip (Visible when a category is selected) -->
+  <div id="relatedCategoriesSection" style="display:none; margin-top:var(--space-64);">
+    <h3 style="font-size:var(--font-size-card-heading); font-weight:var(--font-weight-semibold); color:var(--color-foreground); margin-bottom:var(--space-20);">Related Categories</h3>
+    <div class="saas-grid saas-grid-sm-2 saas-grid-md-4" id="relatedCategoriesGrid"></div>
+  </div>
+</section>
+
 <!-- Popular Categories Discovery Section -->
 <section class="popular-categories-section">
   <div class="app-container">
@@ -190,78 +263,7 @@
   </div>
 </section>
 
-<section class="tools" id="tools">
-  <!-- Category View Container (Visible when a category is selected) -->
-  <div id="categoryViewContainer" style="display: none; margin-bottom: var(--space-40);">
-    <!-- Breadcrumbs -->
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--space-24);">
-      <a href="#" id="categoryHomeBreadcrumb" style="text-decoration:none; color:var(--color-muted); font-size:var(--font-size-small);">Home</a>
-      <span class="sep" style="color:var(--color-muted); margin:0 var(--space-8);">›</span>
-      <span class="active" id="categoryBreadcrumbActive" style="color:var(--color-foreground); font-size:var(--font-size-small); font-weight:var(--font-weight-semibold);">Image Tools</span>
-    </nav>
 
-    <!-- Category Hero Banner -->
-    <div class="category-hero-card">
-      <div class="category-hero-glow"></div>
-      <div class="category-hero-content">
-        <div class="category-hero-icon" id="categoryHeroIcon">🖼</div>
-        <h1 class="text-3d" id="categoryHeroName" style="margin-top: 0;">Image Tools</h1>
-        <p class="subtitle" id="categoryHeroDesc">
-          Powerful tools for resizing, compressing, converting, and editing images directly in your browser.
-        </p>
-        <div style="display:flex; align-items:center; gap:var(--space-16);">
-          <span class="badge badge-popular" id="categoryHeroCount">32 Tools</span>
-          <button class="btn btn-primary" id="categoryHeroCTA">Explore Tools ↓</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Category Toolbar (Search, Filter, Sort, View Toggle) -->
-    <div class="category-toolbar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-16); padding:var(--space-16) var(--space-24); background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-pill); margin-bottom:var(--space-32);">
-      
-      <!-- Category Specific Search -->
-      <div class="category-search-wrap" style="display:flex; align-items:center; gap:var(--space-8); flex:1; min-width:240px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:8px 16px; border-radius:var(--radius-pill);">
-        <span>🔍</span>
-        <input type="text" id="categorySearchInput" placeholder="Search in category..." style="background:transparent; border:none; outline:none; color:var(--color-foreground); flex:1; font-size:var(--font-size-small);">
-      </div>
-
-      <!-- Toolbar Right (Sort, View Toggle) -->
-      <div style="display:flex; align-items:center; gap:var(--space-16); flex-wrap:wrap;">
-        <!-- Sort Dropdown -->
-        <div style="display:flex; align-items:center; gap:var(--space-8);">
-          <span style="font-size:var(--font-size-small); color:var(--color-muted);">Sort:</span>
-          <select id="categorySortSelect" style="background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:6px 12px; color:var(--color-foreground); font-size:var(--font-size-small); outline:none; cursor:pointer;">
-            <option value="name">Alphabetical</option>
-            <option value="popular">Popular</option>
-            <option value="new">Recently Added</option>
-          </select>
-        </div>
-
-        <!-- View Toggle -->
-        <div class="view-toggle-buttons" style="display:flex; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:2px;">
-          <button id="viewToggleGrid" class="btn-icon active" title="Grid View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
-            Grid
-          </button>
-          <button id="viewToggleList" class="btn-icon" title="List View" style="padding:6px 12px; border-radius:var(--radius-pill); border:none; cursor:pointer; background:transparent; color:var(--color-muted); transition:background 0.2s, color 0.2s;">
-            List
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <h2 class="sec-title" id="exploreCategoriesTitle">Explore Tool Categories</h2>
-  <p class="sec-sub" id="exploreCategoriesSubtitle">Click a category to open its tools, or use the dropdown in the menu</p>
-  <div id="toolContainer"></div>
-  <div class="no-result" id="noResult">No tools found 😕</div>
-
-  <!-- Related Categories Strip (Visible when a category is selected) -->
-  <div id="relatedCategoriesSection" style="display:none; margin-top:var(--space-64);">
-    <h3 style="font-size:var(--font-size-card-heading); font-weight:var(--font-weight-semibold); color:var(--color-foreground); margin-bottom:var(--space-20);">Related Categories</h3>
-    <div class="saas-grid saas-grid-sm-2 saas-grid-md-4" id="relatedCategoriesGrid"></div>
-  </div>
-</section>
 
 <!-- Platform Statistics Section -->
 <section class="stats-section home-section">
