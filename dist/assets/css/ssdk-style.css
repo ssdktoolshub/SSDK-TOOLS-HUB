@@ -564,7 +564,7 @@ nav.scrolled {
 
 /* Section Tools */
 section.tools {
-  padding: 40px 6% 80px;
+  padding: 20px 6% 40px;
   max-width: 1220px;
   margin: auto;
 }
@@ -2927,8 +2927,8 @@ body {
 .enterprise-footer {
   background: var(--bg-secondary, #0F121C);
   border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-  padding: 80px 32px 40px;
-  margin-top: 100px;
+  padding: 40px 32px 20px;
+  margin-top: 20px;
 }
 
 .foot-container {
