@@ -574,7 +574,7 @@ export class HomepageEngine {
         if (catTools.length > 0) {
           found = true;
           const block = document.createElement("div");
-          block.className = filterQuery.trim() ? "cat-block open" : "cat-block";
+          block.className = "cat-block open";
           block.setAttribute("data-cat", cat.name);
         
         // Subcategory Grouping Logic
@@ -598,13 +598,17 @@ export class HomepageEngine {
             const highlightedDesc = this.highlightMatch(this.translate(t.description), filterQuery);
             
             return `
-              <a class="card show" href="${this.core.prefix}/${t.url}">
-                <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                  <span class="icon">${t.icon}</span>
-                  <h3>${highlightedName}</h3>
+              <a class="card card-interactive card-tool" href="${this.core.prefix}/${t.url}">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
+                  <span class="icon" style="font-size:1.8rem; margin-bottom:12px;">${t.icon}</span>
+                  <button class="${favClass}" data-id="${t.id}" title="Toggle Favorite">★</button>
                 </div>
-                <p>${highlightedDesc}</p>
+                <h3 class="card-heading mb-8">${highlightedName}</h3>
+                <p class="small-text text-muted mb-20" style="min-height: 40px;">${highlightedDesc}</p>
+                <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                  <span class="micro-text badge badge-free">${this.translate(t.category)}</span>
+                  <span class="arrow-link" style="font-weight:700; color:var(--color-primary); transition:transform var(--transition-normal);">Open →</span>
+                </div>
               </a>
             `;
           }).join("");
@@ -627,7 +631,7 @@ export class HomepageEngine {
 
           let catBodyHTML = "";
           if (standaloneTools.length > 0) {
-            catBodyHTML += `<div class="grid">${renderCards(standaloneTools)}</div>`;
+            catBodyHTML += `<div class="saas-grid saas-grid-sm-2 saas-grid-md-3 saas-grid-lg-4" style="width:100%;">${renderCards(standaloneTools)}</div>`;
           }
 
           const subcatNames = Object.keys(subcatGroups).sort();
@@ -635,7 +639,7 @@ export class HomepageEngine {
             catBodyHTML += `
               <div class="subcat-block">
                 <h4 class="subcat-title">${this.translate(subName)}</h4>
-                <div class="grid">${renderCards(subcatGroups[subName])}</div>
+                <div class="saas-grid saas-grid-sm-2 saas-grid-md-3 saas-grid-lg-4" style="width:100%;">${renderCards(subcatGroups[subName])}</div>
               </div>
             `;
           });
@@ -664,9 +668,7 @@ export class HomepageEngine {
           }
         };
 
-        if (filterQuery.trim()) {
-          injectDOM();
-        }
+        injectDOM();
 
         this.container.appendChild(block);
       }
