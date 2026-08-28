@@ -250,7 +250,7 @@ export class HomepageEngine {
     } else {
       toolsList = await config.getTools();
       if (selectedCategory !== "all") {
-        toolsList = toolsList.filter(t => t.category === selectedCategory);
+        toolsList = toolsList.filter(t => t.category && t.category.includes(selectedCategory));
       }
     }
 
@@ -1026,7 +1026,8 @@ export class HomepageEngine {
     // Count tools per category id
     const toolCounts = {};
     tools.forEach(t => {
-      const matchedCat = categories.find(c => c.name === t.category);
+      // Tools registry may have emoji prefixes, e.g., "🛠 Developer Tools", so we use includes
+      const matchedCat = categories.find(c => t.category && (t.category.includes(c.name) || c.name.includes(t.category)));
       const catId = matchedCat ? matchedCat.id : t.category;
       toolCounts[catId] = (toolCounts[catId] || 0) + 1;
     });
