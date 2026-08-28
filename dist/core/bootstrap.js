@@ -377,21 +377,16 @@ function setupHeaderControls(core) {
       
       const onLanding = document.getElementById("toolContainer") !== null;
       if (onLanding) {
-        const catBlocks = document.querySelectorAll(".cat-block");
-        catBlocks.forEach(b => {
-          const dataCat = b.getAttribute("data-cat") || "";
-          const head = b.querySelector(".cat-head").textContent.toLowerCase();
-          const searchCat = catName.toLowerCase().replace(/[^a-z0-9]/g, "");
-          const normHead = head.replace(/[^a-z0-9]/g, "");
-          const normDataCat = dataCat.toLowerCase().replace(/[^a-z0-9]/g, "");
-          if (normHead.includes(searchCat) || normDataCat.includes(searchCat)) {
-            if (!b.classList.contains("open")) {
-              const catHead = b.querySelector(".cat-head");
-              if (catHead) catHead.click();
-            }
-            b.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
+        const homepage = core.getEngine("homepage");
+        if (homepage && typeof homepage.filterByCategory === "function") {
+          homepage.filterByCategory(catName);
+          const toolsSec = document.getElementById("tools");
+          if (toolsSec) toolsSec.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          // Fallback if homepage engine isn't ready
+          window.location.href = `${core.prefix}/index.html#category-${catName}`;
+          window.location.reload();
+        }
       } else {
         sessionStorage.setItem("ssdk-open-category", catName);
         window.location.href = `${core.prefix}/index.html`;

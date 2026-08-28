@@ -1112,25 +1112,9 @@ export class HomepageEngine {
     if (catToOpen) {
       sessionStorage.removeItem("ssdk-open-category");
       setTimeout(() => {
-        const blocks = document.querySelectorAll(".cat-block");
-        blocks.forEach(b => {
-          const head = b.querySelector(".cat-head").textContent.toLowerCase();
-          if (head.includes(catToOpen.toLowerCase())) {
-            if (!b.classList.contains("open")) {
-              const catHead = b.querySelector(".cat-head");
-              if (catHead) catHead.click();
-            }
-
-            requestAnimationFrame(() => {
-                b.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            });
-
-            return;
-          }
-        });
+        this.filterByCategory(catToOpen);
+        const toolsSec = document.getElementById("tools");
+        if (toolsSec) toolsSec.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 300);
     }
   }
