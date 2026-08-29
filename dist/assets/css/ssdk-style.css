@@ -267,27 +267,37 @@ nav.scrolled {
 }
 
 .logo-tagline {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.8px;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #94A3B8 !important;
+  letter-spacing: 0.05em;
   margin-top: 2px;
   text-transform: uppercase;
 }
 
-.brand-ssdk {
-  background: linear-gradient(135deg, #7C3AED, #A855F7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.logo-title {
+  font-size: 1.2rem;
   font-weight: 800;
-  text-shadow: 0 0 25px rgba(124, 58, 237, 0.3);
-  animation: glowAnim 4s infinite alternate ease-in-out;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-ssdk {
+  background: linear-gradient(135deg, #C084FC 0%, #60A5FA 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.4));
 }
 
 .brand-th {
-  color: #FFFFFF;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="light"] .logo img {
@@ -295,16 +305,20 @@ nav.scrolled {
 }
 
 [data-theme="light"] .brand-ssdk {
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.15);
+  background: linear-gradient(135deg, #6D28D9 0%, #2563EB 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 8px rgba(109, 40, 217, 0.15));
 }
 
 [data-theme="light"] .brand-th {
-  color: #1E1E2E;
-  text-shadow: none;
+  color: #0F172A !important;
+  -webkit-text-fill-color: #0F172A !important;
+  text-shadow: none !important;
 }
 
 [data-theme="light"] .logo-tagline {
-  color: #6B7280;
+  color: #475569 !important;
 }
 
 
@@ -2557,28 +2571,7 @@ body {
   box-shadow: 0 0 15px var(--glow-color, rgba(124, 58, 237, 0.35));
 }
 
-.logo-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
 
-.brand-ssdk {
-  background: var(--primary-gradient, linear-gradient(135deg, #7C3AED, #3B82F6));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.brand-th {
-  color: var(--text-primary, #F8FAFC);
-}
-
-.logo-tagline {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--text-muted, #94A3B8);
-  font-weight: 400;
-}
 
 .nav-links {
   display: flex;
