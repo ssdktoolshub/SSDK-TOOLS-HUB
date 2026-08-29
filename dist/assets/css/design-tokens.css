@@ -177,40 +177,40 @@
   --color-foreground: #0F172A;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #F1F5F9;
-  --color-surface-hover: rgba(124, 58, 237, 0.05);
+  --color-surface-hover: rgba(124, 58, 237, 0.06);
 
   --color-primary: #7C3AED;
   --color-primary-hover: #6D28D9;
   --color-primary-active: #5B21B6;
 
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(124, 58, 237, 0.3);
+  --color-border: #E2E8F0;
+  --color-border-hover: rgba(124, 58, 237, 0.4);
 
-  --color-muted: #64748B;
-  --color-muted-foreground: #94A3B8;
+  --color-muted: #334155;
+  --color-muted-foreground: #64748B;
 
   --color-focus: #7C3AED;
 
   /* Legacy Helper Mappings */
-  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-bg: #FFFFFF;
   --card-bg-hover: var(--color-surface-hover);
   --card-bg-active: rgba(124, 58, 237, 0.08);
   --border-color: var(--color-border);
   --border-hover: var(--color-border-hover);
   --glow-color: rgba(124, 58, 237, 0.15);
 
-  --text-primary: var(--color-foreground);
+  --text-primary: #0F172A;
   --text-secondary: #334155;
-  --text-muted: var(--color-muted);
-  --text-dim: var(--color-muted-foreground);
-  --text-inverse: #F8FAFC;
+  --text-muted: #475569;
+  --text-dim: #64748B;
+  --text-inverse: #FFFFFF;
 
   /* Shadows */
-  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --shadow-modal: 0 16px 64px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 25px rgba(124, 58, 237, 0.12);
+  --shadow-subtle: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.05);
+  --shadow-elevated: 0 8px 32px rgba(15, 23, 42, 0.08);
+  --shadow-modal: 0 16px 64px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 25px rgba(124, 58, 237, 0.15);
 }
 
 /* ==========================================================================
