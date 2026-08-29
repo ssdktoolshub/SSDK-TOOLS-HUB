@@ -170,8 +170,8 @@ function initThreeParticles() {
     if (activeTheme !== lastTheme) {
       lastTheme = activeTheme;
       const isLightMode = activeTheme === "light";
-      const c1 = isLightMode ? new THREE.Color("#0284c7") : new THREE.Color("#4f46e5");
-      const c2 = isLightMode ? new THREE.Color("#1d4ed8") : new THREE.Color("#06b6d4");
+      const c1 = isLightMode ? new THREE.Color("#C4B5FD") : new THREE.Color("#4f46e5");
+      const c2 = isLightMode ? new THREE.Color("#93C5FD") : new THREE.Color("#06b6d4");
 
       const colorsAttr = geometry.attributes.color;
       for (let i = 0; i < particleCount; i++) {
@@ -182,7 +182,7 @@ function initThreeParticles() {
       colorsAttr.needsUpdate = true;
 
       material.blending = isLightMode ? THREE.NormalBlending : THREE.AdditiveBlending;
-      material.opacity = isLightMode ? 0.85 : 0.65;
+      material.opacity = isLightMode ? 0.22 : 0.65;
       material.needsUpdate = true;
     }
 

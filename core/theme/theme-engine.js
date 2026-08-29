@@ -153,9 +153,9 @@ export class ThemeEngine {
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
-
-    const color1 = new THREE.Color("#7C3AED");
-    const color2 = new THREE.Color("#A855F7");
+    const isLightInit = (document.documentElement.getAttribute("data-theme") || "dark") === "light";
+    const color1 = isLightInit ? new THREE.Color("#C4B5FD") : new THREE.Color("#7C3AED");
+    const color2 = isLightInit ? new THREE.Color("#93C5FD") : new THREE.Color("#A855F7");
 
     const ratios = new Float32Array(particleCount);
 
@@ -196,7 +196,7 @@ export class ThemeEngine {
       size: 0.09,
       vertexColors: true,
       transparent: true,
-      opacity: isLightInit ? 0.85 : 0.65,
+      opacity: isLightInit ? 0.22 : 0.65,
       map: particleTexture,
       blending: isLightInit ? THREE.NormalBlending : THREE.AdditiveBlending,
       depthWrite: false
@@ -236,8 +236,8 @@ export class ThemeEngine {
       if (this.currentTheme !== lastTheme) {
         lastTheme = this.currentTheme;
         const isLightMode = this.currentTheme === "light";
-        const c1 = new THREE.Color("#7C3AED");
-        const c2 = new THREE.Color("#A855F7");
+        const c1 = isLightMode ? new THREE.Color("#C4B5FD") : new THREE.Color("#7C3AED");
+        const c2 = isLightMode ? new THREE.Color("#93C5FD") : new THREE.Color("#A855F7");
 
         const colorsAttr = geometry.attributes.color;
         for (let i = 0; i < particleCount; i++) {
@@ -248,7 +248,7 @@ export class ThemeEngine {
         colorsAttr.needsUpdate = true;
 
         material.blending = isLightMode ? THREE.NormalBlending : THREE.AdditiveBlending;
-        material.opacity = isLightMode ? 0.85 : 0.65;
+        material.opacity = isLightMode ? 0.22 : 0.65;
         material.needsUpdate = true;
       }
 
