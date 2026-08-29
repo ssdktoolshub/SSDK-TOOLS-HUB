@@ -5,6 +5,70 @@
  */
 
 /* ==========================================================================
+   0. BREADCRUMBS & NAVIGATION
+   ========================================================================== */
+
+.breadcrumb, #ssdk-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(15, 18, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 0.88rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.breadcrumb a, #ssdk-breadcrumb a {
+  color: #A1A1AA !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.breadcrumb a:hover, #ssdk-breadcrumb a:hover {
+  color: #C084FC !important;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
+}
+
+.breadcrumb .sep, #ssdk-breadcrumb .sep {
+  color: rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.breadcrumb .active, #ssdk-breadcrumb .active {
+  color: #F8FAFC !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .breadcrumb, [data-theme="light"] #ssdk-breadcrumb {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .breadcrumb a, [data-theme="light"] #ssdk-breadcrumb a {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .breadcrumb a:hover, [data-theme="light"] #ssdk-breadcrumb a:hover {
+  color: #7C3AED !important;
+}
+
+[data-theme="light"] .breadcrumb .sep, [data-theme="light"] #ssdk-breadcrumb .sep {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="light"] .breadcrumb .active, [data-theme="light"] #ssdk-breadcrumb .active {
+  color: #0F172A !important;
+}
+
+/* ==========================================================================
    1. TOOL HERO SECTION
    ========================================================================== */
 
@@ -14,7 +78,7 @@
   align-items: center;
   text-align: center;
   padding: var(--space-48) var(--space-16);
-  background: radial-gradient(circle at top, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at top, rgba(168, 85, 247, 0.12) 0%, transparent 65%);
   border-bottom: 1px solid var(--color-border);
   position: relative;
   overflow: hidden;
@@ -24,63 +88,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  background: var(--color-surface-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-glow);
-  margin-bottom: var(--space-24);
-  color: var(--color-primary);
-  font-size: var(--space-32);
+  width: 76px;
+  height: 76px;
+  background: rgba(192, 132, 252, 0.08);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 0 24px rgba(192, 132, 252, 0.2);
+  margin-bottom: var(--space-20);
+  color: #C084FC;
+  font-size: 2.2rem;
+  backdrop-filter: blur(8px);
 }
 
 .tool-hero-title {
-  font-family: var(--font-family);
-  font-size: var(--font-size-hero);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-foreground);
-  margin-bottom: var(--space-16);
-  line-height: 1.1;
-  background: var(--primary-gradient);
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #F8FAFC;
+  margin-bottom: var(--space-12);
+  line-height: 1.25;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E9D5FF 50%, #C084FC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .tool-hero-desc {
-  font-family: var(--font-family);
-  font-size: var(--font-size-body);
-  color: var(--color-muted-foreground);
-  max-width: 600px;
-  margin-bottom: var(--space-32);
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
+  color: #94A3B8;
+  max-width: 680px;
+  margin-bottom: var(--space-24);
   line-height: 1.6;
+  font-weight: 400;
 }
 
 .tool-hero-meta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-16);
+  gap: var(--space-12);
   flex-wrap: wrap;
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
 .tool-hero-badge {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-4) var(--space-12);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.3);
   border-radius: var(--radius-pill);
-  font-size: var(--font-size-micro);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #D8B4FE;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.15);
 }
 
 .tool-hero-actions {
   display: flex;
   gap: var(--space-12);
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ==========================================================================

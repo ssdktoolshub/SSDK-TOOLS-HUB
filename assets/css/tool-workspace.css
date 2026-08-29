@@ -61,14 +61,16 @@
   justify-content: space-between;
   margin-bottom: var(--space-16, 16px);
   padding-bottom: var(--space-12, 12px);
-  border-bottom: 1px solid var(--color-border, rgba(255, 255, 255, 0.06));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .pane-title {
-  font-size: var(--font-size-small, 14px);
-  font-weight: var(--font-weight-semibold, 600);
-  color: var(--color-foreground, #F8FAFC);
-  letter-spacing: 0.02em;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #C084FC;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -77,14 +79,20 @@
 .pane-title::before {
   content: "";
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--color-primary, #7C3AED);
+  background: #C084FC;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+}
+
+.output-pane .pane-title {
+  color: #60A5FA;
 }
 
 .output-pane .pane-title::before {
-  background: var(--color-info, #3B82F6);
+  background: #60A5FA;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
 }
 
 .inputs-container,
