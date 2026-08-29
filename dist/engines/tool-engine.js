@@ -16,10 +16,9 @@ export class ToolEngine {
   }
 
   /**
-   * Loads a specific tool configuration and bootstraps its universal template.
    */
   async loadTool(toolId) {
-    const registry = this.core.getEngine("registry");
+    const registry = this.core.getEngine("config") || this.core.getEngine("registry");
     
     // First try to fetch the manifest
     let manifest;

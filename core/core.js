@@ -13,6 +13,7 @@ export class CoreEngine {
     this.config.core = this;
     this.engines = {
       config: this.config,
+      registry: this.config,
       feature: this.feature
     };
     this.bootTimes = {};

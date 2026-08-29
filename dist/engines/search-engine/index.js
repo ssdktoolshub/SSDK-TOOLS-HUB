@@ -7,11 +7,13 @@ export class SearchEngine {
   }
 
   async init() {
-    this.registry = this.core.getEngine("registry");
-    this.tools = await this.registry.getTools();
-    this.aliases = await this.registry.getAliases();
-    this.synonyms = await this.registry.getSynonyms();
-    this.tags = await this.registry.getTags();
+    this.registry = this.core ? (this.core.getEngine("config") || this.core.getEngine("registry")) : null;
+    if (this.registry) {
+      this.tools = await this.registry.getTools();
+      this.aliases = typeof this.registry.getAliases === 'function' ? await this.registry.getAliases() : [];
+      this.synonyms = typeof this.registry.getSynonyms === 'function' ? await this.registry.getSynonyms() : [];
+      this.tags = typeof this.registry.getTags === 'function' ? await this.registry.getTags() : [];
+    }
   }
 
   // Basic Levenshtein distance for typo tolerance
