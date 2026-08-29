@@ -406,6 +406,25 @@ export class ToolEngine {
       const outputBox = document.getElementById("toolOutput");
       if (outputBox) outputBox.readOnly = true;
     }
+
+    // Real-time auto-run for fast client-side calculations & text tools
+    let debounceTimer;
+    const triggerAutoRun = () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        this.runTool(true); // silent background run
+      }, 180);
+    };
+
+    inputsContainer.addEventListener("input", (e) => {
+      if (e.target.type === 'file') return;
+      triggerAutoRun();
+    });
+
+    inputsContainer.addEventListener("change", (e) => {
+      if (e.target.type === 'file') return;
+      triggerAutoRun();
+    });
   }
 
   renderSchemaField(field) {
@@ -470,9 +489,11 @@ export class ToolEngine {
     }
   }
 
-  async runTool() {
-    this.showProgress(true);
-    this.hideStatus();
+  async runTool(silent = false) {
+    if (!silent) {
+      this.showProgress(true);
+      this.hideStatus();
+    }
     
     const startTime = performance.now();
 
@@ -505,7 +526,10 @@ export class ToolEngine {
       if (this.activeModule) {
         if (typeof this.activeModule.validate === "function") {
           const isValid = this.activeModule.validate(inputs);
-          if (!isValid) throw new Error("Validation failed. Please check inputs.");
+          if (!isValid) {
+            if (!silent) throw new Error("Validation failed. Please check inputs.");
+            return;
+          }
         }
 
         let result;
@@ -520,53 +544,73 @@ export class ToolEngine {
         const outputEl = document.getElementById("toolOutput");
         const outputsContainer = document.getElementById("tool-outputs-container");
 
-        if (result) {
-          if (result.toolOutput && outputEl) {
-             outputEl.value = result.toolOutput;
-          } else if (result.outputData && outputEl) {
-             outputEl.value = result.outputData;
-          } else if (typeof result === "string" && outputEl) {
-             outputEl.value = result;
-          } else if (result.outputBlob) {
-             // Handle automatic download or file result
-             const url = URL.createObjectURL(result.outputBlob);
-             const a = document.createElement("a");
-             a.href = url;
-             a.download = result.filename || `${this.activeTool.id}-output`;
-             a.click();
-             URL.revokeObjectURL(url);
-          } else if (result.htmlPreview && outputsContainer) {
-             const cleanHtml = window.DOMPurify ? window.DOMPurify.sanitize(result.htmlPreview) : result.htmlPreview;
-             outputsContainer.innerHTML = cleanHtml;
-          } else {
-             // Try to JSON stringify if it's an object
-             if (outputEl && typeof result === "object") {
-                outputEl.value = JSON.stringify(result, null, 2);
-             }
+        if (result !== undefined && result !== null) {
+          let mappedToSchemaField = false;
+
+          // 1. Map to schema output fields matching object keys
+          if (typeof result === "object" && !result.outputBlob && !result.htmlPreview) {
+            for (const [resKey, resVal] of Object.entries(result)) {
+              const fieldEl = outputsContainer ? outputsContainer.querySelector(`#${resKey}`) : document.getElementById(resKey);
+              if (fieldEl && 'value' in fieldEl) {
+                fieldEl.value = typeof resVal === "object" ? JSON.stringify(resVal, null, 2) : resVal;
+                mappedToSchemaField = true;
+              }
+            }
           }
-          this.showStatus("✅ Processed successfully!");
-        } else {
+
+          // 2. Output Blob download
+          if (result.outputBlob && !silent) {
+            const url = URL.createObjectURL(result.outputBlob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = result.filename || `${this.activeTool.id}-output`;
+            a.click();
+            URL.revokeObjectURL(url);
+          } else if (result.htmlPreview && outputsContainer) {
+            const cleanHtml = window.DOMPurify ? window.DOMPurify.sanitize(result.htmlPreview) : result.htmlPreview;
+            outputsContainer.innerHTML = cleanHtml;
+          } else if (!mappedToSchemaField) {
+            const textResult = result.toolOutput !== undefined ? result.toolOutput :
+                              (result.outputData !== undefined ? result.outputData :
+                              (typeof result === "string" ? result : JSON.stringify(result, null, 2)));
+
+            if (outputEl) {
+              outputEl.value = textResult;
+            } else if (outputsContainer) {
+              const targetInput = outputsContainer.querySelector("textarea, input");
+              if (targetInput) {
+                targetInput.value = textResult;
+              } else {
+                outputsContainer.innerHTML = `<pre class="code-output" style="white-space:pre-wrap; word-break:break-all; font-family:monospace; background:rgba(0,0,0,0.3); padding:16px; border-radius:10px;">${this.escapeHTML(String(textResult))}</pre>`;
+              }
+            }
+          }
+
+          if (!silent) this.showStatus("✅ Processed successfully!");
+        } else if (!silent) {
           this.showStatus("❌ No output returned.", true);
         }
       } else {
         const inputEl = document.getElementById("toolInput");
         const outputEl = document.getElementById("toolOutput");
         if (inputEl && outputEl) {
-          const result = inputEl.value.toUpperCase();
+          const result = inputEl.value;
           outputEl.value = result;
-          this.showStatus("✅ Processed successfully (Fallback)!");
-        } else {
+          if (!silent) this.showStatus("✅ Processed successfully!");
+        } else if (!silent) {
           this.showStatus("❌ Logic missing.", true);
         }
       }
       const outputPane = document.querySelector(".output-pane");
       if (outputPane) outputPane.classList.add("has-result");
     } catch (e) {
-      console.error("[ToolEngine] Execution failure:", e);
-      this.showStatus(`❌ Error: ${e.message}`, true);
-      this.core.getEngine("notification")?.show(`Execution error: ${e.message}`, "error");
+      if (!silent) {
+        console.error("[ToolEngine] Execution failure:", e);
+        this.showStatus(`❌ Error: ${e.message}`, true);
+        this.core.getEngine("notification")?.show(`Execution error: ${e.message}`, "error");
+      }
     } finally {
-      this.showProgress(false);
+      if (!silent) this.showProgress(false);
       const analytics = this.core.getEngine("analytics");
       if (analytics && this.activeTool) {
         analytics.logProcessingTime(this.activeTool.id, startTime);
