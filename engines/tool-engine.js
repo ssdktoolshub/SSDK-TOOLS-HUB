@@ -375,7 +375,8 @@ export class ToolEngine {
     } else if (tool.category && (tool.category.toLowerCase().includes("image") || tool.category.toLowerCase().includes("photo"))) {
       // Dynamic Mount for Image Engine
       inputsContainer.innerHTML = `<div id="image-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "none"; // Handled inside ImageEngine Action Zone
+      outputsContainer.style.display = "flex";
+      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Uploaded image result & preview will appear here.</p></div>`;
       const imageEngine = this.core.getEngine("image");
       if (imageEngine) {
         imageEngine.mountUI("#image-workspace-mount");
@@ -383,21 +384,22 @@ export class ToolEngine {
     } else if (tool.category && tool.category.toLowerCase().includes("pdf")) {
       // Dynamic Mount for PDF Engine
       inputsContainer.innerHTML = `<div id="pdf-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "none";
+      outputsContainer.style.display = "flex";
+      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Processed PDF result will appear here.</p></div>`;
       const pdfEngine = this.core.getEngine("pdf");
       if (pdfEngine) {
         pdfEngine.mountUI("#pdf-workspace-mount");
       }
     } else if (tool.category && (tool.category.toLowerCase().includes("video") || tool.category.toLowerCase().includes("audio"))) {
-      // Dynamic Mount for Media Engine (Future FFmpeg WebAssembly Integration)
+      // Dynamic Mount for Media Engine
       inputsContainer.innerHTML = `<div id="media-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "none";
+      outputsContainer.style.display = "flex";
+      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Media result preview will appear here.</p></div>`;
       const mediaEngine = this.core.getEngine("media");
       if (mediaEngine) {
         mediaEngine.mountUI("#media-workspace-mount");
       } else {
-        // Fallback if media engine isn't strictly loaded yet, just render a default upload zone
-        inputsContainer.innerHTML = `<div style="text-align:center; padding: 40px; border: 2px dashed var(--border); border-radius: 12px; color: var(--text-muted);"><span style="font-size:2rem;">📤</span><br>Media Workspace (FFmpeg WebAssembly Ready)<br><small>Drop files here</small></div>`;
+        inputsContainer.innerHTML = `<div style="text-align:center; padding: 40px; border: 2px dashed var(--border); border-radius: 12px; color: var(--text-muted);"><span style="font-size:2rem;">📤</span><br>Media Workspace<br><small>Drop files here</small></div>`;
       }
     } else {
       // Default fallbacks
@@ -477,7 +479,8 @@ export class ToolEngine {
       const map = await this.getCategoryMap();
       const catSlug = map[tool.id] || tool.category.replace(/^[\uD800-\uDBFF\uDC00-\uDFFF\u200D\uFE0F\u2600-\u27BF\s]+/, '').toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-').replace(/-tools$/, '');
       const modulePath = `${this.core.prefix}/tools/${catSlug}/${tool.id}/logic.js`;
-      const module = await import(modulePath);
+      const rawModule = await import(modulePath);
+      const module = (rawModule && rawModule.default) ? { ...rawModule, ...rawModule.default } : rawModule;
       this.activeModule = module;
       if (typeof this.activeModule.init === "function") {
         await this.activeModule.init(this);
