@@ -13,6 +13,21 @@ export class ToolEngine {
   async init(core) {
     this.core = core;
     console.log("[ToolEngine] Universal Tool Engine ready.");
+    
+    // Listen for unified image and PDF loaded events to set currentFile
+    document.addEventListener("ssdk:imageLoaded", (e) => {
+      if (e.detail && e.detail.file) {
+        this.currentFile = e.detail.file;
+        console.log("[ToolEngine] File updated from ImageLoaded event:", this.currentFile.name);
+      }
+    });
+
+    document.addEventListener("ssdk:pdfLoaded", (e) => {
+      if (e.detail && e.detail.files && e.detail.files.length > 0) {
+        this.currentFile = e.detail.files[0].file;
+        console.log("[ToolEngine] File updated from PDFLoaded event:", this.currentFile.name);
+      }
+    });
   }
 
   /**
@@ -433,8 +448,17 @@ export class ToolEngine {
     });
 
     inputsContainer.addEventListener("change", (e) => {
-      if (e.target.type === 'file') return;
-      triggerAutoRun();
+      if (e.target.type === 'file') {
+        if (e.target.files && e.target.files.length > 0) {
+          this.currentFile = e.target.files[0];
+          console.log("[ToolEngine] File input changed, currentFile set to:", this.currentFile.name);
+          if (tool.category && !tool.category.toLowerCase().includes("image") && !tool.category.toLowerCase().includes("pdf")) {
+            triggerAutoRun();
+          }
+        }
+      } else {
+        triggerAutoRun();
+      }
     });
 
     optionsContainer.addEventListener("input", (e) => {
@@ -550,9 +574,20 @@ export class ToolEngine {
         }
       });
 
-      // Pass along any dropzone file
-      if (this.currentFile) rawInputs.imageFile = this.currentFile;
-      if (this.currentFile) rawInputs.file = this.currentFile;
+      // Gather files from custom dropzones/upload areas
+      document.querySelectorAll("#tool-inputs-container input[type='file'], #tool-options-container input[type='file']").forEach(el => {
+        if (el.files && el.files.length) {
+          const cleanId = el.id.replace("-file-input", "");
+          rawInputs[cleanId] = el.files[0];
+        }
+      });
+
+      // Pass along any loaded file
+      if (this.currentFile) {
+        rawInputs.imageFile = this.currentFile;
+        rawInputs.file = this.currentFile;
+        rawInputs.toolInput = this.currentFile;
+      }
 
       // Sanitize inputs (DOMPurify if available or simple escape)
       const inputs = {};

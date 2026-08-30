@@ -25,6 +25,19 @@
       "label": "Processed Image"
     }
   ],
+  "options": [
+    {
+      "id": "flipDirection",
+      "type": "select",
+      "label": "Flip Direction",
+      "options": [
+        "Horizontal",
+        "Vertical",
+        "Both"
+      ],
+      "defaultValue": "Horizontal"
+    }
+  ],
   "supportedFormats": [
     "jpg",
     "jpeg",

@@ -25,6 +25,32 @@
       "label": "Processed Image"
     }
   ],
+  "options": [
+    {
+      "id": "cropX",
+      "type": "number",
+      "label": "Crop Start X (px)",
+      "defaultValue": 0
+    },
+    {
+      "id": "cropY",
+      "type": "number",
+      "label": "Crop Start Y (px)",
+      "defaultValue": 0
+    },
+    {
+      "id": "cropWidth",
+      "type": "number",
+      "label": "Crop Width (px)",
+      "defaultValue": 400
+    },
+    {
+      "id": "cropHeight",
+      "type": "number",
+      "label": "Crop Height (px)",
+      "defaultValue": 400
+    }
+  ],
   "supportedFormats": [
     "jpg",
     "jpeg",

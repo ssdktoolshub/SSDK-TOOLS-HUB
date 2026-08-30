@@ -25,6 +25,19 @@
       "label": "Processed Image"
     }
   ],
+  "options": [
+    {
+      "id": "rotationAngle",
+      "type": "select",
+      "label": "Rotation Angle",
+      "options": [
+        "90 Degrees Clockwise",
+        "180 Degrees",
+        "270 Degrees"
+      ],
+      "defaultValue": "90 Degrees Clockwise"
+    }
+  ],
   "supportedFormats": [
     "jpg",
     "jpeg",
