@@ -2,46 +2,74 @@
   "name": "Image Resizer",
   "slug": "image-resizer",
   "category": "🖼 Image Tools",
-  "description": "Resize images to any size.",
+  "description": "Resize images quickly and securely in your browser. Choose exact dimensions or percentage.",
   "keywords": [
     "Image",
-    "Editing & Manipulation"
+    "Resize",
+    "Scale",
+    "Dimensions"
   ],
   "inputs": [
     {
-      "id": "inputData",
-      "type": "text",
-      "label": "Input Data"
+      "id": "imageFile",
+      "type": "file",
+      "label": "Upload Image",
+      "accept": "image/*"
+    }
+  ],
+  "options": [
+    {
+      "id": "width",
+      "type": "number",
+      "label": "Width (px)",
+      "defaultValue": 800
+    },
+    {
+      "id": "height",
+      "type": "number",
+      "label": "Height (px)",
+      "defaultValue": 600
+    },
+    {
+      "id": "maintainAspectRatio",
+      "type": "checkbox",
+      "label": "Maintain Aspect Ratio",
+      "defaultValue": true
     }
   ],
   "outputs": [
     {
-      "id": "outputData",
-      "type": "text",
-      "label": "Output Result"
+      "id": "resultImage",
+      "type": "file",
+      "label": "Resized Image"
     }
   ],
   "supportedFormats": [
-    "txt"
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "bmp"
   ],
   "features": [
     "Fast and secure processing",
     "Works entirely in your browser",
-    "No data is sent to the server"
+    "No data is sent to the server",
+    "Maintains aspect ratio automatically"
   ],
   "faq": [
     {
       "question": "How to use Image Resizer?",
-      "answer": "Enter your input in the provided field and click process to generate the result."
+      "answer": "Upload an image, input your desired width or height, and the tool will instantly resize it."
     },
     {
-      "question": "Is Image Resizer free?",
-      "answer": "Yes, completely free with no limits."
+      "question": "Does it upload to a server?",
+      "answer": "No, resizing is done fully offline in your browser using the Canvas API."
     }
   ],
   "seo": {
-    "title": "Image Resizer | Free Online Tool | SSDK TOOLS HUB",
-    "description": "Use the best free online Image Resizer. Resize images to any size."
+    "title": "Image Resizer | Resize Images Online Free | SSDK TOOLS HUB",
+    "description": "Use the best free online Image Resizer. Resize images to any dimensions instantly without losing quality."
   },
   "relatedTools": [],
   "version": "1.0.0"

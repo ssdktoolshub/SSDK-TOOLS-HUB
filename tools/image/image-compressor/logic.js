@@ -1,23 +1,78 @@
-export async function execute(inputs = {}) {
-  const format = 'image-compressor'.includes('png') ? 'png' : ('image-compressor'.includes('webp') ? 'webp' : 'jpeg');
-  const mimeType = 'image/' + (format === 'jpg' ? 'jpeg' : format);
-  const dummyPng = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 10, 73, 68, 65, 84, 120, 156, 99, 0, 1, 0, 0, 5, 0, 1, 13, 10, 45, 180, 0, 0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130]);
-  const blob = typeof Blob !== 'undefined' ? new Blob([dummyPng], { type: mimeType }) : null;
-  return {
-    outputBlob: blob,
-    filename: 'image-compressor-processed.' + (format === 'jpeg' ? 'jpg' : format),
-    htmlPreview: '<div style="padding:20px;text-align:center;background:rgba(255,255,255,0.05);border-radius:12px;"><p style="color:var(--color-primary);font-weight:600;">✨ Image Processed Successfully</p><small style="color:var(--color-muted);">Format: ' + format.toUpperCase() + ' | Output Ready</small></div>'
-  };
+// SSDK Tool Logic - Image Compressor
+export function validate(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  if (!file) return false;
+  return true;
 }
-export function validate(inputs) { return true; }
-export function init(core) {
-  document.addEventListener("ssdk:imageLoaded", (e) => {
-    const controls = document.getElementById("tool-specific-controls");
-    controls.innerHTML = '<label>Quality (0-100%): <input type="range" id="comp-quality" min="1" max="100" value="80"></label>';
-    
-    document.getElementById("btn-process-download").onclick = () => {
-      const q = document.getElementById("comp-quality").value / 100;
-      core.getEngine("image").downloadCanvas("compressed.jpeg", "image/jpeg", q);
-    };
-  });
+
+export async function execute(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  const quality = parseInt(inputs.quality) || 80;
+  const formatStr = inputs.format || "JPEG";
+  
+  let mimeType = 'image/jpeg';
+  let ext = 'jpg';
+  
+  if (formatStr === 'WebP') {
+    mimeType = 'image/webp';
+    ext = 'webp';
+  }
+
+  if (typeof window !== 'undefined' && file instanceof File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          
+          const qVal = quality / 100;
+          
+          canvas.toBlob((blob) => {
+            if (!blob) return reject(new Error("Compression failed"));
+            
+            const origSize = file.size;
+            const newSize = blob.size;
+            const savedBytes = origSize - newSize;
+            const savedPct = (savedBytes > 0) ? ((savedBytes / origSize) * 100).toFixed(1) : 0;
+            
+            const origSizeKb = (origSize / 1024).toFixed(1);
+            const newSizeKb = (newSize / 1024).toFixed(1);
+            
+            let statsHtml = `
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                <div style="flex:1; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; text-align:center; border: 1px solid var(--color-border);">
+                  <div style="font-size:var(--font-size-small); color:var(--color-muted);">Original Size</div>
+                  <div style="font-size:1.5rem; font-weight:bold; color:var(--color-danger);">${origSizeKb} KB</div>
+                </div>
+                <div style="flex:1; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; text-align:center; border: 1px solid var(--color-border);">
+                  <div style="font-size:var(--font-size-small); color:var(--color-muted);">Compressed Size</div>
+                  <div style="font-size:1.5rem; font-weight:bold; color:var(--color-success);">${newSizeKb} KB</div>
+                </div>
+                <div style="flex:1; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; text-align:center; border: 1px solid var(--color-border);">
+                  <div style="font-size:var(--font-size-small); color:var(--color-muted);">Saved</div>
+                  <div style="font-size:1.5rem; font-weight:bold; color:var(--color-primary);">${savedBytes > 0 ? savedPct + '%' : '0%'}</div>
+                </div>
+              </div>
+            `;
+            
+            resolve({
+              outputBlob: blob,
+              filename: 'compressed-' + file.name.replace(/\.[^/.]+$/, "") + '.' + ext,
+              htmlPreview: statsHtml
+            });
+          }, mimeType, qVal);
+        };
+        img.onerror = () => reject(new Error("Failed to load image"));
+        img.src = e.target.result;
+      };
+      reader.onerror = () => reject(new Error("Failed to read file"));
+      reader.readAsDataURL(file);
+    });
+  }
 }

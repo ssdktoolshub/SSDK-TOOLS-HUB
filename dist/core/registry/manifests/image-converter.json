@@ -2,46 +2,71 @@
   "name": "Image Converter",
   "slug": "image-converter",
   "category": "🖼 Image Tools",
-  "description": "PNG, JPG, WebP converter.",
+  "description": "Convert images between PNG, JPEG, WebP, and BMP instantly in your browser without losing quality.",
   "keywords": [
     "Image",
-    "Conversion"
+    "Converter",
+    "PNG",
+    "JPEG",
+    "WebP",
+    "BMP"
   ],
   "inputs": [
     {
-      "id": "inputData",
-      "type": "text",
-      "label": "Input Data"
+      "id": "imageFile",
+      "type": "file",
+      "label": "Upload Image",
+      "accept": "image/*"
+    }
+  ],
+  "options": [
+    {
+      "id": "format",
+      "type": "select",
+      "label": "Convert To",
+      "options": [
+        "JPEG",
+        "PNG",
+        "WebP",
+        "BMP"
+      ],
+      "defaultValue": "PNG"
     }
   ],
   "outputs": [
     {
-      "id": "outputData",
-      "type": "text",
-      "label": "Output Result"
+      "id": "resultImage",
+      "type": "file",
+      "label": "Converted Image"
     }
   ],
   "supportedFormats": [
-    "txt"
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "bmp"
   ],
   "features": [
     "Fast and secure processing",
     "Works entirely in your browser",
-    "No data is sent to the server"
+    "No data is sent to the server",
+    "Supports transparent PNG and WebP",
+    "Instant conversion"
   ],
   "faq": [
     {
       "question": "How to use Image Converter?",
-      "answer": "Enter your input in the provided field and click process to generate the result."
+      "answer": "Simply upload an image file, choose the desired output format (like PNG, JPEG, or WebP), and the tool will instantly convert and generate the download file."
     },
     {
-      "question": "Is Image Converter free?",
-      "answer": "Yes, completely free with no limits."
+      "question": "Are my images secure?",
+      "answer": "Absolutely. This tool runs 100% locally in your web browser. No files are uploaded to our servers, ensuring total privacy."
     }
   ],
   "seo": {
-    "title": "Image Converter | Free Online Tool | SSDK TOOLS HUB",
-    "description": "Use the best free online Image Converter. PNG, JPG, WebP converter."
+    "title": "Image Converter | Convert to PNG, JPEG, WebP | SSDK TOOLS HUB",
+    "description": "Free and fast online Image Converter. Convert images between PNG, JPEG, WebP, and BMP instantly in your browser."
   },
   "relatedTools": [],
   "version": "1.0.0"

@@ -2,46 +2,79 @@
   "name": "Image Compressor",
   "slug": "image-compressor",
   "category": "🖼 Image Tools",
-  "description": "Reduce image size, keep quality.",
+  "description": "Reduce image size while keeping quality. Fast, secure, and fully browser-based.",
   "keywords": [
     "Image",
-    "Compress"
+    "Compress",
+    "Optimize",
+    "Reduce size"
   ],
   "inputs": [
     {
-      "id": "inputData",
-      "type": "text",
-      "label": "Input Data"
+      "id": "imageFile",
+      "type": "file",
+      "label": "Upload Image",
+      "accept": "image/*"
+    }
+  ],
+  "options": [
+    {
+      "id": "format",
+      "type": "select",
+      "label": "Output Format",
+      "options": [
+        "JPEG",
+        "WebP"
+      ],
+      "defaultValue": "JPEG"
+    },
+    {
+      "id": "quality",
+      "type": "slider",
+      "label": "Compression Quality (%)",
+      "min": 1,
+      "max": 100,
+      "defaultValue": 80
     }
   ],
   "outputs": [
     {
-      "id": "outputData",
-      "type": "text",
-      "label": "Output Result"
+      "id": "resultImage",
+      "type": "file",
+      "label": "Compressed Image"
     }
   ],
   "supportedFormats": [
-    "txt"
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "bmp"
   ],
   "features": [
     "Fast and secure processing",
     "Works entirely in your browser",
-    "No data is sent to the server"
+    "No data is sent to the server",
+    "Compare sizes instantly",
+    "Multiple formats supported"
   ],
   "faq": [
     {
       "question": "How to use Image Compressor?",
-      "answer": "Enter your input in the provided field and click process to generate the result."
+      "answer": "Upload your image, choose the output format and adjust the quality slider. The preview and stats will instantly update."
     },
     {
       "question": "Is Image Compressor free?",
       "answer": "Yes, completely free with no limits."
+    },
+    {
+      "question": "Does this work on mobile?",
+      "answer": "Yes, our image compressor works flawlessly on any device natively in your browser."
     }
   ],
   "seo": {
     "title": "Image Compressor | Free Online Tool | SSDK TOOLS HUB",
-    "description": "Use the best free online Image Compressor. Reduce image size, keep quality."
+    "description": "Use the best free online Image Compressor. Reduce image size, keep quality without uploading to a server."
   },
   "relatedTools": [],
   "version": "1.0.0"

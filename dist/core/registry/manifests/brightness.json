@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "Brightness",
   "slug": "brightness",
-  "category": "🖼 Image Tools",
+  "category": "ðŸ–¼ Image Tools",
   "description": "Professional, free, and fast Brightness online. Works instantly in your browser.",
   "keywords": [
     "brightness",
@@ -16,6 +16,16 @@
       "type": "file",
       "label": "Upload Image",
       "accept": "image/*"
+    }
+  ],
+    "options": [
+    {
+      "id": "brightness",
+      "type": "slider",
+      "label": "Brightness (%)",
+      "min": 0,
+      "max": 200,
+      "defaultValue": 150
     }
   ],
   "outputs": [

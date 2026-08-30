@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "Hue",
   "slug": "hue",
-  "category": "🖼 Image Tools",
+  "category": "ðŸ–¼ Image Tools",
   "description": "Professional, free, and fast Hue online. Works instantly in your browser.",
   "keywords": [
     "hue",
@@ -16,6 +16,16 @@
       "type": "file",
       "label": "Upload Image",
       "accept": "image/*"
+    }
+  ],
+    "options": [
+    {
+      "id": "hue",
+      "type": "slider",
+      "label": "Hue Rotation (deg)",
+      "min": 0,
+      "max": 360,
+      "defaultValue": 90
     }
   ],
   "outputs": [

@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "Grayscale",
   "slug": "grayscale",
-  "category": "🖼 Image Tools",
+  "category": "ðŸ–¼ Image Tools",
   "description": "Professional, free, and fast Grayscale online. Works instantly in your browser.",
   "keywords": [
     "grayscale",
@@ -16,6 +16,16 @@
       "type": "file",
       "label": "Upload Image",
       "accept": "image/*"
+    }
+  ],
+    "options": [
+    {
+      "id": "grayscale",
+      "type": "slider",
+      "label": "Grayscale (%)",
+      "min": 0,
+      "max": 100,
+      "defaultValue": 100
     }
   ],
   "outputs": [

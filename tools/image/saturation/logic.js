@@ -1,35 +1,46 @@
-export async function execute(inputs = {}) {
-  const format = 'saturation'.includes('png') ? 'png' : ('saturation'.includes('webp') ? 'webp' : 'jpeg');
-  const mimeType = 'image/' + (format === 'jpg' ? 'jpeg' : format);
-  const dummyPng = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 10, 73, 68, 65, 84, 120, 156, 99, 0, 1, 0, 0, 5, 0, 1, 13, 10, 45, 180, 0, 0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130]);
-  const blob = typeof Blob !== 'undefined' ? new Blob([dummyPng], { type: mimeType }) : null;
-  return {
-    outputBlob: blob,
-    filename: 'saturation-processed.' + (format === 'jpeg' ? 'jpg' : format),
-    htmlPreview: '<div style="padding:20px;text-align:center;background:rgba(255,255,255,0.05);border-radius:12px;"><p style="color:var(--color-primary);font-weight:600;">✨ Image Processed Successfully</p><small style="color:var(--color-muted);">Format: ' + format.toUpperCase() + ' | Output Ready</small></div>'
-  };
+﻿export function validate(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  return !!file;
 }
-export function validate(inputs) { return true; }
-export function init(core) {
-  document.addEventListener("ssdk:imageLoaded", () => {
-    const controls = document.getElementById("tool-specific-controls");
-    controls.innerHTML = '<label>Saturation: <input type="range" id="fl-sat" min="0" max="300" value="150">%</label>';
-    
-    const engine = core.getEngine("image");
-    const applySat = () => {
-      const val = document.getElementById("fl-sat").value;
-      const cvs = engine.previewCanvas;
-      const ctx = engine.ctx;
-      ctx.filter = `saturate(${val}%)`;
-      ctx.clearRect(0, 0, cvs.width, cvs.height);
-      ctx.drawImage(engine.activeImage, 0, 0);
-    };
+export async function execute(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  // Extract specific filter value from options or use a default
+  let filterStr = '';
+  if ('saturation' === 'blur') filterStr = 'blur(' + (inputs.blur || 5) + 'px)';
+  if ('saturation' === 'brightness') filterStr = 'brightness(' + (inputs.brightness || 150) + '%)';
+  if ('saturation' === 'contrast') filterStr = 'contrast(' + (inputs.contrast || 150) + '%)';
+  if ('saturation' === 'saturation') filterStr = 'saturate(' + (inputs.saturation || 200) + '%)';
+  if ('saturation' === 'hue') filterStr = 'hue-rotate(' + (inputs.hue || 90) + 'deg)';
+  if ('saturation' === 'grayscale') filterStr = 'grayscale(' + (inputs.grayscale || 100) + '%)';
+  if ('saturation' === 'invert-colors') filterStr = 'invert(' + (inputs.invert || 100) + '%)';
+  if ('saturation' === 'sepia') filterStr = 'sepia(' + (inputs.sepia || 100) + '%)';
 
-    document.getElementById("fl-sat").addEventListener("input", applySat);
-    applySat();
-
-    document.getElementById("btn-process-download").onclick = () => {
-      engine.downloadCanvas("saturation.png");
-    };
-  });
+  if (typeof window !== 'undefined' && file instanceof File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width; canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          
+          ctx.filter = filterStr;
+          ctx.drawImage(img, 0, 0);
+          
+          canvas.toBlob((blob) => {
+            if (!blob) return reject(new Error('Filter application failed.'));
+            resolve({
+              outputBlob: blob,
+              filename: file.name.replace(/\.[^/.]+$/, '') + '-filtered.png'
+            });
+          }, 'image/png');
+        };
+        img.onerror = () => reject(new Error('Failed to load image.'));
+        img.src = e.target.result;
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+  }
 }

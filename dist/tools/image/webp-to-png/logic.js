@@ -1,19 +1,42 @@
-export async function execute(inputs = {}) {
-  const format = 'webp-to-png'.includes('png') ? 'png' : ('webp-to-png'.includes('webp') ? 'webp' : 'jpeg');
-  const mimeType = 'image/' + (format === 'jpg' ? 'jpeg' : format);
-  const dummyPng = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 10, 73, 68, 65, 84, 120, 156, 99, 0, 1, 0, 0, 5, 0, 1, 13, 10, 45, 180, 0, 0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130]);
-  const blob = typeof Blob !== 'undefined' ? new Blob([dummyPng], { type: mimeType }) : null;
-  return {
-    outputBlob: blob,
-    filename: 'webp-to-png-processed.' + (format === 'jpeg' ? 'jpg' : format),
-    htmlPreview: '<div style="padding:20px;text-align:center;background:rgba(255,255,255,0.05);border-radius:12px;"><p style="color:var(--color-primary);font-weight:600;">✨ Image Processed Successfully</p><small style="color:var(--color-muted);">Format: ' + format.toUpperCase() + ' | Output Ready</small></div>'
-  };
+﻿export function validate(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  return !!file;
 }
-export function validate(inputs) { return true; }
-export function init(core) {
-  document.addEventListener("ssdk:imageLoaded", () => {
-    document.getElementById("btn-process-download").onclick = () => {
-      core.getEngine("image").downloadCanvas("converted.png", "image/png");
-    };
-  });
+export async function execute(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  let targetMime = 'image/png';
+  let ext = 'png';
+  if ('webp-to-png'.includes('to-jpg') || 'webp-to-png'.includes('to-jpeg')) { targetMime = 'image/jpeg'; ext = 'jpg'; }
+  else if ('webp-to-png'.includes('to-webp')) { targetMime = 'image/webp'; ext = 'webp'; }
+  else if ('webp-to-png'.includes('bmp')) { targetMime = 'image/bmp'; ext = 'bmp'; }
+
+  if (typeof window !== 'undefined' && file instanceof File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width; canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          if (targetMime === 'image/jpeg' || targetMime === 'image/bmp') {
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+          }
+          ctx.drawImage(img, 0, 0);
+          canvas.toBlob((blob) => {
+            if (!blob) return reject(new Error('Conversion failed.'));
+            resolve({
+              outputBlob: blob,
+              filename: file.name.replace(/\.[^/.]+$/, '') + '-converted.' + ext
+            });
+          }, targetMime, 1.0);
+        };
+        img.onerror = () => reject(new Error('Failed to load image.'));
+        img.src = e.target.result;
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+  }
 }

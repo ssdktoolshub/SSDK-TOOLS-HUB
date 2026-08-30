@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "Blur",
   "slug": "blur",
-  "category": "🖼 Image Tools",
+  "category": "ðŸ–¼ Image Tools",
   "description": "Professional, free, and fast Blur online. Works instantly in your browser.",
   "keywords": [
     "blur",
@@ -16,6 +16,16 @@
       "type": "file",
       "label": "Upload Image",
       "accept": "image/*"
+    }
+  ],
+    "options": [
+    {
+      "id": "blur",
+      "type": "slider",
+      "label": "Blur Radius (px)",
+      "min": 1,
+      "max": 50,
+      "defaultValue": 5
     }
   ],
   "outputs": [

@@ -1,44 +1,80 @@
-export async function execute(inputs = {}) {
-  const format = 'image-resizer'.includes('png') ? 'png' : ('image-resizer'.includes('webp') ? 'webp' : 'jpeg');
-  const mimeType = 'image/' + (format === 'jpg' ? 'jpeg' : format);
-  const dummyPng = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0, 0, 0, 31, 21, 196, 137, 0, 0, 0, 10, 73, 68, 65, 84, 120, 156, 99, 0, 1, 0, 0, 5, 0, 1, 13, 10, 45, 180, 0, 0, 0, 0, 73, 69, 78, 68, 174, 66, 96, 130]);
-  const blob = typeof Blob !== 'undefined' ? new Blob([dummyPng], { type: mimeType }) : null;
-  return {
-    outputBlob: blob,
-    filename: 'image-resizer-processed.' + (format === 'jpeg' ? 'jpg' : format),
-    htmlPreview: '<div style="padding:20px;text-align:center;background:rgba(255,255,255,0.05);border-radius:12px;"><p style="color:var(--color-primary);font-weight:600;">✨ Image Processed Successfully</p><small style="color:var(--color-muted);">Format: ' + format.toUpperCase() + ' | Output Ready</small></div>'
-  };
+// SSDK Tool Logic - Image Resizer
+export function validate(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  if (!file) return false;
+  return true;
 }
-export function validate(inputs) { return true; }
-export function init(core) {
-  document.addEventListener("ssdk:imageLoaded", (e) => {
-    const img = e.detail.img;
-    const controls = document.getElementById("tool-specific-controls");
-    controls.innerHTML = `
-      <label>Width: <input type="number" id="rz-w" value="${img.width}"></label>
-      <label>Height: <input type="number" id="rz-h" value="${img.height}"></label>
-      <button id="btn-apply-resize" class="btn btn-primary btn-sm">Apply Resize</button>
-    `;
-    
-    const engine = core.getEngine("image");
-    
-    document.getElementById("btn-apply-resize").onclick = () => {
-      const w = parseInt(document.getElementById("rz-w").value);
-      const h = parseInt(document.getElementById("rz-h").value);
-      const cvs = engine.previewCanvas;
-      const ctx = engine.ctx;
-      
-      const tempCvs = document.createElement("canvas");
-      tempCvs.width = w; tempCvs.height = h;
-      tempCvs.getContext("2d").drawImage(engine.activeImage, 0, 0, w, h);
-      
-      cvs.width = w; cvs.height = h;
-      ctx.drawImage(tempCvs, 0, 0);
-      document.getElementById("image-info-text").textContent = `Resized (${w}x${h}px)`;
-    };
 
-    document.getElementById("btn-process-download").onclick = () => {
-      engine.downloadCanvas("resized.png");
-    };
-  });
+export async function execute(inputs) {
+  const file = inputs.file || inputs.imageFile || inputs.toolInput;
+  const targetWidth = parseInt(inputs.width);
+  const targetHeight = parseInt(inputs.height);
+  const maintainAspectRatio = inputs.maintainAspectRatio !== false; // Default true
+  
+  if (typeof window !== 'undefined' && file instanceof File) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          let newWidth = targetWidth || img.width;
+          let newHeight = targetHeight || img.height;
+          
+          if (maintainAspectRatio && (targetWidth || targetHeight)) {
+            const aspect = img.width / img.height;
+            if (targetWidth && !targetHeight) {
+              newHeight = Math.round(targetWidth / aspect);
+            } else if (targetHeight && !targetWidth) {
+              newWidth = Math.round(targetHeight * aspect);
+            } else if (targetWidth && targetHeight) {
+              // Fit inside the bounding box
+              if (newWidth / aspect <= newHeight) {
+                newHeight = Math.round(newWidth / aspect);
+              } else {
+                newWidth = Math.round(newHeight * aspect);
+              }
+            }
+          }
+          
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+          
+          ctx.drawImage(img, 0, 0, newWidth, newHeight);
+          
+          let format = file.type || 'image/png';
+          let ext = file.name.split('.').pop();
+          
+          canvas.toBlob((blob) => {
+            if (!blob) return reject(new Error("Resizing failed."));
+            
+            let statsHtml = `
+              <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                <div style="flex:1; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; text-align:center; border: 1px solid var(--color-border);">
+                  <div style="font-size:var(--font-size-small); color:var(--color-muted);">Original Dimensions</div>
+                  <div style="font-size:1.2rem; font-weight:bold; color:var(--color-primary);">${img.width} × ${img.height}</div>
+                </div>
+                <div style="flex:1; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; text-align:center; border: 1px solid var(--color-border);">
+                  <div style="font-size:var(--font-size-small); color:var(--color-muted);">New Dimensions</div>
+                  <div style="font-size:1.2rem; font-weight:bold; color:var(--color-success);">${newWidth} × ${newHeight}</div>
+                </div>
+              </div>
+            `;
+            
+            resolve({
+              outputBlob: blob,
+              filename: file.name.replace(/\.[^/.]+$/, "") + '-resized.' + ext,
+              htmlPreview: statsHtml
+            });
+          }, format, 1.0);
+        };
+        img.onerror = () => reject(new Error("Failed to load image."));
+        img.src = e.target.result;
+      };
+      reader.onerror = () => reject(new Error("Failed to read file"));
+      reader.readAsDataURL(file);
+    });
+  }
 }

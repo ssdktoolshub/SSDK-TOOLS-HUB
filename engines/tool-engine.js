@@ -648,7 +648,10 @@ export class ToolEngine {
                 previewHtml = `<div style="margin-bottom: 16px;"><img src="${url}" style="max-width: 100%; max-height: 320px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); border: 1px solid var(--color-border);" alt="Result Preview"/></div>`;
               }
               
+              const statsHtml = result.htmlPreview ? `<div style="margin-bottom: 24px;">${window.DOMPurify ? window.DOMPurify.sanitize(result.htmlPreview) : result.htmlPreview}</div>` : '';
+              
               outputsContainer.innerHTML = `
+                ${statsHtml}
                 <div class="result-card glass-card" style="text-align: center; padding: 24px; border: 1px solid var(--color-border); border-radius: 12px; background: rgba(255,255,255,0.03); width: 100%;">
                   ${previewHtml}
                   <h4 style="margin-bottom: 8px; color: var(--color-foreground); word-break: break-all;">${this.escapeHTML(filename)}</h4>
