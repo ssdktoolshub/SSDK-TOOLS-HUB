@@ -4,6 +4,15 @@ document.documentElement.setAttribute("data-theme", savedTheme);
 
 // Initialize scroll animations and background particles after DOM loads
 document.addEventListener("DOMContentLoaded", () => {
+  // If SSDKCore and ThemeEngine exists, let ThemeEngine handle bootstrap
+  if (window.SSDKCore && window.SSDKCore.getEngine("theme")) {
+    console.log("[theme.js] Handing over background/theme lifecycle to ThemeEngine.");
+    return;
+  }
+
+  if (window.__SSDK_THEME_BOOTED__) return;
+  window.__SSDK_THEME_BOOTED__ = true;
+
   // Scroll animations with IntersectionObserver
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

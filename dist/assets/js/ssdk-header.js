@@ -55,14 +55,29 @@ if (burger && navLinks) {
 // Theme toggler handling
 const themeBtn = document.getElementById("themeBtn");
 if (themeBtn) {
-  const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-  themeBtn.textContent = currentTheme === "dark" ? "☀️ Light" : "🌙 Dark";
+  const currentTheme = localStorage.getItem("ssdk-theme") || "dark";
+  const updateLabel = (theme) => {
+    if (theme === "dark") themeBtn.textContent = "🌙 Dark";
+    else if (theme === "light") themeBtn.textContent = "☀️ Light";
+    else if (theme === "highlight" || theme === "high-contrast") themeBtn.textContent = "✨ Highlight";
+  };
+  updateLabel(currentTheme);
   
   themeBtn.onclick = () => {
-    const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    const active = document.documentElement.getAttribute("data-theme") || "dark";
+    let nextTheme = "dark";
+    if (active === "dark") nextTheme = "light";
+    else if (active === "light") nextTheme = "highlight";
+    else if (active === "highlight" || active === "high-contrast") nextTheme = "dark";
+    
     document.documentElement.setAttribute("data-theme", nextTheme);
     localStorage.setItem("ssdk-theme", nextTheme);
-    themeBtn.textContent = nextTheme === "dark" ? "☀️ Light" : "🌙 Dark";
+    updateLabel(nextTheme);
+
+    // Sync with SSDK Core theme engine if loaded
+    if (window.SSDKCore && window.SSDKCore.getEngine("theme")) {
+      window.SSDKCore.getEngine("theme").applyTheme(nextTheme);
+    }
   };
 }
 

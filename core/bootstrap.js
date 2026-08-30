@@ -284,7 +284,7 @@ function setupHeaderControls(core) {
     };
   }
 
-  // Theme control switcher (Dynamic cycle: dark -> light -> high-contrast -> dark)
+  // Theme control switcher (Dynamic cycle: dark -> light -> highlight -> dark)
   const themeBtn = document.getElementById("themeBtn");
   const themeEngine = core.getEngine("theme");
   if (themeBtn && themeEngine) {
@@ -292,7 +292,7 @@ function setupHeaderControls(core) {
       const active = themeEngine.getCurrentTheme();
       if (active === "dark") themeBtn.textContent = "🌙 Dark";
       else if (active === "light") themeBtn.textContent = "☀️ Light";
-      else if (active === "high-contrast") themeBtn.textContent = "🕶️ High Contrast";
+      else if (active === "highlight" || active === "high-contrast") themeBtn.textContent = "✨ Highlight";
       else themeBtn.textContent = "⚙️ System";
     };
     updateBtnLabel();
@@ -300,8 +300,8 @@ function setupHeaderControls(core) {
       const active = themeEngine.getCurrentTheme();
       let next = "dark";
       if (active === "dark") next = "light";
-      else if (active === "light") next = "high-contrast";
-      else if (active === "high-contrast") next = "dark";
+      else if (active === "light") next = "highlight";
+      else if (active === "highlight" || active === "high-contrast") next = "dark";
       
       themeEngine.applyTheme(next);
       updateBtnLabel();

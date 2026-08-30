@@ -49,18 +49,43 @@ export class ThemeEngine {
   }
 
   applyTheme(theme) {
+    // Map high-contrast or highlight to highlight
+    if (theme === "high-contrast") theme = "highlight";
     this.currentTheme = theme;
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("ssdk-theme", theme);
     
     const themeBtn = document.getElementById("themeBtn");
     if (themeBtn) {
-      themeBtn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
+      if (theme === "dark") themeBtn.textContent = "🌙 Dark";
+      else if (theme === "light") themeBtn.textContent = "☀️ Light";
+      else if (theme === "highlight") themeBtn.textContent = "✨ Highlight";
+      else themeBtn.textContent = "⚙️ System";
+    }
+
+    // Dynamic clean up or initialization of canvas
+    const canvas = document.getElementById("three-bg-canvas");
+    const isHighlightMode = theme === "highlight";
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    if (isHighlightMode || prefersReducedMotion) {
+      if (canvas) {
+        canvas.remove();
+        this.particles = null;
+      }
+    } else {
+      if (!canvas && window.THREE) {
+        this.initThreeParticles();
+      }
     }
   }
 
   toggleTheme() {
-    const nextTheme = this.currentTheme === "dark" ? "light" : "dark";
+    const active = this.currentTheme;
+    let nextTheme = "dark";
+    if (active === "dark") nextTheme = "light";
+    else if (active === "light") nextTheme = "highlight";
+    else if (active === "highlight") nextTheme = "dark";
     this.applyTheme(nextTheme);
   }
 
@@ -129,6 +154,14 @@ export class ThemeEngine {
 
     // Prevent double canvas creation
     if (document.getElementById("three-bg-canvas")) return;
+
+    // Check for Highlight theme or reduced-motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isHighlightMode = this.currentTheme === "highlight";
+    if (prefersReducedMotion || isHighlightMode) {
+      console.log("[ThemeEngine] Particle backdrop disabled in highlight theme or under reduced motion.");
+      return;
+    }
 
     const canvas = document.createElement("canvas");
     canvas.id = "three-bg-canvas";

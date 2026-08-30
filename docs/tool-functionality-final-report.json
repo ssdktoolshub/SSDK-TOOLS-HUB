@@ -1,0 +1,20 @@
+{
+  "totalRegisteredTools": 967,
+  "totalActualModules": 976,
+  "totalManifests": 967,
+  "fullyFunctional": 952,
+  "partiallyFunctional": 5,
+  "broken": 0,
+  "apiBlocked": 10,
+  "manualQA": 10,
+  "needsReview": 0,
+  "theme": {
+    "light": "PASS",
+    "dark": "PASS",
+    "highlight": "PASS"
+  },
+  "mobile": "PASS",
+  "accessibility": "PASS",
+  "build": "PASS",
+  "tests": "PASS"
+}

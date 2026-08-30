@@ -216,7 +216,7 @@
 /* ==========================================================================
    HIGH CONTRAST OVERRIDES
    ========================================================================== */
-[data-theme="high-contrast"] {
+[data-theme="highlight"], [data-theme="high-contrast"] {
   /* Semantic Colors */
   --color-background: #000000;
   --color-foreground: #FFFFFF;

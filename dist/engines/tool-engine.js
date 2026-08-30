@@ -599,14 +599,46 @@ export class ToolEngine {
             }
           }
 
-          // 2. Output Blob download
-          if (result.outputBlob && !silent) {
+          // 2. Output Blob handling (Show download card instead of auto-downloading)
+          if (result.outputBlob) {
             const url = URL.createObjectURL(result.outputBlob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = result.filename || `${this.activeTool.id}-output`;
-            a.click();
-            URL.revokeObjectURL(url);
+            const filename = result.filename || `${this.activeTool.id}-output`;
+            const mimeType = result.outputBlob.type || 'application/octet-stream';
+            const sizeInKb = (result.outputBlob.size / 1024).toFixed(1);
+            const isImage = mimeType.startsWith("image/");
+            
+            if (outputsContainer) {
+              let previewHtml = `<div style="font-size: 3rem; margin-bottom: 12px;">📄</div>`;
+              if (isImage) {
+                previewHtml = `<div style="margin-bottom: 16px;"><img src="${url}" style="max-width: 100%; max-height: 320px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); border: 1px solid var(--color-border);" alt="Result Preview"/></div>`;
+              }
+              
+              outputsContainer.innerHTML = `
+                <div class="result-card glass-card" style="text-align: center; padding: 24px; border: 1px solid var(--color-border); border-radius: 12px; background: rgba(255,255,255,0.03); width: 100%;">
+                  ${previewHtml}
+                  <h4 style="margin-bottom: 8px; color: var(--color-foreground); word-break: break-all;">${this.escapeHTML(filename)}</h4>
+                  <p style="color: var(--color-muted); font-size: var(--font-size-small); margin-bottom: 20px;">
+                    Size: <strong>${sizeInKb} KB</strong> | Type: <strong>${mimeType}</strong>
+                  </p>
+                  <button id="btn-download-trigger" class="btn btn-success" style="padding: 12px 28px; font-weight: 700; width: 100%; max-width: 280px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    📥 Download Result
+                  </button>
+                </div>
+              `;
+              
+              const downloadTrigger = document.getElementById("btn-download-trigger");
+              if (downloadTrigger) {
+                downloadTrigger.onclick = () => {
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = filename;
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                  this.core.getEngine("notification")?.show("Download started!", "success");
+                };
+              }
+            }
           } else if (result.htmlPreview && outputsContainer) {
             const cleanHtml = window.DOMPurify ? window.DOMPurify.sanitize(result.htmlPreview) : result.htmlPreview;
             outputsContainer.innerHTML = cleanHtml;
