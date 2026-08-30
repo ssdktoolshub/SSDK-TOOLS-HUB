@@ -346,67 +346,76 @@ export class ToolEngine {
     optionsContainer.innerHTML = "";
     outputsContainer.innerHTML = "";
 
-    // Check if tool has a defined UI schema
-    if (tool.schema) {
-      if (tool.schema.inputs && Array.isArray(tool.schema.inputs)) {
-        tool.schema.inputs.forEach(inp => {
-          const el = this.renderSchemaField(inp);
-          if (el) inputsContainer.appendChild(el);
-        });
-      }
+    const inputsList = (tool.schema && tool.schema.inputs) || tool.inputs || [];
+    const optionsList = (tool.schema && tool.schema.options) || tool.options || [];
+    const outputsList = (tool.schema && tool.schema.outputs) || tool.outputs || [];
 
-      if (tool.schema.options && Array.isArray(tool.schema.options)) {
-        tool.schema.options.forEach(opt => {
-          const el = this.renderSchemaField(opt);
-          if (el) optionsContainer.appendChild(el);
-        });
-      }
+    let mountedAnyInput = false;
 
-      if (tool.schema.outputs && Array.isArray(tool.schema.outputs)) {
-        tool.schema.outputs.forEach(out => {
-          const el = this.renderSchemaField(out);
-          if (el) {
-            const mainField = el.querySelector("textarea, input");
-            if (mainField) mainField.readOnly = true;
-            outputsContainer.appendChild(el);
-          }
-        });
-      }
-    } else if (tool.category && (tool.category.toLowerCase().includes("image") || tool.category.toLowerCase().includes("photo"))) {
-      // Dynamic Mount for Image Engine
-      inputsContainer.innerHTML = `<div id="image-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "flex";
-      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Uploaded image result & preview will appear here.</p></div>`;
-      const imageEngine = this.core.getEngine("image");
-      if (imageEngine) {
-        imageEngine.mountUI("#image-workspace-mount");
-      }
-    } else if (tool.category && tool.category.toLowerCase().includes("pdf")) {
-      // Dynamic Mount for PDF Engine
-      inputsContainer.innerHTML = `<div id="pdf-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "flex";
-      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Processed PDF result will appear here.</p></div>`;
-      const pdfEngine = this.core.getEngine("pdf");
-      if (pdfEngine) {
-        pdfEngine.mountUI("#pdf-workspace-mount");
-      }
-    } else if (tool.category && (tool.category.toLowerCase().includes("video") || tool.category.toLowerCase().includes("audio"))) {
-      // Dynamic Mount for Media Engine
-      inputsContainer.innerHTML = `<div id="media-workspace-mount" style="width: 100%;"></div>`;
-      outputsContainer.style.display = "flex";
-      outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Media result preview will appear here.</p></div>`;
-      const mediaEngine = this.core.getEngine("media");
-      if (mediaEngine) {
-        mediaEngine.mountUI("#media-workspace-mount");
+    if (Array.isArray(inputsList) && inputsList.length > 0) {
+      inputsList.forEach(inp => {
+        const el = this.renderSchemaField(inp);
+        if (el) {
+          inputsContainer.appendChild(el);
+          mountedAnyInput = true;
+        }
+      });
+    }
+
+    if (Array.isArray(optionsList) && optionsList.length > 0) {
+      optionsList.forEach(opt => {
+        const el = this.renderSchemaField(opt);
+        if (el) {
+          optionsContainer.appendChild(el);
+          mountedAnyInput = true;
+        }
+      });
+    }
+
+    if (Array.isArray(outputsList) && outputsList.length > 0) {
+      outputsList.forEach(out => {
+        const el = this.renderSchemaField(out);
+        if (el) {
+          const mainField = el.querySelector("textarea, input");
+          if (mainField) mainField.readOnly = true;
+          outputsContainer.appendChild(el);
+        }
+      });
+    }
+
+    if (!mountedAnyInput) {
+      if (tool.category && (tool.category.toLowerCase().includes("image") || tool.category.toLowerCase().includes("photo"))) {
+        inputsContainer.innerHTML = `<div id="image-workspace-mount" style="width: 100%;"></div>`;
+        outputsContainer.style.display = "flex";
+        outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Uploaded image result & preview will appear here.</p></div>`;
+        const imageEngine = this.core.getEngine("image");
+        if (imageEngine) {
+          imageEngine.mountUI("#image-workspace-mount");
+        }
+      } else if (tool.category && tool.category.toLowerCase().includes("pdf")) {
+        inputsContainer.innerHTML = `<div id="pdf-workspace-mount" style="width: 100%;"></div>`;
+        outputsContainer.style.display = "flex";
+        outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Processed PDF result will appear here.</p></div>`;
+        const pdfEngine = this.core.getEngine("pdf");
+        if (pdfEngine) {
+          pdfEngine.mountUI("#pdf-workspace-mount");
+        }
+      } else if (tool.category && (tool.category.toLowerCase().includes("video") || tool.category.toLowerCase().includes("audio"))) {
+        inputsContainer.innerHTML = `<div id="media-workspace-mount" style="width: 100%;"></div>`;
+        outputsContainer.style.display = "flex";
+        outputsContainer.innerHTML = `<div id="tool-preview-container" class="preview-container" style="width: 100%; text-align: center;"><p style="color: var(--text-muted); padding: 40px 0;">Media result preview will appear here.</p></div>`;
+        const mediaEngine = this.core.getEngine("media");
+        if (mediaEngine) {
+          mediaEngine.mountUI("#media-workspace-mount");
+        } else {
+          inputsContainer.innerHTML = `<div style="text-align:center; padding: 40px; border: 2px dashed var(--border); border-radius: 12px; color: var(--text-muted);"><span style="font-size:2rem;">📤</span><br>Media Workspace<br><small>Drop files here</small></div>`;
+        }
       } else {
-        inputsContainer.innerHTML = `<div style="text-align:center; padding: 40px; border: 2px dashed var(--border); border-radius: 12px; color: var(--text-muted);"><span style="font-size:2rem;">📤</span><br>Media Workspace<br><small>Drop files here</small></div>`;
+        inputsContainer.appendChild(GlassComponents.createTextarea("toolInput", "Enter payload here...", "Input Payload"));
+        outputsContainer.appendChild(GlassComponents.createTextarea("toolOutput", "Result output will appear here...", "Output Result"));
+        const outputBox = document.getElementById("toolOutput");
+        if (outputBox) outputBox.readOnly = true;
       }
-    } else {
-      // Default fallbacks
-      inputsContainer.appendChild(GlassComponents.createTextarea("toolInput", "Enter payload here...", "Input Payload"));
-      outputsContainer.appendChild(GlassComponents.createTextarea("toolOutput", "Result output will appear here...", "Output Result"));
-      const outputBox = document.getElementById("toolOutput");
-      if (outputBox) outputBox.readOnly = true;
     }
 
     // Real-time auto-run for fast client-side calculations & text tools
@@ -427,24 +436,35 @@ export class ToolEngine {
       if (e.target.type === 'file') return;
       triggerAutoRun();
     });
+
+    optionsContainer.addEventListener("input", (e) => {
+      if (e.target.type === 'file') return;
+      triggerAutoRun();
+    });
+
+    optionsContainer.addEventListener("change", (e) => {
+      if (e.target.type === 'file') return;
+      triggerAutoRun();
+    });
   }
 
   renderSchemaField(field) {
-    const { id, type, label, placeholder, defaultValue, options, min, max, step, fileTypes } = field;
+    if (!field) return null;
+    const id = field.id || field.name || `field-${Math.random().toString(36).substr(2, 5)}`;
+    const type = (field.type || "text").toLowerCase();
+    const label = field.label || field.name || "";
+    const placeholder = field.placeholder || `Enter ${label.toLowerCase()}...`;
+    const defaultValue = field.defaultValue !== undefined ? field.defaultValue : (field.default !== undefined ? field.default : (field.value !== undefined ? field.value : ""));
+    const options = field.options || [];
+    const min = field.min !== undefined ? field.min : 0;
+    const max = field.max !== undefined ? field.max : 100;
+    const step = field.step !== undefined ? field.step : 1;
+    const fileTypes = field.fileTypes || field.accept || "*";
+
     switch (type) {
       case "textarea":
-        return GlassComponents.createTextarea(id, placeholder, label, 6, field.required);
-      case "text":
-      case "number":
-      case "date":
-      case "color":
-        return GlassComponents.createInput(id, type, placeholder, label, defaultValue, field.required);
-      case "select":
-        return GlassComponents.createSelect(id, options, label, defaultValue);
-      case "slider":
-        return GlassComponents.createSlider(id, min, max, step, defaultValue, label);
-      case "switch":
-        return GlassComponents.createSwitch(id, label, defaultValue === "true" || defaultValue === true);
+        return GlassComponents.createTextarea(id, placeholder, label, field.rows || 6, field.required);
+      case "file":
       case "upload": {
         const zone = GlassComponents.createUploadZone(id, fileTypes, label);
         const fileInput = zone.querySelector("input[type='file']");
@@ -458,8 +478,26 @@ export class ToolEngine {
         }
         return zone;
       }
+      case "select":
+      case "dropdown":
+      case "radio":
+        return GlassComponents.createSelect(id, options, label, defaultValue);
+      case "slider":
+      case "range":
+        return GlassComponents.createSlider(id, min, max, step, defaultValue, label);
+      case "switch":
+      case "checkbox":
+      case "toggle":
+        return GlassComponents.createSwitch(id, label, defaultValue === "true" || defaultValue === true);
+      case "text":
+      case "number":
+      case "date":
+      case "color":
+      case "email":
+      case "password":
+      case "url":
       default:
-        return null;
+        return GlassComponents.createInput(id, type, placeholder, label, defaultValue, field.required);
     }
   }
 
